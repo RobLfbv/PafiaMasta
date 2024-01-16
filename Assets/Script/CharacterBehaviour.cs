@@ -10,6 +10,7 @@ public class CharacterBehaviour : MonoBehaviour
     private CharacterInput characterInput;
     private InputAction moveAction;
     private InputAction interactAction;
+    private InputAction pauseAction;
     private Rigidbody2D rb;
 
     [Header("Movement Variables")]
@@ -20,7 +21,7 @@ public class CharacterBehaviour : MonoBehaviour
     [SerializeField]
     public bool canInteract;
     [HideInInspector]
-    public InteractionBehaviour toInteract;
+    public DialogueInteractionBehaviour toInteract;
 
     void Awake()
     {
@@ -34,29 +35,71 @@ public class CharacterBehaviour : MonoBehaviour
         moveAction.Enable();
         interactAction = characterInput.Player.Interaction;
         interactAction.Enable();
+        pauseAction = characterInput.Player.PauseMenu;
+        pauseAction.Enable();
+        interactAction.performed += Interaction;
+        pauseAction.performed += PauseGame;
+
     }
 
     private void OnDisable()
     {
         moveAction.Disable();
         interactAction.Disable();
+        pauseAction.Disable();
+        interactAction.performed -= Interaction;
+        pauseAction.performed -= PauseGame;
     }
 
-    private void Update()
+    private void PauseGame(InputAction.CallbackContext obj)
     {
-        if (canInteract && interactAction.ReadValue<bool>())
+        if (!GameStateBehaviour.Instance.isPaused)
         {
-            
+            GameStateBehaviour.Instance.PauseGame();
+        }
+        else
+        {
+            GameStateBehaviour.Instance.UnpauseGame();
+        }
+    }
+
+
+
+    private void Interaction(InputAction.CallbackContext obj)
+    {
+        if (canInteract)
+        {
+            if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
+            {
+                DialogueBox.Instance.nextDialogue();
+            }
+            else if (toInteract != null)
+            {
+                GameStateBehaviour.Instance.ChangeToDialogue();
+                DialogueBox.Instance.currentDialogue = toInteract.dialogueData;
+                DialogueBox.Instance.setOriginalText();
+                rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                print("toimplement");
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        Vector2 moveDir = moveAction.ReadValue<Vector2>();
-        Vector2 velocity = rb.velocity;
-        velocity.x = speed * moveDir.x;
-        velocity.y = speed * moveDir.y;
-        rb.velocity = velocity;
-
+        if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.MainGame && !GameStateBehaviour.Instance.isPaused)
+        {
+            Vector2 moveDir = moveAction.ReadValue<Vector2>();
+            Vector2 velocity = rb.velocity;
+            velocity.x = speed * moveDir.x;
+            velocity.y = speed * moveDir.y;
+            rb.velocity = velocity;
+        }
+        else if (GameStateBehaviour.Instance.isPaused)
+        {
+            Vector2 moveDir = moveAction.ReadValue<Vector2>();
+        }
     }
 }

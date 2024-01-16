@@ -35,14 +35,38 @@ public class GameStateBehaviour : MonoBehaviour
 
     public GameState currentState;
     public GameObject dialogueScreen;
+    public GameObject pauseScreen;
+    public bool isPaused = false;
+
     void Start()
     {
-        currentState = GameState.MainGame;
+        ChangeToMainGame();
+        UnpauseGame();
     }
 
     public void ChangeToDialogue()
     {
         currentState = GameState.Dialogue;
         dialogueScreen.SetActive(true);
+    }
+
+    public void ChangeToMainGame()
+    {
+        currentState = GameState.MainGame;
+        dialogueScreen.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0;
+        pauseScreen.SetActive(true);
+    }
+
+    public void UnpauseGame()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
+        pauseScreen.SetActive(false);
     }
 }

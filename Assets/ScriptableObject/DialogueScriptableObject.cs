@@ -3,8 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum Emotions
+{
+    Neutral,
+    Angry,
+    Sad,
+    Happy
+}
+public enum Character
+{
+    Player,
+    Test
+}
+
+[System.Serializable]
+public class DialogueLine
+{
+    public int idDialogue;
+    public Character charTalking;
+    public string text;
+    public Emotions emotion;
+    public List<Choice> choices;
+    public int idGoto;
+    public bool isChoiceDialogue;
+}
+
+[System.Serializable]
+public class Choice
+{
+    public String textChoice;
+    public int idNext;
+}
+
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObject/DialogieScriptableObject", order = 1)]
 public class DialogueScriptableObject : ScriptableObject
 {
-    public List<String> dialogueList;
+    public List<DialogueLine> dialogueList;
+    public Character talker1;
+    public Character talker2;
+
 }
+
