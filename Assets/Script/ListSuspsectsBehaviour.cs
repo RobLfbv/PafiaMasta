@@ -53,20 +53,45 @@ public class ListSuspsectsBehaviour : MonoBehaviour
     {
         if (index + 1 == suspects.Count)
         {
+            Navigation navigationBack = backButton.navigation;
+            Navigation navigationResume = resumeButton.navigation;
+            navigationBack.selectOnRight = resumeButton;
+            navigationResume.selectOnLeft = backButton;
+            backButton.navigation = navigationBack;
+            resumeButton.navigation = navigationResume;
             nextButton.gameObject.SetActive(false);
+            backButton.Select();
         }
         else
         {
+            Navigation navigationBack = backButton.navigation;
+            Navigation navigationResume = resumeButton.navigation;
+            navigationBack.selectOnRight = nextButton;
+            navigationResume.selectOnLeft = nextButton;
+            backButton.navigation = navigationBack;
+            resumeButton.navigation = navigationResume;
             nextButton.gameObject.SetActive(true);
         }
         if (index - 1 < 0)
         {
-            backButton.interactable = false;
-            //nextButton.navigation.selectOnLeft = quitButton;
+            Navigation navigationNext = nextButton.navigation;
+            Navigation navigationQuit = quitButton.navigation;
+            navigationNext.selectOnLeft = quitButton;
+            navigationQuit.selectOnRight = nextButton;
+            nextButton.navigation = navigationNext;
+            quitButton.navigation = navigationQuit;
+            backButton.gameObject.SetActive(false);
+            nextButton.Select();
         }
         else
         {
-            backButton.interactable = true;
+            Navigation navigationNext = nextButton.navigation;
+            Navigation navigationQuit = quitButton.navigation;
+            navigationNext.selectOnLeft = backButton;
+            navigationQuit.selectOnRight = backButton;
+            nextButton.navigation = navigationNext;
+            quitButton.navigation = navigationQuit;
+            backButton.gameObject.SetActive(true);
         }
     }
 }

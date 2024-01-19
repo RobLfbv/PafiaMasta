@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class DialogueBox : MonoBehaviour
 {
     //*****
@@ -95,6 +95,7 @@ public class DialogueBox : MonoBehaviour
         {
             buttons[i].gameObject.SetActive(false);
         }
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void SetCurrentDialogue()

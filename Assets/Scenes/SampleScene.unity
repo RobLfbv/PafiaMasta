@@ -525,7 +525,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 1984852155}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1984852155}
     m_SelectOnRight: {fileID: 1973134314}
   m_Transition: 1
@@ -1140,7 +1140,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9764706, g: 1, b: 0.21960784, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2268,17 +2268,17 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_XRTrackingOrigin: {fileID: 0}
-  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_PointAction: {fileID: -1654692200621890270, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MoveAction: {fileID: -8784545083839296357, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_SubmitAction: {fileID: 392368643174621059, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_CancelAction: {fileID: 7727032971491509709, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_LeftClickAction: {fileID: 3001919216989983466, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_MiddleClickAction: {fileID: -2185481485913320682, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_RightClickAction: {fileID: -4090225696740746782, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_ScrollWheelAction: {fileID: 6240969308177333660, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDevicePositionAction: {fileID: 6564999863303420839, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
-  m_TrackedDeviceOrientationAction: {fileID: 7970375526676320489, guid: ca9f5fa95ffab41fb9a615ab714db018, type: 3}
+  m_ActionsAsset: {fileID: -944628639613478452, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_PointAction: {fileID: -4714966145301051195, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_MoveAction: {fileID: -5029336886249863336, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_SubmitAction: {fileID: 6425324427082237390, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_CancelAction: {fileID: 6983953355306974310, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_LeftClickAction: {fileID: -1631734525721590163, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_MiddleClickAction: {fileID: 4432940642457667433, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_RightClickAction: {fileID: -7881239426685559013, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_ScrollWheelAction: {fileID: -4127782507229115790, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_TrackedDevicePositionAction: {fileID: -8502789506450447096, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 8325954277336695181, guid: c3e5051ec90d6eb4ab98f4ae9c3cc76a, type: 3}
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
@@ -2490,7 +2490,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9764706, g: 1, b: 0.21960784, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2721,6 +2721,8 @@ MonoBehaviour:
   - {fileID: 115387449}
   nextButton: {fileID: 1973134314}
   backButton: {fileID: 343824395}
+  resumeButton: {fileID: 2025781259}
+  quitButton: {fileID: 1984852155}
   currentMenuSelection: 0
 --- !u!1 &1448425502
 GameObject:
@@ -2787,7 +2789,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9764706, g: 1, b: 0.21960784, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3357,7 +3359,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.9764706, g: 1, b: 0.21960784, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3633,7 +3635,7 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 2025781259}
+    m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 343824395}
     m_SelectOnRight: {fileID: 2025781259}
   m_Transition: 1
@@ -3766,7 +3768,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 343824395}
+    m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 343824395}
@@ -3794,19 +3796,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1984852156}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1363140935}
-        m_TargetAssemblyTypeName: ListSuspsectsBehaviour, Assembly-CSharp
-        m_MethodName: NextPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1984852156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3900,7 +3890,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1973134314}
+    m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1973134314}
     m_SelectOnRight: {fileID: 0}
@@ -3928,19 +3918,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2025781260}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1363140935}
-        m_TargetAssemblyTypeName: ListSuspsectsBehaviour, Assembly-CSharp
-        m_MethodName: NextPage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2025781260
 MonoBehaviour:
   m_ObjectHideFlags: 0

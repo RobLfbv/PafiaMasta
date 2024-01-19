@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Timeline;
+using UnityEngine.EventSystems;
 
 public class CharacterBehaviour : MonoBehaviour
 {
@@ -100,6 +101,16 @@ public class CharacterBehaviour : MonoBehaviour
         else if (GameStateBehaviour.Instance.isPaused)
         {
             Vector2 moveDir = moveAction.ReadValue<Vector2>();
+        }
+        else if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
+        {
+            if (moveAction.ReadValue<Vector2>().x != 0 || moveAction.ReadValue<Vector2>().y != 0)
+            {
+                if (EventSystem.current.currentSelectedGameObject == null)
+                {
+                    DialogueBox.Instance.buttons[0].Select();
+                }
+            }
         }
     }
 }

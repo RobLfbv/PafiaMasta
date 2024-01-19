@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
 public class GameStateBehaviour : MonoBehaviour
@@ -68,5 +69,6 @@ public class GameStateBehaviour : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
