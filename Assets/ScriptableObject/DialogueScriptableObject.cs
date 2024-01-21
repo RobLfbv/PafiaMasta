@@ -14,7 +14,15 @@ public enum Emotions
 public enum Character
 {
     Player,
-    Test
+    Test,
+    Yette
+}
+
+public enum ActionChoice
+{
+    Nothing,
+    RunMiniGame,
+    WinRunMiniGame
 }
 
 [System.Serializable]
@@ -34,6 +42,7 @@ public class Choice
 {
     public String textChoice;
     public int idNext;
+    public ActionChoice method;
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObject/DialogieScriptableObject", order = 1)]
@@ -43,5 +52,8 @@ public class DialogueScriptableObject : ScriptableObject
     public Character talker1;
     public Character talker2;
 
+
+
 }
+
 

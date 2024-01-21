@@ -6,13 +6,26 @@ using UnityEngine;
 public class DialogueInteractionBehaviour : MonoBehaviour
 {
     [SerializeField]
-    public DialogueScriptableObject dialogueData;
+    public DialogueScriptableObject WinDialogue;
+    [SerializeField]
+    public DialogueScriptableObject LoseDialogue;
+    [SerializeField]
+    public DialogueScriptableObject NotUnlockGameDialogue;
+    [SerializeField]
+    public DialogueScriptableObject FinishGameDialogue;
+    [SerializeField]
+    public DialogueScriptableObject LaunchGameDialogue;
+    [SerializeField]
+    public DialogueScriptableObject AllMiniGameDoneDialogue;
+    [SerializeField]
+    public DialogueScriptableObject YetteDialogue;
+
     [SerializeField]
     public GameObject keyInteraction;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
         {
             other.GetComponent<CharacterBehaviour>().canInteract = true;
             other.GetComponent<CharacterBehaviour>().toInteract = this;
@@ -21,7 +34,7 @@ public class DialogueInteractionBehaviour : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
         {
             col.GetComponent<CharacterBehaviour>().canInteract = false;
             col.GetComponent<CharacterBehaviour>().toInteract = null;

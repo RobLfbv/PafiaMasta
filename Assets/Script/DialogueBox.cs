@@ -62,7 +62,6 @@ public class DialogueBox : MonoBehaviour
         }
         else
         {
-            Debug.Log("Fin");
             GameStateBehaviour.Instance.ChangeToMainGame();
         }
     }
@@ -86,6 +85,11 @@ public class DialogueBox : MonoBehaviour
             buttons[i].gameObject.SetActive(true);
             buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
             buttons[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
+            if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
+            {
+                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+                buttons[i].onClick.AddListener(desactivateButtons);
+            }
         }
     }
     public void desactivateButtons()
@@ -93,6 +97,8 @@ public class DialogueBox : MonoBehaviour
         choicesParent.SetActive(false);
         for (int i = 0; i < buttons.Length; i++)
         {
+            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+            buttons[i].onClick.RemoveListener(desactivateButtons);
             buttons[i].gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);

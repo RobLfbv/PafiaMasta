@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8799921038755154608
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4721993863203186136, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_Name
+      value: Yette
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186142, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29156283
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186142, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.83877444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186142, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: WinDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: fbc4a82b3d0f40a4aa29198034533116, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: LoseDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b037acacf02d3e4888580aee875f236, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: ecc40abb626b8de4d8e41b03ff1b5339, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: FinishGameDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b7195fb55a7fa949863ab079ee1119c, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: LaunchGameDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: ecc40abb626b8de4d8e41b03ff1b5339, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dialogueData.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dialogueData.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ecc40abb626b8de4d8e41b03ff1b5339, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dialogueData.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: fbc4a82b3d0f40a4aa29198034533116, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dialogueData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9b037acacf02d3e4888580aee875f236, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dialogueData.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b7195fb55a7fa949863ab079ee1119c, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+--- !u!1 &4294320688433475432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4721993863203186136, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+  m_PrefabInstance: {fileID: 8799921038755154608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-2000783396090728661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294320688433475432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c6d5e276b59f94e95afa011138fc0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos: []
+  ogPosYette: {fileID: 0}
+  resetPosPlayer: {fileID: 0}
+  player: {fileID: 0}
+  speed: 0
+  transition: {fileID: 0}
+  playerWin: 0
