@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
-  m_Name: FarfolleLoseDialogue
+  m_Name: FarfolleLoseYetteDialogue
   m_EditorClassIdentifier: 
   dialogueList:
   - idDialogue: 0
     charTalking: 3
-    text: Tnul
+    text: Bah c'est pas Yette
     emotion: 0
     choices: []
     idGoto: 1

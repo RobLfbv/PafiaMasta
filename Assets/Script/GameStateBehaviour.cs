@@ -46,6 +46,7 @@ public class GameStateBehaviour : MonoBehaviour
     public GameObject runMiniGameScreen;
     public GameObject yette;
     public GameObject yetteInteraction;
+    public GameObject yetteUIInteraction;
 
     [Header("Search Mini Game Variables")]
     public GameObject searchMiniGameScreen;
@@ -83,6 +84,7 @@ public class GameStateBehaviour : MonoBehaviour
         dialogueScreen.SetActive(true);
         runMiniGameScreen.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
+        searchMiniGameScreen.SetActive(false);
     }
 
     public void ChangeToMainGame()
@@ -91,6 +93,11 @@ public class GameStateBehaviour : MonoBehaviour
         runMiniGameScreen.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
         dialogueScreen.SetActive(false);
+        yetteInteraction.SetActive(true);
+        //zilyInteraction.SetActive(true);
+        //ghettiInteraction.SetActive(true);
+        //raVitoInteraction.SetActive(true);
+        farfolleInteraction.SetActive(true);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = false;
     }
@@ -101,14 +108,23 @@ public class GameStateBehaviour : MonoBehaviour
         runMiniGameScreen.SetActive(true);
         yette.GetComponent<YetteRunning>().enabled = true;
         yetteInteraction.SetActive(false);
+        yetteUIInteraction.SetActive(false);
+        //zilyInteraction.SetActive(false);
+        //ghettiInteraction.SetActive(false);
+        //raVitoInteraction.SetActive(false);
+        farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
     }
+
     public void ChangeToSearchMiniGame()
     {
         currentState = GameState.SearchMiniGame;
-        //searchMiniGameScreen.SetActive(true);
-        //farfolle.GetComponent<YetteRunning>().enabled = true;
-        //farfolleInteraction.SetActive(false);
+        searchMiniGameScreen.SetActive(true);
+        yetteInteraction.SetActive(false);
+        //zilyInteraction.SetActive(false);
+        //ghettiInteraction.SetActive(false);
+        //raVitoInteraction.SetActive(false);
+        farfolleInteraction.SetActive(false);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);
