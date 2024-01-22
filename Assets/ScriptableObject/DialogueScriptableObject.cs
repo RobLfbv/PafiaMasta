@@ -15,14 +15,15 @@ public enum Character
 {
     Player,
     Test,
-    Yette
+    Yette,
+    Farfolle
 }
 
 public enum ActionChoice
 {
     Nothing,
     RunMiniGame,
-    WinRunMiniGame
+    SearchMiniGame
 }
 
 [System.Serializable]

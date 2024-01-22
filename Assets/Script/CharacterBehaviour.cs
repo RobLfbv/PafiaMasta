@@ -24,6 +24,9 @@ public class CharacterBehaviour : MonoBehaviour
     public bool canInteract;
     [HideInInspector]
     public DialogueInteractionBehaviour toInteract;
+    [HideInInspector]
+    public SearchObjectInteraction searchObject;
+    public SearchObjectInteraction takenObject;
 
     void Awake()
     {
@@ -116,16 +119,23 @@ public class CharacterBehaviour : MonoBehaviour
                 DialogueBox.Instance.setOriginalText();
                 rb.velocity = Vector2.zero;
             }
-            else
+            else if (searchObject != null)
             {
-                print("toimplement");
+                if (takenObject == null)
+                {
+                    takenObject = searchObject;
+                }
+                else
+                {
+                    
+                }
             }
         }
     }
 
     private void FixedUpdate()
     {
-        if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.MainGame || GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.RunMiniGame)
+        if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue)
         {
             if (!GameStateBehaviour.Instance.isPaused)
             {

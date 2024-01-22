@@ -33,6 +33,7 @@ public class GameStateBehaviour : MonoBehaviour
         MainGame,
         Dialogue,
         RunMiniGame,
+        SearchMiniGame
     }
     public GameState currentState;
     [Header("Dialogue Variables")]
@@ -45,6 +46,24 @@ public class GameStateBehaviour : MonoBehaviour
     public GameObject runMiniGameScreen;
     public GameObject yette;
     public GameObject yetteInteraction;
+
+    [Header("Search Mini Game Variables")]
+    public GameObject searchMiniGameScreen;
+    public GameObject farfolleInteraction;
+    public SearchObjectInteraction[] searchObjectInteractions;
+
+    [Header("Pistol Mini Game Variables")]
+    public GameObject pistolMiniGameScreen;
+    public GameObject raVitoInteraction;
+
+    [Header("Factory Mini Game Variables")]
+    public GameObject factoryMiniGameScreen;
+    public GameObject zilyInteraction;
+
+    [Header("Riddle Mini Game Variables")]
+    public GameObject riddleMiniGameScreen;
+    public GameObject ghettiInteraction;
+
 
     void Start()
     {
@@ -72,6 +91,8 @@ public class GameStateBehaviour : MonoBehaviour
         runMiniGameScreen.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
         dialogueScreen.SetActive(false);
+        for (int i = 0; i < searchObjectInteractions.Length; i++)
+            searchObjectInteractions[i].enabled = false;
     }
 
     public void ChangeToRunMiniGame()
@@ -80,6 +101,16 @@ public class GameStateBehaviour : MonoBehaviour
         runMiniGameScreen.SetActive(true);
         yette.GetComponent<YetteRunning>().enabled = true;
         yetteInteraction.SetActive(false);
+        dialogueScreen.SetActive(false);
+    }
+    public void ChangeToSearchMiniGame()
+    {
+        currentState = GameState.SearchMiniGame;
+        //searchMiniGameScreen.SetActive(true);
+        //farfolle.GetComponent<YetteRunning>().enabled = true;
+        //farfolleInteraction.SetActive(false);
+        for (int i = 0; i < searchObjectInteractions.Length; i++)
+            searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);
     }
 
@@ -110,5 +141,9 @@ public class GameStateBehaviour : MonoBehaviour
     public void ChangeYeetDialogue(int idxDialogue)
     {
         PlayerPrefs.SetInt("Yette", idxDialogue);
+    }
+    public void ChangeFarfolleDialogue(int idxDialogue)
+    {
+        PlayerPrefs.SetInt("Farfolle", idxDialogue);
     }
 }

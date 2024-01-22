@@ -90,6 +90,11 @@ public class DialogueBox : MonoBehaviour
                 buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
                 buttons[i].onClick.AddListener(desactivateButtons);
             }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.SearchMiniGame)
+            {
+                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+                buttons[i].onClick.AddListener(desactivateButtons);
+            }
         }
     }
     public void desactivateButtons()
@@ -98,6 +103,7 @@ public class DialogueBox : MonoBehaviour
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
             buttons[i].onClick.RemoveListener(desactivateButtons);
             buttons[i].gameObject.SetActive(false);
         }
