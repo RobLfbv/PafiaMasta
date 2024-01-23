@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using DG;
+using DG.Tweening;
 
 
 public class GameStateBehaviour : MonoBehaviour
@@ -37,6 +40,7 @@ public class GameStateBehaviour : MonoBehaviour
         GunMiniGame
     }
     public CharacterBehaviour player;
+    public Image transition;
     public GameState currentState;
     [Header("Dialogue Variables")]
     public GameObject dialogueScreen;
@@ -147,9 +151,14 @@ public class GameStateBehaviour : MonoBehaviour
         //zilyInteraction.SetActive(false);
         //ghettiInteraction.SetActive(false);
         raVitoInteraction.SetActive(false);
-        raVitoGun.SetActive(true);
         farfolleInteraction.SetActive(false);
-        player.transform.position = gunBehaviour.posGame.position;
+        transition.gameObject.SetActive(true);
+        transition.DOFade(1, 1).OnComplete(() =>
+        {
+            player.transform.position = gunBehaviour.posGame.position;
+            raVitoGun.SetActive(true);
+            transition.DOFade(0, 1).OnComplete(() => transition.gameObject.SetActive(true));
+        });
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);
