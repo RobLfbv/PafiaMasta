@@ -33,7 +33,8 @@ public class GameStateBehaviour : MonoBehaviour
         MainGame,
         Dialogue,
         RunMiniGame,
-        SearchMiniGame
+        SearchMiniGame,
+        GunMiniGame
     }
     public GameState currentState;
     [Header("Dialogue Variables")]
@@ -56,6 +57,7 @@ public class GameStateBehaviour : MonoBehaviour
     [Header("Pistol Mini Game Variables")]
     public GameObject pistolMiniGameScreen;
     public GameObject raVitoInteraction;
+    public GameObject raVitoGun;
 
     [Header("Factory Mini Game Variables")]
     public GameObject factoryMiniGameScreen;
@@ -96,7 +98,7 @@ public class GameStateBehaviour : MonoBehaviour
         yetteInteraction.SetActive(true);
         //zilyInteraction.SetActive(true);
         //ghettiInteraction.SetActive(true);
-        //raVitoInteraction.SetActive(true);
+        raVitoInteraction.SetActive(true);
         farfolleInteraction.SetActive(true);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = false;
@@ -111,7 +113,7 @@ public class GameStateBehaviour : MonoBehaviour
         yetteUIInteraction.SetActive(false);
         //zilyInteraction.SetActive(false);
         //ghettiInteraction.SetActive(false);
-        //raVitoInteraction.SetActive(false);
+        raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
     }
@@ -123,12 +125,28 @@ public class GameStateBehaviour : MonoBehaviour
         yetteInteraction.SetActive(false);
         //zilyInteraction.SetActive(false);
         //ghettiInteraction.SetActive(false);
-        //raVitoInteraction.SetActive(false);
+        raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);
     }
+
+    public void ChangeToGunMiniGame()
+    {
+        currentState = GameState.GunMiniGame;
+        pistolMiniGameScreen.SetActive(true);
+        yetteInteraction.SetActive(false);
+        //zilyInteraction.SetActive(false);
+        //ghettiInteraction.SetActive(false);
+        raVitoInteraction.SetActive(false);
+        raVitoGun.SetActive(true);
+        farfolleInteraction.SetActive(false);
+        for (int i = 0; i < searchObjectInteractions.Length; i++)
+            searchObjectInteractions[i].enabled = true;
+        dialogueScreen.SetActive(false);
+    }
+
 
     public void PauseGame()
     {

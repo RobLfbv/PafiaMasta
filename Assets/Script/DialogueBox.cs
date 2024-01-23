@@ -32,11 +32,16 @@ public class DialogueBox : MonoBehaviour
     [SerializeField]
     public TMP_Text textBox;
     public TMP_Text textName;
+    public TMP_Text playerName;
+
     public GameObject choicesParent;
     public Button[] buttons;
     private int idTextList;
     public Image talker1;
     public Image talker2;
+    public GameObject playerBg;
+    public GameObject interBg;
+
     private Color32 whiteColor = new Color32(255, 255, 255, 255);
     private Color32 greyColor = new Color32(155, 155, 155, 255);
     private Vector2 sizeTalking = new Vector2(1f, 1f);
@@ -95,6 +100,11 @@ public class DialogueBox : MonoBehaviour
                 buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
                 buttons[i].onClick.AddListener(desactivateButtons);
             }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
+            {
+                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+                buttons[i].onClick.AddListener(desactivateButtons);
+            }
         }
     }
     public void desactivateButtons()
@@ -104,6 +114,7 @@ public class DialogueBox : MonoBehaviour
         {
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToGunMiniGame);
             buttons[i].onClick.RemoveListener(desactivateButtons);
             buttons[i].gameObject.SetActive(false);
         }
@@ -131,6 +142,10 @@ public class DialogueBox : MonoBehaviour
 
             talker1.color = whiteColor;
             talker2.color = greyColor;
+            playerBg.SetActive(true);
+            playerName.gameObject.SetActive(true);
+            interBg.SetActive(false);
+            textName.gameObject.SetActive(false);
         }
         else
         {
@@ -139,6 +154,11 @@ public class DialogueBox : MonoBehaviour
 
             talker1.color = greyColor;
             talker2.color = whiteColor;
+
+            playerBg.SetActive(false);
+            playerName.gameObject.SetActive(false);
+            interBg.SetActive(true);
+            textName.gameObject.SetActive(true);
         }
     }
     private void ChangeName()

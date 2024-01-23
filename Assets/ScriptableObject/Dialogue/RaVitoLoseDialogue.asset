@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: RaVitoLoseDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 0
+    charTalking: 4
+    text: "Vous \xEAtes si je puis me permettre nulle"
+    emotion: 0
+    choices: []
+    idGoto: 1
+    isChoiceDialogue: 0
+  - idDialogue: 1
+    charTalking: 4
+    text: Voulez vous recommencer ?
+    emotion: 3
+    choices:
+    - textChoice: Oui
+      idNext: -1
+      method: 3
+    - textChoice: Non
+      idNext: 3
+      method: 0
+    idGoto: 0
+    isChoiceDialogue: 1
+  - idDialogue: 3
+    charTalking: 4
+    text: "Vous \xEAtes vraiment nul"
+    emotion: 2
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 4

@@ -32,6 +32,8 @@ public class CharacterBehaviour : MonoBehaviour
     public Transform parentEmplacement;
     [SerializeField]
     private TMP_Text textSearch;
+    [SerializeField]
+    private GunBehaviour gunBehaviour;
 
     void Awake()
     {
@@ -94,7 +96,6 @@ public class CharacterBehaviour : MonoBehaviour
                         textSearch.text = "";
                         GameStateBehaviour.Instance.ChangeFarfolleDialogue(4);
                         takenObject = null;
-
                     }
                     else
                     {
@@ -141,8 +142,6 @@ public class CharacterBehaviour : MonoBehaviour
                             break;
                     }
                 }
-
-                print(PlayerPrefs.GetInt(toInteract.gameObject.name));
                 DialogueBox.Instance.setOriginalText();
                 rb.velocity = Vector2.zero;
             }
@@ -155,17 +154,17 @@ public class CharacterBehaviour : MonoBehaviour
                     textSearch.text = takenObject.transform.parent.name;
                     GameStateBehaviour.Instance.farfolleInteraction.SetActive(true);
                 }
-                else
-                {
-
-                }
             }
+        }
+        else if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.GunMiniGame)
+        {
+            gunBehaviour.GunAnimation();
         }
     }
 
     private void FixedUpdate()
     {
-        if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue)
+        if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
             {
