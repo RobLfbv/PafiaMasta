@@ -14,31 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueList:
   - idDialogue: 0
-    charTalking: 4
+    charTalking: 5
     text: "Vous \xEAtes si je puis me permettre nulle"
     emotion: 0
-    choices: []
-    idGoto: 1
-    isChoiceDialogue: 0
-  - idDialogue: 1
-    charTalking: 4
-    text: Voulez vous recommencer ?
-    emotion: 3
-    choices:
-    - textChoice: Oui
-      idNext: -1
-      method: 3
-    - textChoice: Non
-      idNext: 3
-      method: 0
-    idGoto: 0
-    isChoiceDialogue: 1
-  - idDialogue: 3
-    charTalking: 4
-    text: "Vous \xEAtes vraiment nul"
-    emotion: 2
     choices: []
     idGoto: -1
     isChoiceDialogue: 0
   talker1: 0
-  talker2: 4
+  talker2: 5

@@ -27,7 +27,7 @@ public class DialogueBox : MonoBehaviour
     //*****
     // Singleton pattern
     //*****
-    [HideInInspector]
+    [SerializeField]
     public DialogueScriptableObject currentDialogue;
     [SerializeField]
     public TMP_Text textBox;

@@ -79,6 +79,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
+        print(canInteract);
         if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
