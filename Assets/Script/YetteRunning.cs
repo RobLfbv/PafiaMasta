@@ -24,6 +24,7 @@ public class YetteRunning : MonoBehaviour
     private Image transition;
     [HideInInspector]
     public bool playerWin;
+    public DialogueInteractionBehaviour dialogueInteractionBehaviour;
 
 
     void OnEnable()
@@ -62,12 +63,12 @@ public class YetteRunning : MonoBehaviour
                     GameStateBehaviour.Instance.ChangeToDialogue();
                     if (playerWin)
                     {
-                        DialogueBox.Instance.currentDialogue = GetComponentInChildren<DialogueInteractionBehaviour>().WinDialogue;
+                        DialogueBox.Instance.currentDialogue = dialogueInteractionBehaviour.WinDialogue;
                         GameStateBehaviour.Instance.ChangeYeetDialogue(4);
                     }
                     else
                     {
-                        DialogueBox.Instance.currentDialogue = GetComponentInChildren<DialogueInteractionBehaviour>().LoseDialogue;
+                        DialogueBox.Instance.currentDialogue = dialogueInteractionBehaviour.LoseDialogue;
                     }
                     DialogueBox.Instance.setOriginalText();
                     player.GetComponent<CharacterBehaviour>().rb.velocity = Vector2.zero;

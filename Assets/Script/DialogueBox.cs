@@ -95,6 +95,10 @@ public class DialogueBox : MonoBehaviour
                 buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
                 buttons[i].onClick.AddListener(desactivateButtons);
             }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
+            {
+                
+            }
         }
     }
     public void desactivateButtons()

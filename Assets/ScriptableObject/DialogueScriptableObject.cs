@@ -16,14 +16,18 @@ public enum Character
     Player,
     Test,
     Yette,
-    Farfolle
+    Farfolle,
+    Ghetti,
+    RaVito
 }
 
 public enum ActionChoice
 {
     Nothing,
     RunMiniGame,
-    SearchMiniGame
+    SearchMiniGame,
+    RiddleMiniGame,
+    GunMiniGame
 }
 
 [System.Serializable]
