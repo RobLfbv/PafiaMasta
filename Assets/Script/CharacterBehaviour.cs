@@ -34,6 +34,7 @@ public class CharacterBehaviour : MonoBehaviour
     private TMP_Text textSearch;
     [SerializeField]
     private GunBehaviour gunBehaviour;
+    public bool canShoot = true;
 
     void Awake()
     {
@@ -156,7 +157,7 @@ public class CharacterBehaviour : MonoBehaviour
                 }
             }
         }
-        else if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.GunMiniGame)
+        else if (canShoot && GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.GunMiniGame)
         {
             gunBehaviour.GunAnimation();
         }

@@ -16,39 +16,56 @@ public class GunBehaviour : MonoBehaviour
     public DialogueInteractionBehaviour dialogueInteractionBehaviour;
     public Image transitionWhite;
     public Image transitionBlack;
+    private int numberOfShot;
+    private int whichShot;
+
+    [SerializeField]
+    public GameObject key;
 
     private void Start()
     {
         playerTurn = false;
+        whichShot = Random.Range(0, 6);
     }
 
     public void GunAnimation()
     {
+        key.SetActive(false);
+        player.GetComponent<CharacterBehaviour>().canShoot = false;
         gun.transform.DORotate(new Vector3(0, 0, 360f), 1f, RotateMode.WorldAxisAdd).OnComplete(() =>
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90f));
+            player.GetComponent<CharacterBehaviour>().canShoot = true;
+            key.SetActive(true);
         });
-        int result = Random.Range(0, 6);
-        if (result != 0)
+        if (numberOfShot != whichShot)
         {
             playerTurn = !playerTurn;
             gun.GetComponent<SpriteRenderer>().flipY = !playerTurn;
             if (mainCamera.orthographicSize > 2.5f)
             {
-                mainCamera.orthographicSize -= 0.5f;
+                mainCamera.DOOrthoSize(mainCamera.orthographicSize - 0.5f, 0.1f);
             }
+            else
+            {
+                mainCamera.DOOrthoSize(mainCamera.orthographicSize + 0.5f, 0.1f).OnComplete(() => mainCamera.DOOrthoSize(mainCamera.orthographicSize - 0.5f, 0.1f));
+            }
+            mainCamera.DOShakePosition(0.2f, 2, 50);
+            numberOfShot++;
         }
         else
         {
+            mainCamera.DOShakePosition(0.2f, 2, 50);
             transitionWhite.gameObject.SetActive(true);
-            transitionWhite.DOFade(1, 1f).OnComplete(() =>
+            transitionWhite.DOFade(1, 0.1f).OnComplete(() =>
             {
                 player.transform.position = posAfterGame.position;
                 mainCamera.orthographicSize = 5f;
                 gun.SetActive(false);
+                mainCamera.GetComponent<SmoothFollow>().follow = player;
                 transitionWhite.DOFade(1, 1f).OnComplete(() =>
                 {
-
+                    GameStateBehaviour.Instance.pistolMiniGameScreen.SetActive(false);
                     transitionWhite.DOFade(0, 3).OnComplete(() =>
                     {
                         transitionWhite.gameObject.SetActive(false);
@@ -67,8 +84,6 @@ public class GunBehaviour : MonoBehaviour
                 });
 
             });
-
-
         }
     }
 }

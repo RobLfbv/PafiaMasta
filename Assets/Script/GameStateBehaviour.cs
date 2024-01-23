@@ -41,6 +41,7 @@ public class GameStateBehaviour : MonoBehaviour
     }
     public CharacterBehaviour player;
     public Image transition;
+    public SmoothFollow smoothCamera;
     public GameState currentState;
     [Header("Dialogue Variables")]
     public GameObject dialogueScreen;
@@ -145,8 +146,8 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToGunMiniGame()
     {
+        player.canShoot = false;
         currentState = GameState.GunMiniGame;
-        pistolMiniGameScreen.SetActive(true);
         yetteInteraction.SetActive(false);
         //zilyInteraction.SetActive(false);
         //ghettiInteraction.SetActive(false);
@@ -156,8 +157,15 @@ public class GameStateBehaviour : MonoBehaviour
         transition.DOFade(1, 1).OnComplete(() =>
         {
             player.transform.position = gunBehaviour.posGame.position;
+            pistolMiniGameScreen.SetActive(true);
             raVitoGun.SetActive(true);
-            transition.DOFade(0, 1).OnComplete(() => transition.gameObject.SetActive(true));
+            smoothCamera.follow = raVitoGun;
+            transition.DOFade(0, 1).OnComplete(() =>
+            {
+                transition.gameObject.SetActive(true);
+                gunBehaviour.key.SetActive(true);
+                player.canShoot = true;
+            });
         });
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
