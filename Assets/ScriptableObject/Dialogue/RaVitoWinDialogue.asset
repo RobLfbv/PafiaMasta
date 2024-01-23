@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueList:
   - idDialogue: 0
-    charTalking: 4
+    charTalking: 5
     text: "Vous \xEAtes donc de mon niveau"
     emotion: 0
     choices: []
     idGoto: 1
     isChoiceDialogue: 0
   - idDialogue: 1
-    charTalking: 4
+    charTalking: 5
     text: 'Mon alibi est '
     emotion: 0
     choices: []
     idGoto: -1
     isChoiceDialogue: 0
   talker1: 0
-  talker2: 4
+  talker2: 5

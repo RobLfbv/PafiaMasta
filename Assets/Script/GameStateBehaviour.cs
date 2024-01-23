@@ -36,6 +36,7 @@ public class GameStateBehaviour : MonoBehaviour
         SearchMiniGame,
         GunMiniGame
     }
+    public CharacterBehaviour player;
     public GameState currentState;
     [Header("Dialogue Variables")]
     public GameObject dialogueScreen;
@@ -58,6 +59,7 @@ public class GameStateBehaviour : MonoBehaviour
     public GameObject pistolMiniGameScreen;
     public GameObject raVitoInteraction;
     public GameObject raVitoGun;
+    public GunBehaviour gunBehaviour;
 
     [Header("Factory Mini Game Variables")]
     public GameObject factoryMiniGameScreen;
@@ -85,6 +87,9 @@ public class GameStateBehaviour : MonoBehaviour
         currentState = GameState.Dialogue;
         dialogueScreen.SetActive(true);
         runMiniGameScreen.SetActive(false);
+        pistolMiniGameScreen.SetActive(false);
+        raVitoInteraction.SetActive(true);
+        raVitoGun.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
         searchMiniGameScreen.SetActive(false);
     }
@@ -93,6 +98,7 @@ public class GameStateBehaviour : MonoBehaviour
     {
         currentState = GameState.MainGame;
         runMiniGameScreen.SetActive(false);
+        pistolMiniGameScreen.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
         dialogueScreen.SetActive(false);
         yetteInteraction.SetActive(true);
@@ -116,6 +122,7 @@ public class GameStateBehaviour : MonoBehaviour
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
+
     }
 
     public void ChangeToSearchMiniGame()
@@ -142,6 +149,7 @@ public class GameStateBehaviour : MonoBehaviour
         raVitoInteraction.SetActive(false);
         raVitoGun.SetActive(true);
         farfolleInteraction.SetActive(false);
+        player.transform.position = gunBehaviour.posGame.position;
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);
@@ -179,5 +187,9 @@ public class GameStateBehaviour : MonoBehaviour
     public void ChangeFarfolleDialogue(int idxDialogue)
     {
         PlayerPrefs.SetInt("Farfolle", idxDialogue);
+    }
+    public void ChangeRavitoDialogue(int idxDialogue)
+    {
+        PlayerPrefs.SetInt("Ravito", idxDialogue);
     }
 }

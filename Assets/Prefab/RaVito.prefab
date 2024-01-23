@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &547428565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547428566}
+  m_Layer: 0
+  m_Name: PosPlayerAfterGame
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547428566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547428565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.26, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3342620410272897565}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362039398
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +138,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
@@ -204,6 +235,17 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a4ddadd4f13f99640bad3a7ef1d135be, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+--- !u!114 &2180735470596863685 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+  m_PrefabInstance: {fileID: 8062775854692155330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 913fba65ef452db419edeb8e2c8bb6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3342620410272897562 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4721993863203186136, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
@@ -221,7 +263,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bcf92742a36817418d8df76aadd977a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerTurn: 0
+  player: {fileID: 0}
   gun: {fileID: 7273373098231209052}
+  posGame: {fileID: 1362039399}
+  posAfterGame: {fileID: 547428566}
+  mainCamera: {fileID: 0}
+  dialogueInteractionBehaviour: {fileID: 2180735470596863685}
 --- !u!4 &3342620410272897565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
