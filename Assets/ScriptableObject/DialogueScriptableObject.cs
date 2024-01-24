@@ -18,7 +18,8 @@ public enum Character
     Yette,
     Farfolle,
     Ghetti,
-    RaVito
+    RaVito,
+    Zily
 }
 
 public enum ActionChoice
@@ -27,7 +28,8 @@ public enum ActionChoice
     RunMiniGame,
     SearchMiniGame,
     RiddleMiniGame,
-    GunMiniGame
+    GunMiniGame,
+    FactoryMiniGame
 }
 
 [System.Serializable]
@@ -56,9 +58,6 @@ public class DialogueScriptableObject : ScriptableObject
     public List<DialogueLine> dialogueList;
     public Character talker1;
     public Character talker2;
-
-
-
 }
 
 

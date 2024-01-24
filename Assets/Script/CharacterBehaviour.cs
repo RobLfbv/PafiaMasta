@@ -6,6 +6,8 @@ using UnityEngine.Timeline;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using DG;
+using DG.Tweening;
 
 public class CharacterBehaviour : MonoBehaviour
 {
@@ -35,6 +37,17 @@ public class CharacterBehaviour : MonoBehaviour
     [SerializeField]
     private GunBehaviour gunBehaviour;
     public bool canShoot = true;
+
+    [HideInInspector]
+    public Vector2 nextInput;
+
+    private float nbTourPerSec;
+    private float tourParMinute;
+    public GameObject SpoonAnchor;
+    public TMP_Text textRPM;
+    public TMP_Text textRPMObj;
+    public int actualObjectiveRPM;
+    public float[] objectivesRPM;
 
     void Awake()
     {
@@ -165,7 +178,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame)
+        if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
             {
@@ -190,5 +203,61 @@ public class CharacterBehaviour : MonoBehaviour
                 }
             }
         }
+        else if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.FactoryMiniGame)
+        {
+            if (moveAction.ReadValue<Vector2>() == nextInput)
+            {
+                if (nextInput == Vector2.right)
+                {
+                    nextInput = Vector2.down;
+                    print("down");
+                    nbTourPerSec += 0.25f;
+                }
+                else if (nextInput == Vector2.down)
+                {
+                    nextInput = Vector2.left;
+                    print("left");
+                    nbTourPerSec += 0.25f;
+                }
+                else if (nextInput == Vector2.left)
+                {
+                    nextInput = Vector2.up;
+                    print("up");
+                    nbTourPerSec += 0.25f;
+                }
+                else if (nextInput == Vector2.up)
+                {
+                    nextInput = Vector2.right;
+                    print("right");
+                    nbTourPerSec += 0.25f;
+                }
+                SpoonAnchor.transform.DORotate(new Vector3(0, 0, -90f), 0.02f, RotateMode.WorldAxisAdd);
+            }
+        }
     }
+
+    public IEnumerator DoAfterDelay(float delaySeconds, System.Action thingToDo)
+    {
+        yield return new WaitForSeconds(delaySeconds);
+        if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.FactoryMiniGame)
+        {
+            thingToDo();
+        }
+    }
+
+    public void CalculateRPM()
+    {
+        tourParMinute = nbTourPerSec * 60;
+        nbTourPerSec = 0;
+        textRPM.SetText("RPM : " + tourParMinute);
+        print(tourParMinute);
+        StartCoroutine(DoAfterDelay(1f, CalculateRPM));
+    }
+
+    public void ChangeObjective()
+    {
+        
+        StartCoroutine(DoAfterDelay(5f, ChangeObjective));
+    }
+
 }

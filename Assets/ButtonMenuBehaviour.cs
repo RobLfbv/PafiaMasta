@@ -15,7 +15,6 @@ public class ButtonMenuBehaviour : MonoBehaviour
 
     public void Play()
     {
-        print(SceneManager.GetAllScenes().Length);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(1));
+        SceneManager.LoadScene(1);
     }
 }

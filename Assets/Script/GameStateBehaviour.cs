@@ -37,7 +37,8 @@ public class GameStateBehaviour : MonoBehaviour
         Dialogue,
         RunMiniGame,
         SearchMiniGame,
-        GunMiniGame
+        GunMiniGame,
+        FactoryMiniGame
     }
     public CharacterBehaviour player;
     public Image transition;
@@ -71,7 +72,6 @@ public class GameStateBehaviour : MonoBehaviour
     public GameObject zilyInteraction;
 
     [Header("Riddle Mini Game Variables")]
-    public GameObject riddleMiniGameScreen;
     public GameObject ghettiInteraction;
 
 
@@ -107,8 +107,8 @@ public class GameStateBehaviour : MonoBehaviour
         yette.GetComponent<YetteRunning>().enabled = false;
         dialogueScreen.SetActive(false);
         yetteInteraction.SetActive(true);
-        //zilyInteraction.SetActive(true);
-        //ghettiInteraction.SetActive(true);
+        zilyInteraction.SetActive(true);
+        ghettiInteraction.SetActive(true);
         raVitoInteraction.SetActive(true);
         farfolleInteraction.SetActive(true);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
@@ -122,8 +122,8 @@ public class GameStateBehaviour : MonoBehaviour
         yette.GetComponent<YetteRunning>().enabled = true;
         yetteInteraction.SetActive(false);
         yetteUIInteraction.SetActive(false);
-        //zilyInteraction.SetActive(false);
-        //ghettiInteraction.SetActive(false);
+        zilyInteraction.SetActive(false);
+        ghettiInteraction.SetActive(false);
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
@@ -135,8 +135,8 @@ public class GameStateBehaviour : MonoBehaviour
         currentState = GameState.SearchMiniGame;
         searchMiniGameScreen.SetActive(true);
         yetteInteraction.SetActive(false);
-        //zilyInteraction.SetActive(false);
-        //ghettiInteraction.SetActive(false);
+        zilyInteraction.SetActive(false);
+        ghettiInteraction.SetActive(false);
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
@@ -149,8 +149,8 @@ public class GameStateBehaviour : MonoBehaviour
         player.canShoot = false;
         currentState = GameState.GunMiniGame;
         yetteInteraction.SetActive(false);
-        //zilyInteraction.SetActive(false);
-        //ghettiInteraction.SetActive(false);
+        zilyInteraction.SetActive(false);
+        ghettiInteraction.SetActive(false);
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         transition.gameObject.SetActive(true);
@@ -170,6 +170,21 @@ public class GameStateBehaviour : MonoBehaviour
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);
+    }
+
+    public void ChangeToFactoryMiniGame()
+    {
+        currentState = GameState.FactoryMiniGame;
+        factoryMiniGameScreen.SetActive(true);
+        yetteInteraction.SetActive(false);
+        zilyInteraction.SetActive(false);
+        ghettiInteraction.SetActive(false);
+        raVitoInteraction.SetActive(false);
+        farfolleInteraction.SetActive(false);
+        dialogueScreen.SetActive(false);
+        player.nextInput = Vector2.right;
+        StartCoroutine(player.DoAfterDelay(1f, player.CalculateRPM));
+
     }
 
 

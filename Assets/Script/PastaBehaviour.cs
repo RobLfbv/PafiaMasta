@@ -37,7 +37,6 @@ public class PastaBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(delaySeconds);
         StartCoroutine(DoAfterDelay(0.5f));
-
     }
     private IEnumerator DoAfterDelay(float delaySeconds, System.Action thingToDo)
     {
