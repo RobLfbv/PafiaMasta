@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: FarfolleLaunchGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "Bonjour Mme Farfolle,  Mme Farfolle ! Pouvez-vous me confirmer l\u2019alibi
+      de l\u2019enfant Yette ? "
+    emotion: 0
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 3
+    text: 'HEIN ? '
+    emotion: 5
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 3
+    text: "Pardon, pardon, j\u2019ai cru que vous \xE9tiez le fant\xF4me de Sherlock,
+      j\u2019ai des hallucinations, parfois faut pas m\u2019en vouloir."
+    emotion: 0
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 3
+    text: "Et bah tiens, en parlant de l\u2019enqu\xEAte, je tente de faire l\u2019antidote
+      sauce \xE0 la vodka pour soigner les victimes.  "
+    emotion: 0
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 3
+    text: "L\u2019enfant Yette ? Ah oui, il avait oubli\xE9 sa cr\xE8me solaire,
+      il est venu me voir vers 20h30 pour que je lui en donne.  "
+    emotion: 0
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 3
+    text: "Et puis je crois qu\u2019y a autre chose de louche qui s\u2019est pass\xE9,
+      mais\u2026 mais\u2026. mais\u2026 "
+    emotion: 4
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 0
+    text: 'Mais ? '
+    emotion: 4
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 3
+    text: "Ah, pardon, il s\u2019av\xE8re que je me suis une nouvelle fois perdue
+      dans mes pens\xE9es, le g\xE9nie \xE7a se paie, h\xE9h\xE9 !"
+    emotion: 3
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 9
+    charTalking: 3
+    text: "Oui, donc, je disais, il y a autre chose de louche qui s\u2019est pass\xE9,
+      mais ma m\xE9moire me l\xE2che, \xE7a m\u2019arrive ! "
+    emotion: 4
+    choices: []
+    idGoto: 10
+    isChoiceDialogue: 0
+  - idDialogue: 10
+    charTalking: 3
+    text: "Voyez-vous, quelque chose me chagrine, il me manque un ingr\xE9dient pour
+      la sauce vodka et tant que je ne l\u2019ai pas, il m\u2019est IMPOSSIBLE de
+      penser \xE0 autre chose."
+    emotion: 1
+    choices: []
+    idGoto: 11
+    isChoiceDialogue: 0
+  - idDialogue: 11
+    charTalking: 3
+    text: 'Tiens, rendez-vous utile, apportez le moi !  '
+    emotion: 0
+    choices: []
+    idGoto: 12
+    isChoiceDialogue: 0
+  - idDialogue: 12
+    charTalking: 3
+    text: "Vous inqui\xE9tez pas madame la d\xE9tective, je vous laisse pas comme
+      \xE7a, laissez-moi vous le d\xE9crire\u2026 "
+    emotion: 0
+    choices: []
+    idGoto: 13
+    isChoiceDialogue: 0
+  - idDialogue: 13
+    charTalking: 3
+    text: "Cet ingr\xE9dient est petit, un peu sale, courb\xE9 et a une h\xE9lice
+      sur la t\xEAte ! Fouillez le village et ramenez-le-moi, ma m\xE9moire me reviendra
+      apr\xE8s ! "
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 3
+  dialogueAction: 2

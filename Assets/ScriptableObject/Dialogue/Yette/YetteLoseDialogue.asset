@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: YetteLoseDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 2
+    text: "Ha ha ha ! Vous craignez un max, Mme la D\xE9tective, vous avez peeeerdu
+      ! "
+    emotion: 3
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 2
+    text: "Ze vous dirai rien du tout, du coup, vous voulez une deuxi\xE8me chance
+      ?Ze vous dirai rien du tout, du coup, vous voulez une deuxi\xE8me chance ?"
+    emotion: 3
+    choices:
+    - textChoice: Oui mon p'tit
+      idNext: 4
+      method: 1
+    - textChoice: Non mon p'tit
+      idNext: 3
+      method: 0
+    idGoto: 0
+    isChoiceDialogue: 1
+  - idDialogue: 3
+    charTalking: 2
+    text: "Comme vous voulez Madame la D\xE9tective, ze zavais que z\u2019\xE9tais
+      le plus fort."
+    emotion: 3
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 2
+    text: "Ok Mme la D\xE9tective, vous z\xEAtes pr\xEAtes ? Z'est partiiiii !"
+    emotion: 3
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 2

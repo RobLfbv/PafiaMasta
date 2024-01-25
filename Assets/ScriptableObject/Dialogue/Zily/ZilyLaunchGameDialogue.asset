@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: ZilyLaunchGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "Bonjour M. Zily, je suis Gnocchitalian la D\xE9tective, j\u2019enqu\xEAte
+      sur le crime de la piscine, ou \xE9tiez-vous hier ? "
+    emotion: 0
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 6
+    text: "Bonjour Madame la d\xE9tective, j\u2019aimerais beaucoup vous r\xE9pondre,
+      mais je suis tr\xE8s occup\xE9."
+    emotion: 0
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 6
+    text: "En effet, j'entame aujourd\u2019hui une gr\xE8ve pour d\xE9noncer ces
+      horribles conditions de travail. J\u2019en ai discut\xE9 hier \xE0 4h30 avec
+      M. Ghetti et M. Ra Vito sur la place."
+    emotion: 0
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 6
+    text: "J\u2019ai tent\xE9 d\u2019expliquer \xE0 M. Ghetti que je fais beaucoup
+      pour ce village et que je ne peux plus continuer comme \xE7a ! Trop, c\u2019est
+      trop !"
+    emotion: 1
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 6
+    text: "Et puis Mme la D\xE9tective, tout le monde s\u2019en fiche ! Que des profiteurs
+      dans ce village ! Mais M.Ghetti est quand m\xEAme d\xE9termin\xE9 \xE0 me virer,
+      c\u2019est inadmissible !"
+    emotion: 1
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 0
+    text: "Ah, oui oui, je comprends... D\u2019ailleurs, en parlant de M. Ghetti,
+      pouvez-vous me confirmer son alibi ? Il m\u2019a assur\xE9 qu\u2019il vous
+      avait vu\u2026 "
+    emotion: 0
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 6
+    text: "Comment ? Vous \xEAtes culott\xE9e Mme la d\xE9tective, hors de question,
+      confirmer l\u2019alibi de ce sc\xE9l\xE9rat ?! \xC7a non !"
+    emotion: 1
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 6
+    text: "Vous pensez qu\u2019il a raison, pas vrai ? Et bah tiens, j\u2019vous
+      lance un d\xE9fi, remplacez-moi \xE0 l\u2019usine aujourd\u2019hui, vous verrez
+      !"
+    emotion: 1
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 6

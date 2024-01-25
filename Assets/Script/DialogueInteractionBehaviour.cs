@@ -17,10 +17,6 @@ public class DialogueInteractionBehaviour : MonoBehaviour
     public DialogueScriptableObject LaunchGameDialogue;
     [SerializeField]
     public DialogueScriptableObject InfoDialogue;
-    [SerializeField]
-    public DialogueScriptableObject AllMiniGameDoneDialogue;
-    [SerializeField]
-    public DialogueScriptableObject YetteDialogue;
 
     [SerializeField]
     public GameObject keyInteraction;

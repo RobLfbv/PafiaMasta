@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System;
 public class DialogueBox : MonoBehaviour
 {
     //*****
@@ -47,6 +48,8 @@ public class DialogueBox : MonoBehaviour
     private Vector2 sizeTalking = new Vector2(1f, 1f);
     private Vector2 sizeNotTalking = new Vector2(0.9f, 0.9f);
 
+    private List<Action> actions = new List<Action>();
+
     public void setOriginalText()
     {
         idTextList = 0;
@@ -68,6 +71,12 @@ public class DialogueBox : MonoBehaviour
         else
         {
             GameStateBehaviour.Instance.ChangeToMainGame();
+            print(actions.Count);
+            for (int i = 0; i < actions.Count; i++)
+            {
+                actions[i].Invoke();
+            }
+            actions = new List<Action>();
         }
     }
 
@@ -90,7 +99,7 @@ public class DialogueBox : MonoBehaviour
             buttons[i].gameObject.SetActive(true);
             buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
             buttons[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
-            if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
+            /*if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
             {
                 buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
                 buttons[i].onClick.AddListener(desactivateButtons);
@@ -109,6 +118,22 @@ public class DialogueBox : MonoBehaviour
             {
                 buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
                 buttons[i].onClick.AddListener(desactivateButtons);
+            }*/
+            if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
+            {
+                actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+            }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.SearchMiniGame || currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
+            {
+                actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+            }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
+            {
+                actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+            }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FactoryMiniGame)
+            {
+                actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
             }
         }
     }
@@ -117,11 +142,11 @@ public class DialogueBox : MonoBehaviour
         choicesParent.SetActive(false);
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+            /*buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToGunMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
-            buttons[i].onClick.RemoveListener(desactivateButtons);
+            buttons[i].onClick.RemoveListener(desactivateButtons);*/
             buttons[i].gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
@@ -136,6 +161,23 @@ public class DialogueBox : MonoBehaviour
         if (currentDialogue.dialogueList[idTextList].isChoiceDialogue)
         {
             activeButtons();
+        }
+
+        if (currentDialogue.dialogueAction == ActionChoice.RunMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.GunMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.FactoryMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
         }
     }
 
@@ -169,6 +211,6 @@ public class DialogueBox : MonoBehaviour
     }
     private void ChangeName()
     {
-        textName.text = currentDialogue.dialogueList[idTextList].charTalking.ToString();
+        textName.text = currentDialogue.dialogueList[idTextList].charTalking.ToString().Replace("_", " ");
     }
 }

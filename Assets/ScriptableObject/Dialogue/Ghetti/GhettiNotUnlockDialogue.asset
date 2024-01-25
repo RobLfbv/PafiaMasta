@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: GhettiNotUnlockDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "Bonjour M. Ghetti, je suis Gnocchitalian la D\xE9tective, j'enqu\xEAte
+      sur le crime de la piscine, o\xF9 \xE9tiez-vous hier ? "
+    emotion: 0
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 4
+    text: "Mes salutations Madame la D\xE9tective, hier, je me suis entretenu sur
+      la place avec M. Zily et M. Ra Vito vers 4h30. J\u2019ai ensuite \xE9t\xE9
+      frapp\xE9 par une terrible insomnie. "
+    emotion: 0
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 4
+    text: "Ayant perdu l\u2019espoir de tomber dans les bras de Morph\xE9e, j\u2019ai
+      d\xE9cid\xE9 de me rendre \xE0 la Bnac vers 6h afin de compter mon argent. "
+    emotion: 0
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 4
+    text: "Vous pouvez confirmer mes dires avec M. Zily, il patrouillait \xE0 ce
+      moment-l\xE0, il m\u2019a aper\xE7u lorsque je me rendais \xE0 la banque."
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 4

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: YetteLaunchGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "Re-bonjour mon p\u2019tit, tu es s\xFBr que tu m\u2019as tout dit \xE0
+      propos d\u2019hier ?"
+    emotion: 4
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 2
+    text: "Madame la D\xE9tective ! Z\u2019est vraiment pas rigolo zette histoire,
+      z\u2019ai pu envie d\u2019en parler."
+    emotion: 1
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 2
+    text: "Regardez plut\xF4t mes nouvelles bazkets que ma maman m\u2019a offertes
+      ! "
+    emotion: 3
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 1
+  - idDialogue: 4
+    charTalking: 2
+    text: "Euh\u2026 Oh tiens, zouez \xE0 la course avec moi, zi vous me battez,
+      ze vous direz TOUT, \u1D8Ea vous dit ?"
+    emotion: 3
+    choices:
+    - textChoice: Oui
+      idNext: 5
+      method: 1
+    - textChoice: Non
+      idNext: 6
+      method: 0
+    idGoto: -1
+    isChoiceDialogue: 1
+  - idDialogue: 5
+    charTalking: 2
+    text: "Z\u2019est parti"
+    emotion: 3
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 2
+    text: "Rooh vous z'\xEAtes pas dr\xF4le du tout, du tout !"
+    emotion: 2
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 2

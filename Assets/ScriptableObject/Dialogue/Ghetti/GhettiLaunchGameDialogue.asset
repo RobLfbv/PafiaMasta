@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: GhettiLaunchGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "M. Ghetti, re-bonjour, je viens de m\u2019entretenir avec M. Zily, et
+      il refuse de confirmer votre alibi."
+    emotion: 0
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 0
+    text: "Il est R\xC9VOLT\xC9 et je le comprends, ses conditions de travail sont
+      INADMISSIBLES, vous ne pouvez pas le virer ! C\u2019est INJUSTE !"
+    emotion: 5
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 4
+    text: "Mme La D\xE9tective, je vous prie de vous m\xEAler de vos affaires, cette
+      histoire concerne M. Zily et moi-m\xEAme et c\u2019est moi qui suis la victime
+      dans cette affaire. "
+    emotion: 5
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 4
+    text: "M. Zily est un incapable, mon usine en a p\xE2ti ! "
+    emotion: 1
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 4
+    text: "J\u2019ai d\u2019ailleurs toujours raison en ma qualit\xE9 de personne
+      fort distingu\xE9e, je vous d\xE9fie de me contredire sur ce point. "
+    emotion: 0
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 4
+    text: "J\u2019ai une id\xE9e pour mettre un terme \xE0 ce conflit, si vous parvenez
+      \xE0 r\xE9soudre cette \xE9nigme, j\u2019accepterais d\u2019\xE9couter les
+      revendications de M. Zily"
+    emotion: 4
+    choices:
+    - textChoice: "D\u2019accord M. Ghetti, je vous \xE9coute."
+      idNext: 7
+      method: 0
+    - textChoice: "Non M. Ghetti, je n\u2019ai pas le temps de r\xE9soudre votre
+        \xE9nigme, je suis trop occup\xE9e avec mon enqu\xEAte."
+      idNext: 8
+      method: 0
+    idGoto: 0
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 4
+    text: "Tr\xE8s bien."
+    emotion: 0
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 4
+    text: "Fort bien Madame la d\xE9tective, dans ce cas, je maintiens ma position,
+      M. Zily sera VIR\xC9 !"
+    emotion: 1
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  - idDialogue: 9
+    charTalking: 4
+    text: "On peut me trouver dans une librairie, Mon cr\xE9ateur est un italien
+      du XIVe si\xE8cle, Mon contexte est la Peste de Florence, Je suis polyphonique,
+      Mon nom contient le mot \xAB dix \xBB."
+    emotion: 4
+    choices:
+    - textChoice: Decameron de Boccace
+      idNext: 11
+      method: 0
+    - textChoice: "La Divine Com\xE9die de Dante"
+      idNext: 10
+      method: 0
+    - textChoice: "Heptam\xE9ron de Marguerite de Navarre"
+      idNext: 10
+      method: 0
+    - textChoice: Le nom de la Rose d'Umberto Eco
+      idNext: 10
+      method: 0
+    idGoto: 0
+    isChoiceDialogue: 1
+  - idDialogue: 10
+    charTalking: 4
+    text: "Ma ch\xE8re, vous \xEAtes fort inculte, vous \xEAtes rest\xE9e trop longtemps
+      dans l\u2019eau bouillante, votre intelligence en a p\xE2ti, essayez \xE0 nouveau\u2026  "
+    emotion: 5
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 11
+    charTalking: 4
+    text: "Ma ch\xE8re, vous \xEAtes fort cultiv\xE9e, votre cuisson AL DENTE vous
+      a conf\xE9r\xE9 une intelligence hors normes ! "
+    emotion: 3
+    choices: []
+    idGoto: 12
+    isChoiceDialogue: 0
+  - idDialogue: 12
+    charTalking: 4
+    text: "Vous pouvez dire \xE0 M. Zily qu\u2019il ne sera pas vir\xE9 et que je
+      suis pr\xEAt \xE0 \xE9couter ses r\xE9clamations. "
+    emotion: 3
+    choices: []
+    idGoto: 13
+    isChoiceDialogue: 0
+  - idDialogue: 13
+    charTalking: 4
+    text: "Ah, Mme la D\xE9tective, je viens de me rappeler d\u2019une information
+      CAPITALE pour votre enqu\xEAte."
+    emotion: 0
+    choices: []
+    idGoto: 14
+    isChoiceDialogue: 0
+  - idDialogue: 14
+    charTalking: 4
+    text: "Vers 4h du matin, je suis pass\xE9 devant mon usine avant de me rendre
+      sur la place, et j\u2019y ai aper\xE7u une petite silhouette..."
+    emotion: 0
+    choices: []
+    idGoto: 15
+    isChoiceDialogue: 0
+  - idDialogue: 15
+    charTalking: 0
+    text: "Merci M. Ghetti, cela m\u2019aide beaucoup, bonne journ\xE9e \xE0 vous
+      !"
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 4

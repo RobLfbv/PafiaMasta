@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: YetteInformationGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 2
+    text: 'Qu''est ce qu''il y a ? '
+    emotion: 4
+    choices:
+    - textChoice: A propos de Farfolle
+      idNext: 2
+      method: 0
+    - textChoice: A propos de Ghetti
+      idNext: 6
+      method: 0
+    idGoto: 0
+    isChoiceDialogue: 1
+  - idDialogue: 2
+    charTalking: 0
+    text: "Re-bonjour mon p\u2019tit, dis-moi, Mme Farfolle m\u2019a dit que tu avais
+      parl\xE9 avec M. Ra Vito un peu avant 21h, tu peux m\u2019en dire plus ? "
+    emotion: 4
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 2
+    text: "Ah, re-bonzour Mme la D\xE9tective, oui M. Gra Nito, il m\u2019a propoz\xE9
+      des bonbons."
+    emotion: 3
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 2
+    text: "Mais ze suis un bon gar\xE7on moi, et z\u2019\xE9coute touzours ma maman,
+      du coup z\u2019ai refuz\xE9 ! "
+    emotion: 3
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 0
+    text: "D\u2019accord, merci mon p\u2019tit."
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 0
+    text: "Re-bonjour mon p\u2019tit, dis moi, M. Ghetti m\u2019a dit qu\u2019il
+      avait aper\xE7u une petite silhouette vers l\u2019usine vers 4h du matin\u2026
+      tu sais quelque chose ? "
+    emotion: 4
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 2
+    text: "Ah bah oui c\u2019\xE9tait moi Mme La Detective, z\u2019avais TROP envie
+      de faire pipi"
+    emotion: 3
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 2
+    text: "Du coup, bah\u2026. Bah\u2026 z\u2019ai fait pipi dans les buissons."
+    emotion: 6
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 9
+    charTalking: 2
+    text: "D\u2019accord, merci mon p\u2019tit."
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 2

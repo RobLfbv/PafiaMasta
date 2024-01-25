@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: YetteNotUnlockedGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "Bonjour mon petit Yette, je suis Gnocchitalian la D\xE9tective, j\u2019enqu\xEAte
+      sur le crime de la piscine, tu peux me dire ce qui s\u2019est pass\xE9 hier
+      ?"
+    emotion: 4
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 2
+    text: "Bonzour madame, oui ze vais tout vous dire : Ze matin, on avait pr\xE9vu
+      d\u2019aller \xE0 la piscine avec mes potes Yotty, Yatty et Yitty \xE0 9h30.
+      Mais z\u2019avais oubli\xE9 ma cr\xE8me solaire !"
+    emotion: 3
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 2
+    text: "Donc, euuuh, ze suis all\xE9 voir Mme Sarssolle la scientifique vers 20h30
+      pour qu\u2019elle m\u2019en fabrique une ! Zauf que le matin, ze me zuis r\xE9veill\xE9
+      en retard !"
+    emotion: 5
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 2
+    text: "Du coup hop, ze suis all\xE9 voir Sarssolle vers 9h pour r\xE9cup\xE9rer
+      ma cr\xE8me solaire et du coup ze suis arriv\xE9 archi en retard \xE0 la piscine
+      ! "
+    emotion: 5
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 2
+    text: "Et quand ze suis arriv\xE9, *snif snif* j\u2019ai vu Yotty, Yatty et Yitty
+      dans la piscine  *snif snif*  empoisonn\xE9s  *snif snif* !"
+    emotion: 2
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 0
+    text: "D\u2019accord, merci Yette, \xE7a va aller, je vais tout faire pour trouver
+      le coupable."
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 2

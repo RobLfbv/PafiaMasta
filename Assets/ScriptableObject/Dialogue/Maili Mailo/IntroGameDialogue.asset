@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: IntroGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 7
+    text: "Bien le bonjour Mme Gnocchitalian la D\xE9tective, vous tombez bien !"
+    emotion: 3
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 0
+    text: Bonjour M. Maili Mailo, que se passe-t-il ?
+    emotion: 4
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 7
+    text: "Et bien, c\u2019est dur \xE0 croire, mais un crime a eu lieu \xE0 Pasta
+      Village ! "
+    emotion: 2
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 0
+    text: "Oh, mais c\u2019est affreux !"
+    emotion: 5
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 7
+    text: "Je dirais m\xEAme un crime immonde ! Yotty, Yatty, Yitty ont \xE9t\xE9
+      empoisonn\xE9s \xE0 la piscine ! "
+    emotion: 1
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 7
+    text: "Quelqu\u2019un a os\xE9 pr\xE9parer de la sauce carbonara avec de la cr\xE8me
+      fra\xEEche !"
+    emotion: 1
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 7
+    text: "\xC7a parait compliqu\xE9 comme affaire, mais ne vous inqui\xE9tez pas,
+      je sais tout ce qui se passe \xE0 Pasta Village, je suis la science infuse,
+      je vais vous aider :"
+    emotion: 0
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 7
+    text: "Yotty, Yatty, Yitty et Yette se sont donn\xE9s rendez-vous \xE0 la piscine
+      \xE0 9h. Mais Yette est arriv\xE9 30 minutes en retard."
+    emotion: 0
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 9
+    charTalking: 7
+    text: "\xC7a va Mme La D\xE9tective, vous suivez ?"
+    emotion: 4
+    choices: []
+    idGoto: 10
+    isChoiceDialogue: 0
+  - idDialogue: 10
+    charTalking: 0
+    text: "Bien \xE9videmment, je suis une pro\u2026"
+    emotion: 0
+    choices: []
+    idGoto: 11
+    isChoiceDialogue: 0
+  - idDialogue: 11
+    charTalking: 7
+    text: "Je vous avais bien dit que cette affaire \xE9tait complexe ! Bon, cessez
+      de me couper, je continue."
+    emotion: 0
+    choices: []
+    idGoto: 12
+    isChoiceDialogue: 0
+  - idDialogue: 12
+    charTalking: 7
+    text: "Lorsque Yette est arriv\xE9, il a pris connaissance du crime !"
+    emotion: 0
+    choices: []
+    idGoto: 13
+    isChoiceDialogue: 0
+  - idDialogue: 13
+    charTalking: 7
+    text: "Bon, je vous ai d\xE9j\xE0 bien aid\xE9, mais je suis de bonne humeur
+      aujourd\u2019hui, donc je vous donne la liste des suspects : l\u2019enfant
+      Yette, Mme Farfolle, M. Ra Vito, M. Zily et M. Ghetti."
+    emotion: 3
+    choices:
+    - textChoice: 
+      idNext: 0
+      method: 0
+    idGoto: 14
+    isChoiceDialogue: 0
+  - idDialogue: 14
+    charTalking: 7
+    text: "Allez les interroger et je vous conseille de commencer par Yette, il se
+      trouve \xE0 l\u2019Est. Je compte sur vous !"
+    emotion: 0
+    choices: []
+    idGoto: 15
+    isChoiceDialogue: 0
+  - idDialogue: 15
+    charTalking: 7
+    text: "Ah et j'oubliais, si vous voulez plus de d\xE9tails, regardez votre journal
+      en appuyant sur \u201Cpause\u201D."
+    emotion: 0
+    choices: []
+    idGoto: 16
+    isChoiceDialogue: 0
+  - idDialogue: 16
+    charTalking: 7
+    text: "Avez-vous besoin que je vous r\xE9p\xE8te la situation ?"
+    emotion: 4
+    choices:
+    - textChoice: Oui
+      idNext: 17
+      method: 0
+    - textChoice: Non
+      idNext: 18
+      method: 0
+    idGoto: 0
+    isChoiceDialogue: 1
+  - idDialogue: 17
+    charTalking: 7
+    text: "Qu\u2019avez-vous cru ? Je n\u2019ai pas que cela \xE0 faire, je suis
+      une bo\xEEte aux lettres tr\xE8\xE8\xE8\xE8\xE8\xE8\xE8s occup\xE9e\u2026"
+    emotion: 5
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  - idDialogue: 18
+    charTalking: 7
+    text: "Tant mieux, je n\u2019ai pas que cela \xE0 faire apr\xE8s tout, je suis
+      une bo\xEEte aux lettres tr\xE8\xE8\xE8\xE8\xE8\xE8\xE8s occup\xE9e\u2026"
+    emotion: 3
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 7

@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: RaVitoLoseDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 5
+    text: "Ha ! Ha ! Sale gnocchi, tu crains de ouf, t\u2019es un vrai loser, t\u2019as
+      la face remplie de ketchup."
+    emotion: 3
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 5
+    text: "Je me suis bien bidonn\xE9 gr\xE2ce \xE0 toi du coup j\u2019suis de bonne
+      humeur, je vais te dire o\xF9 j\u2019\xE9tais hier."
+    emotion: 3
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 5
+    text: "J\u2019avais un planning archi charg\xE9 Mme la D\xE9tective : \xE0 20h30,
+      je recrutais devant le labo, c\u2019est un endroit strat\xE9gique y\u2019a
+      personne l\xE0-bas."
+    emotion: 0
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 5
+    text: Ensuite, entre 21h et 21h30, je faisais des transactions devant la Bnac.
+    emotion: 0
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 5
+    text: "Puis, j\u2019ai eu une longue pause donc j\u2019ai tap\xE9 une giga sieste
+      devant le labo."
+    emotion: 0
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 5
+    text: "Apr\xE8s, je me suis r\xE9veill\xE9 et vers 4h30, je suis all\xE9 sur
+      la place pour papoter un peu, j\u2019suis comme tout le monde moi d\xE9tective,
+      j\u2019aime les potins !"
+    emotion: 0
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 5
+    text: "En plus sur la place \xE0 cette heure y\u2019avait un remue-m\xE9nage
+      PAS POSSIBLE, j\u2019vous jure ! M. Zily r\xE2lait sur cette enflure de Ghetti
+      ! "
+    emotion: 5
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 0
+    text: "D\u2019accord, merci beaucoup pour votre coop\xE9ration M. Ra Vito."
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 5
+  dialogueAction: 0
+  unlockDialogue:
+  - characterToUnlock: 5
+    dialogueIdUnlock: 4

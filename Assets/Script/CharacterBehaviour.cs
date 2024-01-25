@@ -48,6 +48,7 @@ public class CharacterBehaviour : MonoBehaviour
     public TMP_Text textRPMObj;
     public int actualObjectiveRPM;
     public float[] objectivesRPM;
+    public DialogueInteractionBehaviour zilyDialogue;
 
     void Awake()
     {
@@ -93,6 +94,8 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
+        print("canShoot "+canShoot);
+        print(canShoot && GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.GunMiniGame);
         if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
@@ -130,8 +133,7 @@ public class CharacterBehaviour : MonoBehaviour
                         2 = WinDialogue
                         3 = LoseDialogue
                         4 = FinishGameDialogue
-                        5 = AllMiniGameDoneDialogue
-                        6 = YetteDialogue
+                        5 = InfoDialogue
                         */
                         case 0:
                             DialogueBox.Instance.currentDialogue = toInteract.LaunchGameDialogue;
@@ -149,10 +151,7 @@ public class CharacterBehaviour : MonoBehaviour
                             DialogueBox.Instance.currentDialogue = toInteract.FinishGameDialogue;
                             break;
                         case 5:
-                            DialogueBox.Instance.currentDialogue = toInteract.AllMiniGameDoneDialogue;
-                            break;
-                        case 6:
-                            DialogueBox.Instance.currentDialogue = toInteract.YetteDialogue;
+                            DialogueBox.Instance.currentDialogue = toInteract.InfoDialogue;
                             break;
                     }
                 }
@@ -256,8 +255,16 @@ public class CharacterBehaviour : MonoBehaviour
 
     public void ChangeObjective()
     {
-        
-        StartCoroutine(DoAfterDelay(5f, ChangeObjective));
+        if (actualObjectiveRPM != 0 && tourParMinute < objectivesRPM[actualObjectiveRPM])
+        {
+            GameStateBehaviour.Instance.ChangeToDialogue();
+            DialogueBox.Instance.currentDialogue = zilyDialogue.LoseDialogue;
+            GameStateBehaviour.Instance.ChangeZilyDialogue(4);
+            DialogueBox.Instance.setOriginalText();
+        }
+        textRPMObj.SetText("Objectif : " + objectivesRPM[actualObjectiveRPM]);
+        actualObjectiveRPM++;
+        StartCoroutine(DoAfterDelay(3f, ChangeObjective));
     }
 
 }

@@ -107,6 +107,20 @@ MonoBehaviour:
   searchObject: {fileID: 0}
   takenObject: {fileID: 0}
   parentEmplacement: {fileID: 5206719453099408733}
+  textSearch: {fileID: 0}
+  gunBehaviour: {fileID: 0}
+  canShoot: 1
+  nextInput: {x: 0, y: 0}
+  SpoonAnchor: {fileID: 0}
+  textRPM: {fileID: 0}
+  textRPMObj: {fileID: 0}
+  actualObjectiveRPM: 0
+  objectivesRPM:
+  - 15
+  - 60
+  - 120
+  - 150
+  - 180
 --- !u!50 &809435068018174105
 Rigidbody2D:
   serializedVersion: 4

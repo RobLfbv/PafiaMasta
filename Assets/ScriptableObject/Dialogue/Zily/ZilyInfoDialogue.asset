@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: ZilyInfoDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "M. Zily, j'ai une bonne nouvelle \xE0 vous annoncer, j\u2019ai r\xE9ussi
+      \xE0 convaincre M. Ghetti, vous ne serez pas vir\xE9 !"
+    emotion: 0
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 6
+    text: "Merci beaucoup Mme la d\xE9tective ! Je confirme donc l\u2019alibi de
+      M. Ghetti ! Je vous raconte : "
+    emotion: 3
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 6
+    text: "Ma patrouille commence \xE0 1h et finit \xE0 7h. Sauf que je dois aussi
+      \xEAtre \xE0 l\u2019usine de 4h \xE0 6h, impossible pas vrai ?"
+    emotion: 4
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 6
+    text: 'Donc vers 4h30 je me suis rendu sur la place.  '
+    emotion: 0
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 6
+    text: "J\u2019y ai crois\xE9 M.Ghetti et M. Ra Vito, j\u2019en ai profit\xE9
+      pour dire \xE0 M. Ghetti que je pouvais plus travailler \xE0 l\u2019usine dans
+      ces conditions ! "
+    emotion: 1
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 6
+    text: "Vous avez bien vu Mme la D\xE9tective ! M. Ghetti n\u2019en avait RIEN
+      \xE0 faire et s\u2019est mis en t\xEAte de me virer, LE CULOT ! "
+    emotion: 1
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 6
+    text: "Ensuite, \xE9videmment, j'ai pas eu le temps de faire les sauces \xE0
+      l'usine, alors j'ai fait avec ce que j'avais en r\xE9serve.  "
+    emotion: 2
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 6
+    text: "En sortant, j\u2019ai continu\xE9 ma patrouille et j\u2019ai effectivement
+      vu M. Ghetti vers la BNAC."
+    emotion: 0
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 9
+    charTalking: 6
+    text: "Vers 7h, j\u2019ai enfil\xE9 mon autre casquette : celle de livreur !
+      J\u2019ai livr\xE9 toutes les sauces qui ont \xE9t\xE9 faite \xE0 tout Pasta
+      Village pendant 1h."
+    emotion: 0
+    choices: []
+    idGoto: 10
+    isChoiceDialogue: 0
+  - idDialogue: 10
+    charTalking: 6
+    text: "Enfin bref, tout \xE7a pour dire j'ai pas pu faire la carbonara aujourd'hui,
+      j'\xE9tais d\xE9j\xE0 en train de travailler ailleurs. "
+    emotion: 2
+    choices: []
+    idGoto: 11
+    isChoiceDialogue: 0
+  - idDialogue: 11
+    charTalking: 6
+    text: "C'est vrai que je l'ai livr\xE9, mais moi je pensais juste que c'\xE9tait
+      ma r\xE9serve d'un autre jour, je peux pas \xEAtre partout !"
+    emotion: 2
+    choices: []
+    idGoto: 12
+    isChoiceDialogue: 0
+  - idDialogue: 12
+    charTalking: 0
+    text: "D\u2019accord M. Zily, je vous remercie et vous souhaite bon courage !"
+    emotion: 0
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 6

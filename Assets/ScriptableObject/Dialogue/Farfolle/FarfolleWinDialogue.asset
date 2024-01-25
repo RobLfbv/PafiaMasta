@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: FarfolleWinDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 3
+    text: "BIIIIIEN Mme la D\xE9tective, vous \xEAtes bien cuite aujourd'hui ! Ah,
+      mais j\u2019oubliais, vous \xEAtes pas une p\xE2te, je vois pas claire en ce
+      moment."
+    emotion: 3
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 3
+    text: "C\u2019est pile l\u2019ingr\xE9dient qui me manquait pour ma sauce \xE0
+      la vodka. (Je pourrais en garder un peu pour moi, mais chut faut pas le dire
+      !)"
+    emotion: 3
+    choices: []
+    idGoto: 3
+    isChoiceDialogue: 0
+  - idDialogue: 3
+    charTalking: 0
+    text: "Je suis contente de vous avoir rendu service Mme Farfolle... Vous pouvez
+      m\u2019en dire plus sur la chose louche que vous avez aper\xE7ue ? "
+    emotion: 0
+    choices: []
+    idGoto: 4
+    isChoiceDialogue: 0
+  - idDialogue: 4
+    charTalking: 3
+    text: "Ah oui, j\u2019avais presque oubli\xE9 ! Vous faites bien de me le rappeler
+      Mme la D\xE9tective !"
+    emotion: 0
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 3
+    text: "\xC9coutez-moi bien : juste apr\xE8s \xEAtre sorti de chez moi, j\u2019ai
+      vu Yette discuter avec Ra Vito, \xE9trange cette affaire nan ?"
+    emotion: 0
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 3
+    text: "En effet, c\u2019est \xE9trange... Vous rappelez-vous de l'heure \xE0
+      laquelle vous \xEAtes sortie de chez vous ? "
+    emotion: 4
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 3
+    text: "C\u2019\xE9tait juste avant mon documentaire pr\xE9f\xE9r\xE9 \u201CC\u2019est
+      pas malin !\u201D donc pour s\xFBr un peu avant 21h."
+    emotion: 0
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 0
+    text: "Int\xE9ressant, merci pour ces informations Mme Farfolle !  "
+    emotion: 3
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 3

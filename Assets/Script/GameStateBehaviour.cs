@@ -74,17 +74,31 @@ public class GameStateBehaviour : MonoBehaviour
     [Header("Riddle Mini Game Variables")]
     public GameObject ghettiInteraction;
 
-
+    /*
+    0 = LaunchGameDialogue
+    1 = NotUnlock
+    2 = WinDialogue
+    3 = LoseDialogue
+    4 = FinishGameDialogue
+    5 = InfoDialogue
+    */
     void Start()
     {
         ChangeToMainGame();
         UnpauseGame();
         PlayerPrefs.DeleteAll();
-        /*PlayerPrefs.SetInt("Yette", 1);
-        PlayerPrefs.SetInt("Zily",1);
-        PlayerPrefs.SetInt("Farfolle",1);
-        PlayerPrefs.SetInt("Ghetti",1);
-        PlayerPrefs.SetInt("Ravito",1);*/
+
+        if (PlayerPrefs.GetInt("AlreadyLaunched") == 0)
+        {
+            PlayerPrefs.SetInt("AlreadyLaunched", 1);
+            PlayerPrefs.SetInt("Yette", 1);
+            PlayerPrefs.SetInt("Zily", 1);
+            PlayerPrefs.SetInt("Farfolle", 0);
+            PlayerPrefs.SetInt("Ghetti", 1);
+            PlayerPrefs.SetInt("Ra_Vito", 0);
+            PlayerPrefs.SetInt("Maili_Mailo", 1);
+        }
+
     }
 
     public void ChangeToDialogue()
@@ -93,7 +107,9 @@ public class GameStateBehaviour : MonoBehaviour
         dialogueScreen.SetActive(true);
         runMiniGameScreen.SetActive(false);
         pistolMiniGameScreen.SetActive(false);
+        factoryMiniGameScreen.SetActive(false);
         raVitoInteraction.SetActive(true);
+        zilyInteraction.SetActive(true);
         raVitoGun.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
         searchMiniGameScreen.SetActive(false);
@@ -103,6 +119,7 @@ public class GameStateBehaviour : MonoBehaviour
     {
         currentState = GameState.MainGame;
         runMiniGameScreen.SetActive(false);
+        factoryMiniGameScreen.SetActive(false);
         pistolMiniGameScreen.SetActive(false);
         yette.GetComponent<YetteRunning>().enabled = false;
         dialogueScreen.SetActive(false);
@@ -184,6 +201,8 @@ public class GameStateBehaviour : MonoBehaviour
         dialogueScreen.SetActive(false);
         player.nextInput = Vector2.right;
         StartCoroutine(player.DoAfterDelay(1f, player.CalculateRPM));
+        player.ChangeObjective();
+
 
     }
 
@@ -209,8 +228,7 @@ public class GameStateBehaviour : MonoBehaviour
     2 = WinDialogue
     3 = LoseDialogue
     4 = FinishGameDialogue
-    5 = AllMiniGameDoneDialogue
-    6 = YetteDialogue
+    5 = InfoDialogue
     */
     public void ChangeYeetDialogue(int idxDialogue)
     {
@@ -222,6 +240,15 @@ public class GameStateBehaviour : MonoBehaviour
     }
     public void ChangeRavitoDialogue(int idxDialogue)
     {
-        PlayerPrefs.SetInt("Ravito", idxDialogue);
+        PlayerPrefs.SetInt("Ra_Vito", idxDialogue);
     }
+    public void ChangeZilyDialogue(int idxDialogue)
+    {
+        PlayerPrefs.SetInt("Zily", idxDialogue);
+    }
+    public void ChangeMailiMailoDialogue(int idxDialogue)
+    {
+        PlayerPrefs.SetInt("Maili_Mailo", idxDialogue);
+    }
+
 }

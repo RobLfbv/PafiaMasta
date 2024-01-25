@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2274784a55f6740bd6beb875913d7a, type: 3}
+  m_Name: RaVitoFinishGameDialogue
+  m_EditorClassIdentifier: 
+  dialogueList:
+  - idDialogue: 1
+    charTalking: 0
+    text: "Re-Bonjour M. Ra Vito, avez-vous des informations suppl\xE9mentaires concernant
+      l\u2019affaire de la piscine ?"
+    emotion: 0
+    choices: []
+    idGoto: 2
+    isChoiceDialogue: 0
+  - idDialogue: 2
+    charTalking: 5
+    text: "Mme la D\xE9tective, j\u2019vous ai TOUT dit, donc arr\xEAtez de me chercher
+      des noises, j\u2019ai \xE9t\xE9 hyper gentil jusqu\u2019\xE0 maintenant, m'\xE9nervez
+      pas z\u2019vous plait ! "
+    emotion: 1
+    choices: []
+    idGoto: -1
+    isChoiceDialogue: 0
+  talker1: 0
+  talker2: 5
