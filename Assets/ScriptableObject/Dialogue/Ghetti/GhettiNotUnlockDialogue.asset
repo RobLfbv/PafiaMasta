@@ -48,3 +48,7 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 4
+  dialogueAction: 0
+  unlockDialogue:
+  - characterToUnlock: 6
+    dialogueIdUnlock: 0
