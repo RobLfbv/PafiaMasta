@@ -46,7 +46,7 @@ public class DialogueBox : MonoBehaviour
 
     private Color32 whiteColor = new Color32(255, 255, 255, 255);
     private Color32 greyColor = new Color32(155, 155, 155, 255);
-    private Color32 absentColor = new Color32(155, 155, 155, 255);
+    private Color32 absentColor = new Color32(255, 255, 255, 0);
     private Vector2 sizeTalking = new Vector2(1f, 1f);
     private Vector2 sizeNotTalking = new Vector2(0.9f, 0.9f);
 
@@ -349,7 +349,7 @@ public class DialogueBox : MonoBehaviour
         }
         else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
         {
-            talker1.sprite = toInteract.spriteAbsent;
+            talker1.sprite = toInteract.spriteNeutral;
             talker1.color = absentColor;
         }
     }
@@ -386,7 +386,7 @@ public class DialogueBox : MonoBehaviour
         }
         else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
         {
-            talker2.sprite = toInteract.spriteAbsent;
+            talker2.sprite = toInteract.spriteNeutral;
             talker2.color = absentColor;
         }
     }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueList:
   - idDialogue: 1
-    charTalking: 3
+    charTalking: 0
     text: "Bonjour Mme Farfolle, je suis Gnocchitalian la D\xE9tective, j\u2019enqu\xEAte
       sur le crime de la piscine, o\xF9 \xE9tiez-vous hier soir ?"
     emotion: 0
@@ -30,3 +30,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 3
+  dialogueAction: 0
+  unlockDialogue: []

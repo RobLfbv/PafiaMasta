@@ -68,6 +68,8 @@ public class GameStateBehaviour : MonoBehaviour
     public GameObject raVitoInteraction;
     public GameObject raVitoGun;
     public GunBehaviour gunBehaviour;
+    public SpriteRenderer playerSprite;
+    public SpriteRenderer raVitoSprite;
 
     [Header("Factory Mini Game Variables")]
     public GameObject factoryMiniGameScreen;
