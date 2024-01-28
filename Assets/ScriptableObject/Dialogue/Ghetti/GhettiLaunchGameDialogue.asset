@@ -63,8 +63,7 @@ MonoBehaviour:
     - textChoice: "D\u2019accord M. Ghetti, je vous \xE9coute."
       idNext: 7
       method: 0
-    - textChoice: "Non M. Ghetti, je n\u2019ai pas le temps de r\xE9soudre votre
-        \xE9nigme, je suis trop occup\xE9e avec mon enqu\xEAte."
+    - textChoice: Non M. Ghetti.
       idNext: 8
       method: 0
     idGoto: 0
