@@ -53,4 +53,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 5
-  dialogueAction: 4
+  dialogueAction: 3
+  unlockDialogue: []

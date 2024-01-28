@@ -26,7 +26,7 @@ public class CharacterBehaviour : MonoBehaviour
     [Header("Interaction Variables")]
     [SerializeField]
     public bool canInteract;
-    [HideInInspector]
+    //[HideInInspector]
     public DialogueInteractionBehaviour toInteract;
     [HideInInspector]
     public SearchObjectInteraction searchObject;
@@ -49,6 +49,26 @@ public class CharacterBehaviour : MonoBehaviour
     public int actualObjectiveRPM;
     public float[] objectivesRPM;
     public DialogueInteractionBehaviour zilyDialogue;
+
+    [SerializeField]
+    public Sprite spriteNeutral;
+    [SerializeField]
+    public Sprite spriteAngry;
+    [SerializeField]
+    public Sprite spriteSad;
+    [SerializeField]
+    public Sprite spriteHappy;
+    [SerializeField]
+    public Sprite spriteQuestioned;
+    [SerializeField]
+    public Sprite spriteShocked;
+    [SerializeField]
+    public Sprite spriteAshamed;
+    [SerializeField]
+    public Sprite spriteAbsent;
+
+    [SerializeField]
+    public Animator animator;
 
     void Awake()
     {
@@ -94,8 +114,6 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
-        print("canShoot "+canShoot);
-        print(canShoot && GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.GunMiniGame);
         if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
@@ -177,6 +195,14 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Vector2.Distance(rb.velocity, Vector2.zero) < 0.5f)
+        {
+            animator.SetTrigger("PlayerIdle");
+        }
+        else if (Vector2.Distance(rb.velocity, Vector2.zero) > 0.5f)
+        {
+            animator.SetTrigger("PlayerWalking");
+        }
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
@@ -249,7 +275,6 @@ public class CharacterBehaviour : MonoBehaviour
         tourParMinute = nbTourPerSec * 60;
         nbTourPerSec = 0;
         textRPM.SetText("RPM : " + tourParMinute);
-        print(tourParMinute);
         StartCoroutine(DoAfterDelay(1f, CalculateRPM));
     }
 
@@ -260,6 +285,7 @@ public class CharacterBehaviour : MonoBehaviour
             GameStateBehaviour.Instance.ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = zilyDialogue.LoseDialogue;
             GameStateBehaviour.Instance.ChangeZilyDialogue(4);
+            toInteract = GameStateBehaviour.Instance.zilyInteraction.GetComponent<DialogueInteractionBehaviour>();
             DialogueBox.Instance.setOriginalText();
         }
         textRPMObj.SetText("Objectif : " + objectivesRPM[actualObjectiveRPM]);

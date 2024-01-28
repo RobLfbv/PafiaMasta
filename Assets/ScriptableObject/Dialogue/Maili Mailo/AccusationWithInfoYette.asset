@@ -50,25 +50,7 @@ MonoBehaviour:
     text: "Vous \xEAtes culott\xE9 Mme la D\xE9tective, m\u2019interrogez, MOI ?
       LA BO\xCETE AUX LETTRES? Vous \xEAtes pas tr\xE8s cuite dis donc ! "
     emotion: 1
-    choices:
-    - textChoice: Maili Mailo
-      idNext: 0
-      method: 0
-    - textChoice: Farfolle
-      idNext: 0
-      method: 0
-    - textChoice: Ghetti
-      idNext: 0
-      method: 0
-    - textChoice: Ra Vito
-      idNext: 0
-      method: 0
-    - textChoice: Yette
-      idNext: 0
-      method: 0
-    - textChoice: Zily
-      idNext: 0
-      method: 0
+    choices: []
     idGoto: 4
     isChoiceDialogue: 0
   - idDialogue: 4
@@ -112,3 +94,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 7
+  dialogueAction: 0
+  unlockDialogue: []

@@ -68,7 +68,7 @@ MonoBehaviour:
       idNext: 8
       method: 0
     idGoto: 0
-    isChoiceDialogue: 0
+    isChoiceDialogue: 1
   - idDialogue: 7
     charTalking: 4
     text: "Tr\xE8s bien."
@@ -93,7 +93,7 @@ MonoBehaviour:
     choices:
     - textChoice: Decameron de Boccace
       idNext: 11
-      method: 0
+      method: 5
     - textChoice: "La Divine Com\xE9die de Dante"
       idNext: 10
       method: 0
@@ -155,3 +155,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 4
+  dialogueAction: 0
+  unlockDialogue: []

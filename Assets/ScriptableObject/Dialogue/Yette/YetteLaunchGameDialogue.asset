@@ -36,7 +36,7 @@ MonoBehaviour:
     emotion: 3
     choices: []
     idGoto: 4
-    isChoiceDialogue: 1
+    isChoiceDialogue: 0
   - idDialogue: 4
     charTalking: 2
     text: "Euh\u2026 Oh tiens, zouez \xE0 la course avec moi, zi vous me battez,
@@ -49,7 +49,7 @@ MonoBehaviour:
     - textChoice: Non
       idNext: 6
       method: 0
-    idGoto: -1
+    idGoto: 0
     isChoiceDialogue: 1
   - idDialogue: 5
     charTalking: 2
@@ -67,3 +67,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 2
+  dialogueAction: 0
+  unlockDialogue: []

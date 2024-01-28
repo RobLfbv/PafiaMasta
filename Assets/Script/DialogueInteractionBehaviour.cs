@@ -21,6 +21,27 @@ public class DialogueInteractionBehaviour : MonoBehaviour
     [SerializeField]
     public GameObject keyInteraction;
 
+    [SerializeField]
+    public Sprite spriteNeutral;
+    [SerializeField]
+    public Sprite spriteAngry;
+    [SerializeField]
+    public Sprite spriteSad;
+    [SerializeField]
+    public Sprite spriteHappy;
+    [SerializeField]
+    public Sprite spriteQuestioned;
+    [SerializeField]
+    public Sprite spriteShocked;
+    [SerializeField]
+    public Sprite spriteAshamed;
+    [SerializeField]
+    public Sprite spriteAbsent;
+
+    public Vector2 dimensionImage;
+    public Vector2 sizeNotTalking;
+    public Vector2 sizeTalking;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
