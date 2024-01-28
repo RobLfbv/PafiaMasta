@@ -43,6 +43,7 @@ public class DialogueBox : MonoBehaviour
     public Image talker2;
     public GameObject playerBg;
     public GameObject interBg;
+    public Animator interAnimator;
 
     private Color32 whiteColor = new Color32(255, 255, 255, 255);
     private Color32 greyColor = new Color32(155, 155, 155, 255);
@@ -253,6 +254,7 @@ public class DialogueBox : MonoBehaviour
             interBg.SetActive(false);
             textName.gameObject.SetActive(false);
             Talker1Sprite();
+
         }
         else
         {
@@ -267,10 +269,13 @@ public class DialogueBox : MonoBehaviour
             interBg.SetActive(true);
             textName.gameObject.SetActive(true);
             Talker2Sprite();
+            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Maili_Mailo)
+            {
+                interAnimator.SetTrigger("MailiMailoIsTalking");
+            }
             if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
             {
-                talker2.rectTransform.sizeDelta = new Vector2(621,1300);
-
+                talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
             }
             else
             {
