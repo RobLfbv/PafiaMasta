@@ -70,6 +70,11 @@ public class CharacterBehaviour : MonoBehaviour
     [SerializeField]
     public Animator animator;
 
+    [SerializeField]
+    public Image searchImage;
+    private Color colorTransparent = new Color(255, 255, 255, 0f);
+    private Color colorNotTransparent = new Color(255, 255, 255, 255);
+
     void Awake()
     {
         characterInput = new CharacterInput();
@@ -131,6 +136,8 @@ public class CharacterBehaviour : MonoBehaviour
                         textSearch.text = "";
                         GameStateBehaviour.Instance.ChangeFarfolleDialogue(4);
                         takenObject = null;
+                        searchImage.sprite = null;
+                        searchImage.color = colorTransparent;
                     }
                     else
                     {
@@ -139,6 +146,8 @@ public class CharacterBehaviour : MonoBehaviour
                         takenObject.keyInteraction.SetActive(false);
                         textSearch.text = "";
                         takenObject = null;
+                        searchImage.sprite = null;
+                        searchImage.color = colorTransparent;
                     }
                 }
                 else
@@ -184,6 +193,8 @@ public class CharacterBehaviour : MonoBehaviour
                     takenObject.transform.parent.gameObject.SetActive(false);
                     textSearch.text = takenObject.transform.parent.name;
                     GameStateBehaviour.Instance.farfolleInteraction.SetActive(true);
+                    searchImage.sprite = takenObject.transform.parent.GetComponent<SpriteRenderer>().sprite;
+                    searchImage.color = colorNotTransparent;
                 }
             }
         }
