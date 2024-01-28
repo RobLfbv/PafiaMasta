@@ -22,6 +22,11 @@ public class GunBehaviour : MonoBehaviour
     [SerializeField]
     public GameObject key;
 
+    [SerializeField]
+    private Sprite playerKetchup;
+    [SerializeField]
+    private Sprite raVitoKetchup;
+
     private void Start()
     {
         playerTurn = false;
@@ -34,14 +39,14 @@ public class GunBehaviour : MonoBehaviour
         player.GetComponent<CharacterBehaviour>().canShoot = false;
         gun.transform.DORotate(new Vector3(0, 0, 360f), 1f, RotateMode.WorldAxisAdd).OnComplete(() =>
         {
-            gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90f));
+            gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             player.GetComponent<CharacterBehaviour>().canShoot = true;
             key.SetActive(true);
         });
         if (numberOfShot != whichShot)
         {
             playerTurn = !playerTurn;
-            gun.GetComponent<SpriteRenderer>().flipY = !playerTurn;
+            gun.GetComponent<SpriteRenderer>().flipX = !playerTurn;
             if (mainCamera.orthographicSize > 2.5f)
             {
                 mainCamera.DOOrthoSize(mainCamera.orthographicSize - 0.5f, 0.1f);
@@ -79,6 +84,7 @@ public class GunBehaviour : MonoBehaviour
                         {
                             DialogueBox.Instance.currentDialogue = dialogueInteractionBehaviour.WinDialogue;
                         }
+                        GameStateBehaviour.Instance.player.toInteract = GameStateBehaviour.Instance.raVitoInteraction.GetComponent<DialogueInteractionBehaviour>();
                         GameStateBehaviour.Instance.ChangeRavitoDialogue(4);
                         DialogueBox.Instance.setOriginalText();
                     });

@@ -67,6 +67,9 @@ public class CharacterBehaviour : MonoBehaviour
     [SerializeField]
     public Sprite spriteAbsent;
 
+    [SerializeField]
+    public Animator animator;
+
     void Awake()
     {
         characterInput = new CharacterInput();
@@ -192,6 +195,14 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Vector2.Distance(rb.velocity, Vector2.zero) < 0.5f)
+        {
+            animator.SetTrigger("PlayerIdle");
+        }
+        else if (Vector2.Distance(rb.velocity, Vector2.zero) > 0.5f)
+        {
+            animator.SetTrigger("PlayerWalking");
+        }
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
