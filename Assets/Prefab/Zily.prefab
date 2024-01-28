@@ -64,13 +64,65 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: spriteSad
+      value: 
+      objectReference: {fileID: 21300000, guid: 3044b0c7c722e5e49a5ec30aefaf87e2, type: 3}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: WinDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 7b8636e4cb5740143889c1c94fb80a32, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: spriteAngry
+      value: 
+      objectReference: {fileID: 21300000, guid: f36d314acc483344abd19a88aaad469d, type: 3}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: spriteHappy
+      value: 
+      objectReference: {fileID: 21300000, guid: 56fe55dccb627834baba75fc8ead6f2d, type: 3}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: InfoDialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ba06ab75a5d8eb4996b2b333c5549c4, type: 2}
     - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: LoseDialogue
       value: 
       objectReference: {fileID: 11400000, guid: f3ece93122086794a88ee95240fdfdea, type: 2}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: sizeTalking.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: sizeTalking.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: spriteNeutral
+      value: 
+      objectReference: {fileID: 21300000, guid: 6dd5641410efc084ea0237bd2db5acdb, type: 3}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: spriteShocked
+      value: 
+      objectReference: {fileID: 21300000, guid: c83f6fd4d33959e4ca258a14eb126c4f, type: 3}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dimensionImage.x
+      value: 348
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: dimensionImage.y
+      value: 949
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: sizeNotTalking.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: sizeNotTalking.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
+      propertyPath: spriteQuestioned
+      value: 
+      objectReference: {fileID: 21300000, guid: 7727966d989bb9343a1840d6b1c8032a, type: 3}
     - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: FinishGameDialogue
       value: 

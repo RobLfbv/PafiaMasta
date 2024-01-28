@@ -18,12 +18,12 @@ MonoBehaviour:
     text: 'Qu''est ce qu''il y a ? '
     emotion: 4
     choices:
-    - textChoice: A propos de Farfolle
+    - textChoice: A propos de Ra Vito
       idNext: 2
-      method: 0
-    - textChoice: A propos de Ghetti
+      method: 7
+    - textChoice: A propos de l'ombre
       idNext: 6
-      method: 0
+      method: 6
     idGoto: 0
     isChoiceDialogue: 1
   - idDialogue: 2
@@ -90,3 +90,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 2
+  dialogueAction: 0
+  unlockDialogue: []

@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using DG;
 using DG.Tweening;
+using Unity.VisualScripting;
 
 
 public class GameStateBehaviour : MonoBehaviour
@@ -44,6 +45,7 @@ public class GameStateBehaviour : MonoBehaviour
     public Image transition;
     public SmoothFollow smoothCamera;
     public GameState currentState;
+    public DialogueScriptableObject introDialogue;
     [Header("Dialogue Variables")]
     public GameObject dialogueScreen;
     [Header("Pause Variables")]
@@ -93,12 +95,14 @@ public class GameStateBehaviour : MonoBehaviour
             PlayerPrefs.SetInt("AlreadyLaunched", 1);
             PlayerPrefs.SetInt("Yette", 1);
             PlayerPrefs.SetInt("Zily", 1);
-            PlayerPrefs.SetInt("Farfolle", 0);
+            PlayerPrefs.SetInt("Farfolle", 1);
             PlayerPrefs.SetInt("Ghetti", 1);
             PlayerPrefs.SetInt("Ra_Vito", 0);
             PlayerPrefs.SetInt("Maili_Mailo", 1);
         }
-
+        ChangeToDialogue();
+        DialogueBox.Instance.currentDialogue = introDialogue;
+        DialogueBox.Instance.setOriginalText();
     }
 
     public void ChangeToDialogue()
@@ -202,8 +206,6 @@ public class GameStateBehaviour : MonoBehaviour
         player.nextInput = Vector2.right;
         StartCoroutine(player.DoAfterDelay(1f, player.CalculateRPM));
         player.ChangeObjective();
-
-
     }
 
 
@@ -221,7 +223,65 @@ public class GameStateBehaviour : MonoBehaviour
         pauseScreen.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
     }
+    public void WinRiddleGame()
+    {
+        ChangeZilyDialogue(5);
+        ChangeGhettiDialogue(4);
+        print("WinRiddleGame :" + (PlayerPrefs.GetInt("Ra_Vito") == 0));
+        print("WinRiddleGame :" + PlayerPrefs.GetInt("Ra_Vito"));
+        if (PlayerPrefs.GetInt("Ra_Vito") == 0)
+        {
+            PlayerPrefs.SetInt("RaVitoNextInfo", 1);
+        }
+        else
+        {
+            ChangeRavitoDialogue(5);
+        }
+    }
 
+    public void DialogueYetteOmbre()
+    {
+        PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);
+        PlayerPrefs.SetInt("YetteInfoDialogueDoneOmbre", 1);
+        if (PlayerPrefs.GetInt("YetteInfoDialogueDone") == 2)
+        {
+            ChangeYeetDialogue(0);
+        }
+    }
+    public void DialogueYetteRaVito()
+    {
+        PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);
+        PlayerPrefs.SetInt("YetteInfoDialogueDoneRaVito", 1);
+        if (PlayerPrefs.GetInt("YetteInfoDialogueDone") == 2)
+        {
+            ChangeYeetDialogue(0);
+        }
+    }
+
+    public void CheckYetteDialogueInfoZily()
+    {
+        PlayerPrefs.SetInt("YetteInfoDialogueUnlock", PlayerPrefs.GetInt("YetteInfoDialogueUnlock") + 1);
+        if (PlayerPrefs.GetInt("YetteInfoDialogueUnlock") == 3)
+        {
+            ChangeYeetDialogue(5);
+        }
+    }
+    public void CheckYetteDialogueInfoRaVito()
+    {
+        PlayerPrefs.SetInt("YetteInfoDialogueUnlock", PlayerPrefs.GetInt("YetteInfoDialogueUnlock") + 1);
+        if (PlayerPrefs.GetInt("YetteInfoDialogueUnlock") == 3)
+        {
+            ChangeYeetDialogue(5);
+        }
+    }
+    public void CheckYetteDialogueInfoFarfolle()
+    {
+        PlayerPrefs.SetInt("YetteInfoDialogueUnlock", PlayerPrefs.GetInt("YetteInfoDialogueUnlock") + 1);
+        if (PlayerPrefs.GetInt("YetteInfoDialogueUnlock") == 3)
+        {
+            ChangeYeetDialogue(5);
+        }
+    }
     /*
     0 = LaunchGameDialogue
     1 = NotUnlock
@@ -240,7 +300,14 @@ public class GameStateBehaviour : MonoBehaviour
     }
     public void ChangeRavitoDialogue(int idxDialogue)
     {
-        PlayerPrefs.SetInt("Ra_Vito", idxDialogue);
+        if (idxDialogue == 4 && PlayerPrefs.GetInt("RaVitoNextInfo") == 1)
+        {
+            PlayerPrefs.SetInt("Ra_Vito", 5);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Ra_Vito", idxDialogue);
+        }
     }
     public void ChangeZilyDialogue(int idxDialogue)
     {
@@ -249,6 +316,15 @@ public class GameStateBehaviour : MonoBehaviour
     public void ChangeMailiMailoDialogue(int idxDialogue)
     {
         PlayerPrefs.SetInt("Maili_Mailo", idxDialogue);
+    }
+    public void ChangeGhettiDialogue(int idxDialogue)
+    {
+        PlayerPrefs.SetInt("Ghetti", idxDialogue);
+    }
+
+    public void ChangeCharDialogue(Character charToChange, int idxDialogue)
+    {
+        PlayerPrefs.SetInt(charToChange.ToString(), idxDialogue);
     }
 
 }

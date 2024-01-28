@@ -33,9 +33,15 @@ public enum ActionChoice
     Nothing,
     RunMiniGame,
     SearchMiniGame,
-    RiddleMiniGame,
     GunMiniGame,
-    FactoryMiniGame
+    FactoryMiniGame,
+    WinRiddleGame,
+    DialogueYetteOmbre,
+    DialogueYetteRaVito,
+    CheckYetteDialogueInfoZily,
+    CheckYetteDialogueInfoRaVito,
+    CheckYetteDialogueInfoFarfolle
+
 }
 
 [System.Serializable]
@@ -79,7 +85,6 @@ public class DialogueScriptableObject : ScriptableObject
     public Character talker1;
     public Character talker2;
     public ActionChoice dialogueAction;
-
     public UnlockDialogue[] unlockDialogue;
 }
 

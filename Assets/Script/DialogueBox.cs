@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
+using System.Reflection;
 public class DialogueBox : MonoBehaviour
 {
     //*****
@@ -45,6 +46,7 @@ public class DialogueBox : MonoBehaviour
 
     private Color32 whiteColor = new Color32(255, 255, 255, 255);
     private Color32 greyColor = new Color32(155, 155, 155, 255);
+    private Color32 absentColor = new Color32(155, 155, 155, 255);
     private Vector2 sizeTalking = new Vector2(1f, 1f);
     private Vector2 sizeNotTalking = new Vector2(0.9f, 0.9f);
 
@@ -52,10 +54,51 @@ public class DialogueBox : MonoBehaviour
 
     public void setOriginalText()
     {
+        desactivateButtons();
         idTextList = 0;
         textBox.text = currentDialogue.dialogueList[0].text;
+        talker1.sprite = GameStateBehaviour.Instance.player.spriteNeutral;
+        if (GameStateBehaviour.Instance.player.toInteract != null)
+        {
+            talker2.sprite = GameStateBehaviour.Instance.player.toInteract.spriteNeutral;
+            talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
+        }
+
         ChangeColor();
         ChangeName();
+
+        if (currentDialogue.dialogueList[0].isChoiceDialogue)
+        {
+            activeButtons();
+        }
+        if (currentDialogue.dialogueAction == ActionChoice.RunMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.GunMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.FactoryMiniGame)
+        {
+            actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.CheckYetteDialogueInfoZily)
+        {
+            actions.Add(GameStateBehaviour.Instance.CheckYetteDialogueInfoZily);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.CheckYetteDialogueInfoRaVito)
+        {
+            actions.Add(GameStateBehaviour.Instance.CheckYetteDialogueInfoRaVito);
+        }
+        else if (currentDialogue.dialogueAction == ActionChoice.CheckYetteDialogueInfoFarfolle)
+        {
+            actions.Add(GameStateBehaviour.Instance.CheckYetteDialogueInfoFarfolle);
+        }
     }
 
     public void nextDialogue()
@@ -71,10 +114,26 @@ public class DialogueBox : MonoBehaviour
         else
         {
             GameStateBehaviour.Instance.ChangeToMainGame();
-            print(actions.Count);
             for (int i = 0; i < actions.Count; i++)
             {
-                actions[i].Invoke();
+                if (actions[i].GetMethodInfo().Name.Contains("CheckYetteDialogueInfo") && PlayerPrefs.GetInt(actions[i].GetMethodInfo().Name) == 0)
+                {
+                    actions[i].Invoke();
+                    PlayerPrefs.SetInt(actions[i].GetMethodInfo().Name, 1);
+                }
+                else if (!actions[i].GetMethodInfo().Name.Contains("CheckYetteDialogueInfo"))
+                {
+                    print(actions[i].GetMethodInfo().Name);
+                    actions[i].Invoke();
+                }
+            }
+            for (int i = 0; i < currentDialogue.unlockDialogue.Length; i++)
+            {
+                if (PlayerPrefs.GetInt(currentDialogue.unlockDialogue[i].characterToUnlock.ToString() + currentDialogue.name) == 0)
+                {
+                    GameStateBehaviour.Instance.ChangeCharDialogue(currentDialogue.unlockDialogue[i].characterToUnlock, currentDialogue.unlockDialogue[i].dialogueIdUnlock);
+                    PlayerPrefs.SetInt(currentDialogue.unlockDialogue[i].characterToUnlock.ToString() + currentDialogue.name, 1);
+                }
             }
             actions = new List<Action>();
         }
@@ -99,42 +158,57 @@ public class DialogueBox : MonoBehaviour
             buttons[i].gameObject.SetActive(true);
             buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
             buttons[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
-            /*if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
-            {
-                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
-                buttons[i].onClick.AddListener(desactivateButtons);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.SearchMiniGame)
-            {
-                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
-                buttons[i].onClick.AddListener(desactivateButtons);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
-            {
-                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToGunMiniGame);
-                buttons[i].onClick.AddListener(desactivateButtons);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FactoryMiniGame)
-            {
-                buttons[i].onClick.AddListener(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
-                buttons[i].onClick.AddListener(desactivateButtons);
-            }*/
+
+
             if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
             {
-                actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+                buttons[i].onClick.AddListener(AddActionRun);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
             }
             else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.SearchMiniGame || currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
             {
-                actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+                buttons[i].onClick.AddListener(AddActionSearch);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
             }
             else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
             {
-                actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+                buttons[i].onClick.AddListener(AddActionGun);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
             }
             else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FactoryMiniGame)
             {
-                actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
+                buttons[i].onClick.AddListener(AddActionFactory);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
             }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.WinRiddleGame)
+            {
+                buttons[i].onClick.AddListener(AddActionWinRiddle);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.WinRiddleGame);
+            }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito)
+            {
+                buttons[i].onClick.AddListener(AddActionYetteRaVito);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.DialogueYetteRaVito);
+            }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre)
+            {
+                buttons[i].onClick.AddListener(AddActionYetteOmbre);
+                buttons[i].onClick.AddListener(desactivateButtons);
+                //actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
+            }
+
+            if ((currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre && PlayerPrefs.GetInt("YetteInfoDialogueDoneOmbre") == 1) || (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito && PlayerPrefs.GetInt("YetteInfoDialogueDoneRaVito") == 1))
+            {
+                buttons[i].gameObject.SetActive(false);
+                print("yes");
+            }
+
         }
     }
     public void desactivateButtons()
@@ -142,11 +216,11 @@ public class DialogueBox : MonoBehaviour
         choicesParent.SetActive(false);
         for (int i = 0; i < buttons.Length; i++)
         {
-            /*buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToGunMiniGame);
             buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
-            buttons[i].onClick.RemoveListener(desactivateButtons);*/
+            buttons[i].onClick.RemoveListener(desactivateButtons);
             buttons[i].gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
@@ -163,30 +237,14 @@ public class DialogueBox : MonoBehaviour
             activeButtons();
         }
 
-        if (currentDialogue.dialogueAction == ActionChoice.RunMiniGame)
-        {
-            actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
-        }
-        else if (currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
-        {
-            actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
-        }
-        else if (currentDialogue.dialogueAction == ActionChoice.GunMiniGame)
-        {
-            actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
-        }
-        else if (currentDialogue.dialogueAction == ActionChoice.FactoryMiniGame)
-        {
-            actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
-        }
     }
 
     private void ChangeColor()
     {
         if (currentDialogue.talker1 == currentDialogue.dialogueList[idTextList].charTalking)
         {
-            talker1.rectTransform.localScale = sizeTalking;
-            talker2.rectTransform.localScale = sizeNotTalking;
+            talker1.rectTransform.localScale = new Vector2(0.8f, 0.8f);
+            talker2.rectTransform.localScale = GameStateBehaviour.Instance.player.toInteract.sizeNotTalking;
 
             talker1.color = whiteColor;
             talker2.color = greyColor;
@@ -194,11 +252,12 @@ public class DialogueBox : MonoBehaviour
             playerName.gameObject.SetActive(true);
             interBg.SetActive(false);
             textName.gameObject.SetActive(false);
+            Talker1Sprite();
         }
         else
         {
-            talker1.rectTransform.localScale = sizeNotTalking;
-            talker2.rectTransform.localScale = sizeTalking;
+            talker1.rectTransform.localScale = new Vector2(0.7f, 0.7f);
+            talker2.rectTransform.localScale = GameStateBehaviour.Instance.player.toInteract.sizeTalking;
 
             talker1.color = greyColor;
             talker2.color = whiteColor;
@@ -207,10 +266,128 @@ public class DialogueBox : MonoBehaviour
             playerName.gameObject.SetActive(false);
             interBg.SetActive(true);
             textName.gameObject.SetActive(true);
+            Talker2Sprite();
+            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+            {
+                talker2.rectTransform.sizeDelta = new Vector2(621,1300);
+
+            }
+            else
+            {
+                talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
+            }
         }
     }
     private void ChangeName()
     {
         textName.text = currentDialogue.dialogueList[idTextList].charTalking.ToString().Replace("_", " ");
+    }
+
+
+
+    public void AddActionRun()
+    {
+        actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+    }
+    public void AddActionSearch()
+    {
+        actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+    }
+    public void AddActionGun()
+    {
+        actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+    }
+    public void AddActionFactory()
+    {
+        actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
+    }
+
+    public void AddActionWinRiddle()
+    {
+        actions.Add(GameStateBehaviour.Instance.WinRiddleGame);
+    }
+    public void AddActionYetteRaVito()
+    {
+        actions.Add(GameStateBehaviour.Instance.DialogueYetteRaVito);
+    }
+    public void AddActionYetteOmbre()
+    {
+        actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
+    }
+
+    private void Talker1Sprite()
+    {
+        CharacterBehaviour toInteract = GameStateBehaviour.Instance.player;
+
+        if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+        {
+            talker1.sprite = toInteract.spriteNeutral;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+        {
+            talker1.sprite = toInteract.spriteQuestioned;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
+        {
+            talker1.sprite = toInteract.spriteAshamed;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
+        {
+            talker1.sprite = toInteract.spriteShocked;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
+        {
+            talker1.sprite = toInteract.spriteSad;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
+        {
+            talker1.sprite = toInteract.spriteHappy;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+        {
+            talker1.sprite = toInteract.spriteAngry;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
+        {
+            talker1.sprite = toInteract.spriteAbsent;
+            talker1.color = absentColor;
+        }
+    }
+    private void Talker2Sprite()
+    {
+        DialogueInteractionBehaviour toInteract = GameStateBehaviour.Instance.player.toInteract;
+        if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+        {
+            talker2.sprite = toInteract.spriteNeutral;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+        {
+            talker2.sprite = toInteract.spriteQuestioned;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
+        {
+            talker2.sprite = toInteract.spriteAshamed;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
+        {
+            talker2.sprite = toInteract.spriteShocked;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
+        {
+            talker2.sprite = toInteract.spriteSad;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
+        {
+            talker2.sprite = toInteract.spriteHappy;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+        {
+            talker2.sprite = toInteract.spriteAngry;
+        }
+        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
+        {
+            talker2.sprite = toInteract.spriteAbsent;
+            talker2.color = absentColor;
+        }
     }
 }

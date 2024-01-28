@@ -111,3 +111,5 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 6
+  dialogueAction: 8
+  unlockDialogue: []

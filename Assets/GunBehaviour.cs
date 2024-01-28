@@ -55,6 +55,7 @@ public class GunBehaviour : MonoBehaviour
         }
         else
         {
+            player.GetComponent<CharacterBehaviour>().canShoot = false;
             mainCamera.DOShakePosition(0.2f, 2, 50);
             transitionWhite.gameObject.SetActive(true);
             transitionWhite.DOFade(1, 0.1f).OnComplete(() =>

@@ -15,92 +15,13 @@ MonoBehaviour:
   dialogueList:
   - idDialogue: 1
     charTalking: 7
-    text: "On dirait bien que vous avez r\xE9cup\xE9r\xE9 tous les alibis."
-    emotion: 3
-    choices: []
-    idGoto: 2
-    isChoiceDialogue: 0
-  - idDialogue: 2
-    charTalking: 7
-    text: "D\u2019apr\xE8s vous qui est le coupable  ?"
-    emotion: 4
-    choices:
-    - textChoice: Maili Mailo
-      idNext: 0
-      method: 0
-    - textChoice: Farfolle
-      idNext: 0
-      method: 0
-    - textChoice: Ghetti
-      idNext: 0
-      method: 0
-    - textChoice: Ra Vito
-      idNext: 0
-      method: 0
-    - textChoice: Yette
-      idNext: 0
-      method: 0
-    - textChoice: Zily
-      idNext: 0
-      method: 0
-    idGoto: 0
-    isChoiceDialogue: 1
-  - idDialogue: 3
-    charTalking: 7
-    text: "Vous \xEAtes culott\xE9 Mme la D\xE9tective, m\u2019interrogez, MOI ?
-      LA BO\xCETE AUX LETTRES? Vous \xEAtes pas tr\xE8s cuite dis donc ! "
-    emotion: 1
-    choices:
-    - textChoice: Maili Mailo
-      idNext: 0
-      method: 0
-    - textChoice: Farfolle
-      idNext: 0
-      method: 0
-    - textChoice: Ghetti
-      idNext: 0
-      method: 0
-    - textChoice: Ra Vito
-      idNext: 0
-      method: 0
-    - textChoice: Yette
-      idNext: 0
-      method: 0
-    - textChoice: Zily
-      idNext: 0
-      method: 0
-    idGoto: 4
-    isChoiceDialogue: 0
-  - idDialogue: 4
-    charTalking: 7
-    text: "JE SUIS LA SCIENCE INFUSE ! Je n\u2019ai ni jambes ni bras en plus !"
-    emotion: 1
+    text: "Madame la D\xE9tective, il semblerait que vous manquez des informations
+      essentielles \xE0 l'enqu\xEAte, revenez me voir plus tard."
+    emotion: 5
     choices: []
     idGoto: -1
-    isChoiceDialogue: 0
-  - idDialogue: 5
-    charTalking: 7
-    text: "C\u2019est pas tr\xE8s convaincant \xE7a Mme la D\xE9tective, aucune preuve
-      n\u2019indique leur culpabilit\xE9. R\xE9fl\xE9chissez \xE0 nouveau. "
-    emotion: 6
-    choices: []
-    idGoto: 2
-    isChoiceDialogue: 0
-  - idDialogue: 6
-    charTalking: 7
-    text: "Tr\xE8s bien, si c\u2019est ce que vous pensez, je transmet \xE0 vos sup\xE9rieurs\u2026 "
-    emotion: 0
-    choices: []
-    idGoto: -1
-    isChoiceDialogue: 0
-  - idDialogue: 7
-    charTalking: 7
-    text: "C\u2019est pas tr\xE8s convaincant \xE7a Mme la D\xE9tective, il semble
-      \xE9vident que Ra Vito a manipul\xE9 le p\u2019tit Yette. Il n\u2019y a pas
-      assez de preuves. "
-    emotion: 6
-    choices: []
-    idGoto: 2
     isChoiceDialogue: 0
   talker1: 0
   talker2: 7
+  dialogueAction: 0
+  unlockDialogue: []
