@@ -26,9 +26,15 @@ public class YetteRunning : MonoBehaviour
     public bool playerWin;
     public DialogueInteractionBehaviour dialogueInteractionBehaviour;
 
+    [SerializeField]
+    private Animator anim;
+    private string clipname;
 
     void OnEnable()
     {
+        anim = GetComponent<Animator>();
+        anim.SetBool("running", true);
+        
         currentIdx = 0;
         vectorDir = pos[currentIdx].position - transform.position;
         vectorDir = new Vector2(vectorDir.x, vectorDir.y);
@@ -39,11 +45,13 @@ public class YetteRunning : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!stop && Vector2.Distance(transform.position, pos[currentIdx].position) > 1f)
+        clipname = anim.GetCurrentAnimatorClipInfo(0)[0].clip.name;
+
+        if (!stop && Vector2.Distance(transform.position, pos[currentIdx].position) > 1f && clipname == "YetteRunning")
         {
             transform.Translate(vectorDir * speed);
         }
-        else if (!stop)
+        else if (!stop && clipname == "YetteRunning")
         {
             currentIdx++;
             if (currentIdx < pos.Length)
@@ -54,6 +62,8 @@ public class YetteRunning : MonoBehaviour
             }
             else
             {
+                anim.SetBool("running", false);
+
                 stop = true;
                 transition.gameObject.SetActive(true);
                 transition.DOFade(1, 1).OnComplete(() =>
