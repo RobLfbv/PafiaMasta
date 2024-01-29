@@ -75,8 +75,14 @@ public class CharacterBehaviour : MonoBehaviour
     private Color colorTransparent = new Color(255, 255, 255, 0f);
     private Color colorNotTransparent = new Color(255, 255, 255, 255);
 
+    [SerializeField]
+    public AudioClip[] sfx;
+    private AudioSource source;
+
     void Awake()
     {
+        source = GetComponent<AudioSource>();
+
         characterInput = new CharacterInput();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -105,13 +111,18 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void PauseGame(InputAction.CallbackContext obj)
     {
+
         if (!GameStateBehaviour.Instance.isPaused)
         {
             GameStateBehaviour.Instance.PauseGame();
+            source.clip = sfx[1];
+            source.Play();
         }
         else
         {
             GameStateBehaviour.Instance.UnpauseGame();
+            source.clip = sfx[2];
+            source.Play();
         }
     }
 
@@ -119,17 +130,24 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
+
         if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
             {
                 DialogueBox.Instance.nextDialogue();
+
+                source.clip = sfx[0];
+                source.Play();
             }
             else if (toInteract != null)
             {
                 GameStateBehaviour.Instance.ChangeToDialogue();
                 if (takenObject != null)
                 {
+                    source.clip = sfx[3];
+                    source.Play();
+
                     if (takenObject.type.Equals("Papate"))
                     {
                         DialogueBox.Instance.currentDialogue = toInteract.WinDialogue;

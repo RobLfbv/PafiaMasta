@@ -29,8 +29,15 @@ public class GunBehaviour : MonoBehaviour
     [SerializeField]
     private bool noShoot = false;
 
+    [SerializeField]
+    public AudioClip[] sfx;
+    private AudioSource sound;
+
     private void Start()
     {
+        sound = GetComponent<AudioSource>();
+        sound.clip = sfx[0];
+
         playerTurn = false;
         whichShot = Random.Range(0, 6);
     }
@@ -51,6 +58,8 @@ public class GunBehaviour : MonoBehaviour
         });
         if (numberOfShot != whichShot)
         {
+            sound.Play();
+
             playerTurn = !playerTurn;
             gun.GetComponent<SpriteRenderer>().flipX = !playerTurn;
             if (mainCamera.orthographicSize > 2.5f)
@@ -66,6 +75,9 @@ public class GunBehaviour : MonoBehaviour
         }
         else
         {
+            sound.clip = sfx[1];
+            sound.Play();
+
             noShoot = true;
             numberOfShot++;
             mainCamera.DOShakePosition(0.2f, 2, 50);
