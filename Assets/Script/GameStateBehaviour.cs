@@ -102,10 +102,11 @@ public class GameStateBehaviour : MonoBehaviour
             PlayerPrefs.SetInt("Ghetti", 1);
             PlayerPrefs.SetInt("Ra_Vito", 0);
             PlayerPrefs.SetInt("Maili_Mailo", 1);
+            ChangeToDialogue();
+            DialogueBox.Instance.currentDialogue = introDialogue;
+            DialogueBox.Instance.setOriginalText();
         }
-        ChangeToDialogue();
-        DialogueBox.Instance.currentDialogue = introDialogue;
-        DialogueBox.Instance.setOriginalText();
+
     }
 
     public void ChangeToDialogue()
@@ -217,6 +218,11 @@ public class GameStateBehaviour : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         pauseScreen.SetActive(true);
+    }
+
+    public void QuitGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void UnpauseGame()

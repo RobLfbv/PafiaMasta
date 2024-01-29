@@ -46,7 +46,7 @@ public class CharacterBehaviour : MonoBehaviour
     public GameObject SpoonAnchor;
     public TMP_Text textRPM;
     public TMP_Text textRPMObj;
-    public int actualObjectiveRPM;
+    public int actualObjectiveRPM = -1;
     public float[] objectivesRPM;
     public DialogueInteractionBehaviour zilyDialogue;
 
@@ -79,6 +79,44 @@ public class CharacterBehaviour : MonoBehaviour
     public AudioClip[] sfx;
     private AudioSource source;
 
+    private Vector3 rotationSpoonBas;
+    [SerializeField]
+    private Vector3 positionSpoonBas;
+    [SerializeField]
+    private Vector3 rotationSpoonDroite;
+    [SerializeField]
+    private Vector3 positionSpoonDroite;
+    [SerializeField]
+    private Vector3 rotationSpoonGauche;
+    [SerializeField]
+    private Vector3 positionSpoonGauche;
+    [SerializeField]
+    private Vector3 rotationSpoonHaut;
+    [SerializeField]
+    private Vector3 positionSpoonHaut;
+    [SerializeField]
+    private Image keyToMove;
+    [SerializeField]
+    private Sprite keyToMoveLeft;
+    [SerializeField]
+    private Sprite keyToMoveRight;
+    [SerializeField]
+    private Sprite keyToMoveUp;
+    [SerializeField]
+    private Sprite keyToMoveDown;
+    [SerializeField]
+    private GameObject forwardChaudron;
+    [SerializeField]
+    private GameObject backChaudron;
+    [SerializeField]
+    private GameObject sauce;
+    [SerializeField]
+    private ChronoBehaviour1 chrono;
+    private Color color1 = new Color(0.8f, 0.8f, 0.8f);
+    private Color color2 = new Color(0.5f, 0.5f, 0.5f);
+    private Color color3 = new Color(0.34f, 0.34f, 0.34f);
+    private Color color4 = new Color(0.12f, 0.12f, 0.12f);
+    private Color color5 = new Color(0, 0, 0);
     void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -97,7 +135,6 @@ public class CharacterBehaviour : MonoBehaviour
         pauseAction.Enable();
         interactAction.performed += Interaction;
         pauseAction.performed += PauseGame;
-
     }
 
     private void OnDisable()
@@ -130,8 +167,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
-
-        if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
+        if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame && !GameStateBehaviour.Instance.isPaused)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
             {
@@ -264,28 +300,37 @@ public class CharacterBehaviour : MonoBehaviour
                 if (nextInput == Vector2.right)
                 {
                     nextInput = Vector2.down;
-                    print("down");
                     nbTourPerSec += 0.25f;
+                    SpoonAnchor.transform.DORotate(rotationSpoonBas, 0.02f);
+                    keyToMove.sprite = keyToMoveDown;
+                    //SpoonAnchor.transform.DOLocalMove(positionSpoonBas, 0.01f);
                 }
                 else if (nextInput == Vector2.down)
                 {
                     nextInput = Vector2.left;
-                    print("left");
                     nbTourPerSec += 0.25f;
+                    SpoonAnchor.transform.DORotate(rotationSpoonGauche, 0.02f);
+                    keyToMove.sprite = keyToMoveLeft;
+                    //SpoonAnchor.transform.DOLocalMove(positionSpoonGauche, 0.01f);
                 }
                 else if (nextInput == Vector2.left)
                 {
                     nextInput = Vector2.up;
-                    print("up");
                     nbTourPerSec += 0.25f;
+                    SpoonAnchor.transform.DORotate(rotationSpoonHaut, 0.02f);
+                    keyToMove.sprite = keyToMoveUp;
+                    //SpoonAnchor.transform.DOLocalMove(positionSpoonHaut, 0.01f);
                 }
                 else if (nextInput == Vector2.up)
                 {
                     nextInput = Vector2.right;
-                    print("right");
                     nbTourPerSec += 0.25f;
+                    SpoonAnchor.transform.DORotate(rotationSpoonDroite, 0.02f);
+                    keyToMove.sprite = keyToMoveRight;
+                    //SpoonAnchor.transform.DOLocalMove(positionSpoonDroite, 0.01f);
+
                 }
-                SpoonAnchor.transform.DORotate(new Vector3(0, 0, -90f), 0.02f, RotateMode.WorldAxisAdd);
+                //SpoonAnchor.transform.DORotate(new Vector3(0, 0, -90f), 0.02f, RotateMode.WorldAxisAdd);
             }
         }
     }
@@ -303,13 +348,15 @@ public class CharacterBehaviour : MonoBehaviour
     {
         tourParMinute = nbTourPerSec * 60;
         nbTourPerSec = 0;
-        textRPM.SetText("RPM : " + tourParMinute);
+        textRPM.SetText("Tours par minute : " + tourParMinute);
         StartCoroutine(DoAfterDelay(1f, CalculateRPM));
     }
 
     public void ChangeObjective()
     {
-        if (actualObjectiveRPM != 0 && tourParMinute < objectivesRPM[actualObjectiveRPM])
+        chrono.timeTotal = 6.5f;
+        actualObjectiveRPM++;
+        if (actualObjectiveRPM == objectivesRPM.Length || (actualObjectiveRPM != 0 && tourParMinute < objectivesRPM[actualObjectiveRPM]))
         {
             GameStateBehaviour.Instance.ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = zilyDialogue.LoseDialogue;
@@ -317,9 +364,59 @@ public class CharacterBehaviour : MonoBehaviour
             toInteract = GameStateBehaviour.Instance.zilyInteraction.GetComponent<DialogueInteractionBehaviour>();
             DialogueBox.Instance.setOriginalText();
         }
-        textRPMObj.SetText("Objectif : " + objectivesRPM[actualObjectiveRPM]);
-        actualObjectiveRPM++;
-        StartCoroutine(DoAfterDelay(3f, ChangeObjective));
+        textRPMObj.SetText("Quota : " + objectivesRPM[actualObjectiveRPM]);
+        if (actualObjectiveRPM == 1)
+        {
+            forwardChaudron.transform.DOShakePosition(6f, 1, 10);
+            forwardChaudron.transform.DOShakeRotation(6f, 1, 10);
+            backChaudron.transform.DOShakePosition(6f, 1, 10);
+            backChaudron.transform.DOShakeRotation(6f, 1, 10);
+            sauce.transform.DOShakePosition(6f, 1, 10);
+            sauce.transform.DOShakeRotation(6f, 1, 10);
+            sauce.GetComponent<Image>().DOColor(color1, 6);
+        }
+        else if (actualObjectiveRPM == 2)
+        {
+            forwardChaudron.transform.DOShakePosition(6f, 10, 10);
+            forwardChaudron.transform.DOShakeRotation(6f, 10, 10);
+            backChaudron.transform.DOShakePosition(6f, 10, 10);
+            backChaudron.transform.DOShakeRotation(6f, 10, 10);
+            sauce.transform.DOShakePosition(6f, 10, 10);
+            sauce.transform.DOShakeRotation(6f, 10, 10);
+            sauce.GetComponent<Image>().DOColor(color2, 6);
+        }
+        else if (actualObjectiveRPM == 3)
+        {
+            forwardChaudron.transform.DOShakePosition(6f, 15, 10);
+            forwardChaudron.transform.DOShakeRotation(6f, 15, 10);
+            backChaudron.transform.DOShakePosition(6f, 15, 10);
+            backChaudron.transform.DOShakeRotation(6f, 15, 10);
+            sauce.transform.DOShakePosition(6f, 15, 10);
+            sauce.transform.DOShakeRotation(6f, 15, 10);
+            sauce.GetComponent<Image>().DOColor(color3, 6);
+        }
+        else if (actualObjectiveRPM == 4)
+        {
+            forwardChaudron.transform.DOShakePosition(6f, 30, 10);
+            forwardChaudron.transform.DOShakeRotation(6f, 30, 10);
+            backChaudron.transform.DOShakePosition(6f, 30, 10);
+            backChaudron.transform.DOShakeRotation(6f, 30, 10);
+            sauce.transform.DOShakePosition(6f, 30, 10);
+            sauce.transform.DOShakeRotation(6f, 30, 10);
+            sauce.GetComponent<Image>().DOColor(color4, 6);
+        }
+        else if (actualObjectiveRPM == 5)
+        {
+            forwardChaudron.transform.DOShakePosition(6f, 60, 10);
+            forwardChaudron.transform.DOShakeRotation(6f, 60, 10);
+            backChaudron.transform.DOShakePosition(6f, 60, 10);
+            backChaudron.transform.DOShakeRotation(6f, 60, 10);
+            sauce.transform.DOShakePosition(6f, 60, 10);
+            sauce.transform.DOShakeRotation(6f, 60, 10);
+            sauce.GetComponent<Image>().DOColor(color5, 6);
+        }
+
+        StartCoroutine(DoAfterDelay(6.5f, ChangeObjective));
     }
 
 }

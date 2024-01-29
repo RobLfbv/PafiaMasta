@@ -38,6 +38,10 @@ public class DialogueBox : MonoBehaviour
 
     public GameObject choicesParent;
     public Button[] buttons;
+    public GameObject choicesParentFinal;
+    public Button[] buttonsFinal;
+    public Button buttonsFinalYette;
+    public Button buttonsFinalRaVito;
     private int idTextList;
     public Image talker1;
     public Image talker2;
@@ -163,77 +167,91 @@ public class DialogueBox : MonoBehaviour
 
     public void activeButtons()
     {
-        choicesParent.SetActive(true);
-        for (int i = 0; i < currentDialogue.dialogueList[idTextList].choices.Count; i++)
+        if (currentDialogue.name.Equals("AccusationWithInfoYette") || currentDialogue.name.Equals("AccusationWithoutInfo"))
         {
-            buttons[i].gameObject.SetActive(true);
-            buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
-            buttons[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
-
-
-            if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
+            choicesParentFinal.SetActive(true);
+            for (int i = 0; i < currentDialogue.dialogueList[idTextList].choices.Count; i++)
             {
-                buttons[i].onClick.AddListener(AddActionRun);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.SearchMiniGame || currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
-            {
-                buttons[i].onClick.AddListener(AddActionSearch);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
-            {
-                buttons[i].onClick.AddListener(AddActionGun);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FactoryMiniGame)
-            {
-                buttons[i].onClick.AddListener(AddActionFactory);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.WinRiddleGame)
-            {
-                buttons[i].onClick.AddListener(AddActionWinRiddle);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.WinRiddleGame);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito)
-            {
-                buttons[i].onClick.AddListener(AddActionYetteRaVito);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.DialogueYetteRaVito);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre)
-            {
-                buttons[i].onClick.AddListener(AddActionYetteOmbre);
-                buttons[i].onClick.AddListener(desactivateButtons);
-                //actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FinishGameYette)
-            {
-                buttons[i].onClick.AddListener(AddActionEndingYette);
-                buttons[i].onClick.AddListener(desactivateButtons);
-            }
-            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FinishGameRaVito)
-            {
-                buttons[i].onClick.AddListener(AddActionEndingRaVito);
-                buttons[i].onClick.AddListener(desactivateButtons);
+                buttonsFinal[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
+                buttonsFinal[i].gameObject.SetActive(true);
             }
 
-            if ((currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre && PlayerPrefs.GetInt("YetteInfoDialogueDoneOmbre") == 1) || (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito && PlayerPrefs.GetInt("YetteInfoDialogueDoneRaVito") == 1))
+            if (currentDialogue.name.Equals("AccusationWithInfoYette"))
             {
-                buttons[i].gameObject.SetActive(false);
+                buttonsFinalYette.onClick.AddListener(AddActionEndingYette);
+                buttonsFinalYette.onClick.AddListener(desactivateButtons);
             }
+            else if (currentDialogue.name.Equals("AccusationWithoutInfo"))
+            {
+                buttonsFinalRaVito.onClick.AddListener(AddActionEndingRaVito);
+                buttonsFinalRaVito.onClick.AddListener(desactivateButtons);
+            }
+        }
+        else
+        {
+            choicesParent.SetActive(true);
+            for (int i = 0; i < currentDialogue.dialogueList[idTextList].choices.Count; i++)
+            {
+                buttons[i].gameObject.SetActive(true);
+                buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
+                buttons[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
 
+
+                if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.RunMiniGame)
+                {
+                    buttons[i].onClick.AddListener(AddActionRun);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
+                }
+                else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.SearchMiniGame || currentDialogue.dialogueAction == ActionChoice.SearchMiniGame)
+                {
+                    buttons[i].onClick.AddListener(AddActionSearch);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
+                }
+                else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.GunMiniGame)
+                {
+                    buttons[i].onClick.AddListener(AddActionGun);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.ChangeToGunMiniGame);
+                }
+                else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FactoryMiniGame)
+                {
+                    buttons[i].onClick.AddListener(AddActionFactory);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
+                }
+                else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.WinRiddleGame)
+                {
+                    buttons[i].onClick.AddListener(AddActionWinRiddle);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.WinRiddleGame);
+                }
+                else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito)
+                {
+                    buttons[i].onClick.AddListener(AddActionYetteRaVito);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.DialogueYetteRaVito);
+                }
+                else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre)
+                {
+                    buttons[i].onClick.AddListener(AddActionYetteOmbre);
+                    buttons[i].onClick.AddListener(desactivateButtons);
+                    //actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
+                }
+
+
+                if ((currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre && PlayerPrefs.GetInt("YetteInfoDialogueDoneOmbre") == 1) || (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito && PlayerPrefs.GetInt("YetteInfoDialogueDoneRaVito") == 1))
+                {
+                    buttons[i].gameObject.SetActive(false);
+                }
+            }
         }
     }
     public void desactivateButtons()
     {
         choicesParent.SetActive(false);
+        choicesParentFinal.SetActive(false);
         for (int i = 0; i < buttons.Length; i++)
         {
             buttons[i].onClick.RemoveListener(AddActionRun);
@@ -247,6 +265,20 @@ public class DialogueBox : MonoBehaviour
             buttons[i].onClick.RemoveListener(AddActionEndingRaVito);
             buttons[i].onClick.RemoveListener(desactivateButtons);
             buttons[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < buttonsFinal.Length; i++)
+        {
+            buttonsFinal[i].onClick.RemoveListener(AddActionRun);
+            buttonsFinal[i].onClick.RemoveListener(AddActionSearch);
+            buttonsFinal[i].onClick.RemoveListener(AddActionGun);
+            buttonsFinal[i].onClick.RemoveListener(AddActionFactory);
+            buttonsFinal[i].onClick.RemoveListener(AddActionWinRiddle);
+            buttonsFinal[i].onClick.RemoveListener(AddActionYetteRaVito);
+            buttonsFinal[i].onClick.RemoveListener(AddActionYetteOmbre);
+            buttonsFinal[i].onClick.RemoveListener(AddActionEndingYette);
+            buttonsFinal[i].onClick.RemoveListener(AddActionEndingRaVito);
+            buttonsFinal[i].onClick.RemoveListener(desactivateButtons);
+            buttonsFinal[i].gameObject.SetActive(false);
         }
         EventSystem.current.SetSelectedGameObject(null);
     }
