@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ListSuspsectsBehaviour : MonoBehaviour
 {
     [SerializeField]
-    private List<Image> suspects;
+    private List<GameObject> suspects;
     [SerializeField]
     private Button nextButton;
     [SerializeField]
@@ -23,7 +23,7 @@ public class ListSuspsectsBehaviour : MonoBehaviour
         DesactivateSuspect();
         index = 0;
         VerificationButton();
-        suspects[index].gameObject.SetActive(true);
+        suspects[index].SetActive(true);
         nextButton.Select();
     }
 
@@ -31,7 +31,7 @@ public class ListSuspsectsBehaviour : MonoBehaviour
     {
         for (int i = 0; i < suspects.Count; i++)
         {
-            suspects[i].gameObject.SetActive(false);
+            suspects[i].SetActive(false);
         }
     }
 
