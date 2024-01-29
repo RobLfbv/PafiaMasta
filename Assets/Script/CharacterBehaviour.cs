@@ -130,7 +130,6 @@ public class CharacterBehaviour : MonoBehaviour
         pauseAction.Enable();
         interactAction.performed += Interaction;
         pauseAction.performed += PauseGame;
-
     }
 
     private void OnDisable()
@@ -158,7 +157,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
-        if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
+        if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame && !GameStateBehaviour.Instance.isPaused)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
             {
