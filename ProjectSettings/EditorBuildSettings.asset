@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/RaVitoEnding.unity
+    guid: fc19e8787a6749546b57e3629dd7612f
+  - enabled: 1
+    path: Assets/Scenes/YetteEnding.unity
+    guid: 192a7f7e4771f0142bb92656babc980f
   m_configObjects: {}

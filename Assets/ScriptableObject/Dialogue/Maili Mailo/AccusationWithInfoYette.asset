@@ -39,7 +39,7 @@ MonoBehaviour:
       method: 0
     - textChoice: Yette
       idNext: 7
-      method: 0
+      method: 12
     - textChoice: Zily
       idNext: 5
       method: 0
@@ -96,3 +96,4 @@ MonoBehaviour:
   talker2: 7
   dialogueAction: 0
   unlockDialogue: []
+  unlockCarnets: []

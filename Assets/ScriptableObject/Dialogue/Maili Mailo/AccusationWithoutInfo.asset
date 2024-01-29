@@ -36,7 +36,7 @@ MonoBehaviour:
       method: 0
     - textChoice: Ra Vito
       idNext: 6
-      method: 0
+      method: 11
     - textChoice: Yette
       idNext: 7
       method: 0
@@ -104,3 +104,6 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 7
+  dialogueAction: 0
+  unlockDialogue: []
+  unlockCarnets: []
