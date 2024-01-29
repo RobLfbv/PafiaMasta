@@ -71,3 +71,6 @@ MonoBehaviour:
   unlockDialogue:
   - characterToUnlock: 3
     dialogueIdUnlock: 0
+  unlockCarnets:
+  - characterToUnlock: 2
+    dialogueIdUnlock: 1

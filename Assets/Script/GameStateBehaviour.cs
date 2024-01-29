@@ -245,6 +245,7 @@ public class GameStateBehaviour : MonoBehaviour
     {
         PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);
         PlayerPrefs.SetInt("YetteInfoDialogueDoneOmbre", 1);
+        PlayerPrefs.SetInt("FarfolleUnlock3",1);
         if (PlayerPrefs.GetInt("YetteInfoDialogueDone") == 2)
         {
             ChangeYeetDialogue(0);
@@ -254,6 +255,7 @@ public class GameStateBehaviour : MonoBehaviour
     {
         PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);
         PlayerPrefs.SetInt("YetteInfoDialogueDoneRaVito", 1);
+        PlayerPrefs.SetInt("FarfolleUnlock2",1);
         if (PlayerPrefs.GetInt("YetteInfoDialogueDone") == 2)
         {
             ChangeYeetDialogue(0);

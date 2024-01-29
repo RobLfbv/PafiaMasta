@@ -128,6 +128,15 @@ public class DialogueBox : MonoBehaviour
                     actions[i].Invoke();
                 }
             }
+            if (currentDialogue.unlockDialogue != null)
+            {
+                for (int i = 0; i < currentDialogue.unlockCarnets.Length; i++)
+                {
+                    print(currentDialogue.unlockCarnets[i].alibiToUnlock.ToString());
+                    PlayerPrefs.SetInt(currentDialogue.unlockCarnets[i].alibiToUnlock.ToString(), 1);
+                }
+            }
+
             for (int i = 0; i < currentDialogue.unlockDialogue.Length; i++)
             {
                 if (PlayerPrefs.GetInt(currentDialogue.unlockDialogue[i].characterToUnlock.ToString() + currentDialogue.name) == 0)
@@ -239,7 +248,7 @@ public class DialogueBox : MonoBehaviour
         }
 
     }
-    
+
     private void ChangeColor()
     {
         if (currentDialogue.talker1 == currentDialogue.dialogueList[idTextList].charTalking)

@@ -67,3 +67,7 @@ MonoBehaviour:
   unlockDialogue:
   - characterToUnlock: 7
     dialogueIdUnlock: 2
+  unlockCarnets:
+  - alibiToUnlock: 6
+  - alibiToUnlock: 7
+  - alibiToUnlock: 4

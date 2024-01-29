@@ -92,3 +92,4 @@ MonoBehaviour:
   talker2: 2
   dialogueAction: 0
   unlockDialogue: []
+  unlockCarnets: []

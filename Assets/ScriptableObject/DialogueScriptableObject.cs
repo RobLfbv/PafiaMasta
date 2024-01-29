@@ -44,6 +44,22 @@ public enum ActionChoice
 
 }
 
+public enum AlibiUnlock
+{
+    YetteAlibi1,
+    YetteAlibi2,
+    YetteAlibi3,
+    YetteAlibi4,
+    YetteAlibi5,
+    FarfolleAlibi1,
+    FarfolleAlibi2,
+    FarfolleAlibi3,
+    GhettiAlibi1,
+    GhettiAlibi2,
+    ZilyAlibi1, 
+    Ra_VitoAlibi1
+}
+
 [System.Serializable]
 public class DialogueLine
 {
@@ -77,6 +93,11 @@ public class UnlockDialogue
     public Character characterToUnlock;
     public int dialogueIdUnlock;
 }
+[System.Serializable]
+public class UnlockCarnet
+{
+    public AlibiUnlock alibiToUnlock;
+}
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObject/DialogieScriptableObject", order = 1)]
 public class DialogueScriptableObject : ScriptableObject
@@ -86,6 +107,7 @@ public class DialogueScriptableObject : ScriptableObject
     public Character talker2;
     public ActionChoice dialogueAction;
     public UnlockDialogue[] unlockDialogue;
+    public UnlockCarnet[] unlockCarnets;
 }
 
 

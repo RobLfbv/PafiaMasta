@@ -113,3 +113,7 @@ MonoBehaviour:
   talker2: 6
   dialogueAction: 8
   unlockDialogue: []
+  unlockCarnets:
+  - alibiToUnlock: 8
+  - alibiToUnlock: 9
+  - alibiToUnlock: 10
