@@ -62,7 +62,7 @@ public class DialogueBox : MonoBehaviour
         if (GameStateBehaviour.Instance.player.toInteract != null)
         {
             talker2.sprite = GameStateBehaviour.Instance.player.toInteract.spriteNeutral;
-            talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
+            //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
         }
 
         ChangeColor();
@@ -239,13 +239,13 @@ public class DialogueBox : MonoBehaviour
         }
 
     }
-
+    
     private void ChangeColor()
     {
         if (currentDialogue.talker1 == currentDialogue.dialogueList[idTextList].charTalking)
         {
-            talker1.rectTransform.localScale = new Vector2(0.8f, 0.8f);
-            talker2.rectTransform.localScale = GameStateBehaviour.Instance.player.toInteract.sizeNotTalking;
+            talker1.rectTransform.localScale = new Vector2(1f, 1f);
+            talker2.rectTransform.localScale = new Vector2(0.9f, 0.9f);
 
             talker1.color = whiteColor;
             talker2.color = greyColor;
@@ -258,8 +258,8 @@ public class DialogueBox : MonoBehaviour
         }
         else
         {
-            talker1.rectTransform.localScale = new Vector2(0.7f, 0.7f);
-            talker2.rectTransform.localScale = GameStateBehaviour.Instance.player.toInteract.sizeTalking;
+            talker1.rectTransform.localScale = new Vector2(0.9f, 0.9f);
+            talker2.rectTransform.localScale = Vector2.one;
 
             talker1.color = greyColor;
             talker2.color = whiteColor;
@@ -275,11 +275,15 @@ public class DialogueBox : MonoBehaviour
             }
             if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
             {
-                talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
+                //talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
             }
             else
             {
-                talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
+                //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
+                talker2.rectTransform.anchorMin = Vector2.zero;
+                talker2.rectTransform.anchorMax = Vector2.one;
+                talker2.rectTransform.offsetMin = new Vector2(0, 0);
+                talker2.rectTransform.offsetMin = new Vector2(0, 0);
             }
         }
     }
@@ -320,7 +324,7 @@ public class DialogueBox : MonoBehaviour
         actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
     }
 
-    private void Talker1Sprite()
+    public void Talker1Sprite()
     {
         CharacterBehaviour toInteract = GameStateBehaviour.Instance.player;
 
@@ -358,7 +362,7 @@ public class DialogueBox : MonoBehaviour
             talker1.color = absentColor;
         }
     }
-    private void Talker2Sprite()
+    public void Talker2Sprite()
     {
         DialogueInteractionBehaviour toInteract = GameStateBehaviour.Instance.player.toInteract;
         if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
