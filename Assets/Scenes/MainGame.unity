@@ -27375,6 +27375,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 1700796066139518080, guid: 3f4340b728c2f0142908acd4e6cf4978, type: 3}
+      propertyPath: sfx.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700796066139518080, guid: 3f4340b728c2f0142908acd4e6cf4978, type: 3}
       propertyPath: transitionBlack
       value: 
       objectReference: {fileID: 248608758}
@@ -27382,6 +27386,14 @@ PrefabInstance:
       propertyPath: transitionWhite
       value: 
       objectReference: {fileID: 1418886588}
+    - target: {fileID: 1700796066139518080, guid: 3f4340b728c2f0142908acd4e6cf4978, type: 3}
+      propertyPath: sfx.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9be7882fa7483964eaef7d4eae0095e3, type: 3}
+    - target: {fileID: 1700796066139518080, guid: 3f4340b728c2f0142908acd4e6cf4978, type: 3}
+      propertyPath: sfx.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: ebb91cf4fddced74baa2efc2fa4c4419, type: 3}
     - target: {fileID: 3342620410272897562, guid: 3f4340b728c2f0142908acd4e6cf4978, type: 3}
       propertyPath: m_Name
       value: Ra_Vito
