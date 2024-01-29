@@ -318,27 +318,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4721993863203186136, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
   m_PrefabInstance: {fileID: 8799921038755154608}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-2000783396090728661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4294320688433475432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2c6d5e276b59f94e95afa011138fc0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pos: []
-  ogPosYette: {fileID: 0}
-  resetPosPlayer: {fileID: 0}
-  player: {fileID: 0}
-  speed: 0
-  transition: {fileID: 0}
-  playerWin: 0
-  dialogueInteractionBehaviour: {fileID: 0}
-  anim: {fileID: 0}
 --- !u!95 &4257010276588258229
 Animator:
   serializedVersion: 5
@@ -360,6 +339,35 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2000783396090728661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294320688433475432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c6d5e276b59f94e95afa011138fc0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ogPosYette: {fileID: 0}
+  resetPosPlayer: {fileID: 0}
+  player: {fileID: 0}
+  speed: 0
+  transition: {fileID: 0}
+  playerWin: 0
+  dialogueInteractionBehaviour: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!4 &4294320688433475439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
