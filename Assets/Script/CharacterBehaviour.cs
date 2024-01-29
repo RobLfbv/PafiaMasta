@@ -180,12 +180,12 @@ public class CharacterBehaviour : MonoBehaviour
             }
             else if (toInteract != null)
             {
+                source.clip = sfx[3];
+                source.Play();
+
                 GameStateBehaviour.Instance.ChangeToDialogue();
                 if (takenObject != null)
                 {
-                    source.clip = sfx[3];
-                    source.Play();
-
                     if (takenObject.type.Equals("Papate"))
                     {
                         DialogueBox.Instance.currentDialogue = toInteract.WinDialogue;

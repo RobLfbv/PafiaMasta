@@ -11,6 +11,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStateBehaviour : MonoBehaviour
 {
+    public AudioClip[] musics;
+    public AudioSource cam;
+
     //*****
     // Singleton pattern
     //*****
@@ -111,6 +114,12 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToDialogue()
     {
+        if(cam.clip != musics[0])
+        {
+            cam.clip = musics[0];
+            cam.Play();
+        }
+
         currentState = GameState.Dialogue;
         dialogueScreen.SetActive(true);
         runMiniGameScreen.SetActive(false);
@@ -125,6 +134,12 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToMainGame()
     {
+        if (cam.clip != musics[0])
+        {
+            cam.clip = musics[0];
+            cam.Play();
+        }
+
         currentState = GameState.MainGame;
         runMiniGameScreen.SetActive(false);
         factoryMiniGameScreen.SetActive(false);
@@ -142,6 +157,9 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToRunMiniGame()
     {
+        cam.clip = musics[3];
+        cam.Play();
+
         currentState = GameState.RunMiniGame;
         runMiniGameScreen.SetActive(true);
         yette.GetComponent<YetteRunning>().enabled = true;
@@ -171,6 +189,9 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToGunMiniGame()
     {
+        cam.clip = musics[1];
+        cam.Play();
+
         player.canShoot = false;
         currentState = GameState.GunMiniGame;
         yetteInteraction.SetActive(false);
@@ -199,6 +220,9 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToFactoryMiniGame()
     {
+        cam.clip = musics[2];
+        cam.Play();
+
         currentState = GameState.FactoryMiniGame;
         factoryMiniGameScreen.SetActive(true);
         yetteInteraction.SetActive(false);
