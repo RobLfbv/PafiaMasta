@@ -61,6 +61,7 @@ public class DialogueBox : MonoBehaviour
         talker1.sprite = GameStateBehaviour.Instance.player.spriteNeutral;
         if (GameStateBehaviour.Instance.player.toInteract != null)
         {
+            interAnimator.enabled = false;
             talker2.sprite = GameStateBehaviour.Instance.player.toInteract.spriteNeutral;
             //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
         }
@@ -72,6 +73,7 @@ public class DialogueBox : MonoBehaviour
         {
             activeButtons();
         }
+
         if (currentDialogue.dialogueAction == ActionChoice.RunMiniGame)
         {
             actions.Add(GameStateBehaviour.Instance.ChangeToRunMiniGame);
@@ -132,7 +134,6 @@ public class DialogueBox : MonoBehaviour
             {
                 for (int i = 0; i < currentDialogue.unlockCarnets.Length; i++)
                 {
-                    print(currentDialogue.unlockCarnets[i].alibiToUnlock.ToString());
                     PlayerPrefs.SetInt(currentDialogue.unlockCarnets[i].alibiToUnlock.ToString(), 1);
                 }
             }
@@ -212,11 +213,20 @@ public class DialogueBox : MonoBehaviour
                 buttons[i].onClick.AddListener(desactivateButtons);
                 //actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
             }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FinishGameYette)
+            {
+                buttons[i].onClick.AddListener(AddActionEndingYette);
+                buttons[i].onClick.AddListener(desactivateButtons);
+            }
+            else if (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.FinishGameRaVito)
+            {
+                buttons[i].onClick.AddListener(AddActionEndingRaVito);
+                buttons[i].onClick.AddListener(desactivateButtons);
+            }
 
             if ((currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteOmbre && PlayerPrefs.GetInt("YetteInfoDialogueDoneOmbre") == 1) || (currentDialogue.dialogueList[idTextList].choices[i].method == ActionChoice.DialogueYetteRaVito && PlayerPrefs.GetInt("YetteInfoDialogueDoneRaVito") == 1))
             {
                 buttons[i].gameObject.SetActive(false);
-                print("yes");
             }
 
         }
@@ -226,10 +236,15 @@ public class DialogueBox : MonoBehaviour
         choicesParent.SetActive(false);
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToRunMiniGame);
-            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToSearchMiniGame);
-            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToGunMiniGame);
-            buttons[i].onClick.RemoveListener(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
+            buttons[i].onClick.RemoveListener(AddActionRun);
+            buttons[i].onClick.RemoveListener(AddActionSearch);
+            buttons[i].onClick.RemoveListener(AddActionGun);
+            buttons[i].onClick.RemoveListener(AddActionFactory);
+            buttons[i].onClick.RemoveListener(AddActionWinRiddle);
+            buttons[i].onClick.RemoveListener(AddActionYetteRaVito);
+            buttons[i].onClick.RemoveListener(AddActionYetteOmbre);
+            buttons[i].onClick.RemoveListener(AddActionEndingYette);
+            buttons[i].onClick.RemoveListener(AddActionEndingRaVito);
             buttons[i].onClick.RemoveListener(desactivateButtons);
             buttons[i].gameObject.SetActive(false);
         }
@@ -278,10 +293,13 @@ public class DialogueBox : MonoBehaviour
             interBg.SetActive(true);
             textName.gameObject.SetActive(true);
             Talker2Sprite();
-            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Maili_Mailo)
+            /*if (currentDialogue.dialogueList[idTextList].charTalking == Character.Maili_Mailo)
             {
                 interAnimator.SetTrigger("MailiMailoIsTalking");
-            }
+                interAnimator.enabled = true;
+            }*/
+            interAnimator.SetTrigger(currentDialogue.talker2.ToString() + "IsTalking");
+            interAnimator.enabled = true;
             if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
             {
                 //talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
@@ -331,6 +349,14 @@ public class DialogueBox : MonoBehaviour
     public void AddActionYetteOmbre()
     {
         actions.Add(GameStateBehaviour.Instance.DialogueYetteOmbre);
+    }
+    public void AddActionEndingYette()
+    {
+        actions.Add(GameStateBehaviour.Instance.EndingYette);
+    }
+    public void AddActionEndingRaVito()
+    {
+        actions.Add(GameStateBehaviour.Instance.EndingRaVito);
     }
 
     public void Talker1Sprite()

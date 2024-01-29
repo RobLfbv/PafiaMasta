@@ -8,8 +8,7 @@ public class TestAnimationEvent : MonoBehaviour
 {
     public void ChangeSprite()
     {
-        print("aaa");
+        GetComponent<Animator>().enabled = false;
         DialogueBox.Instance.Talker2Sprite();
-        //transform.DORotate(30,3,RotateMode)
     }
 }

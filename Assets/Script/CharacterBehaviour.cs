@@ -295,7 +295,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             GameStateBehaviour.Instance.ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = zilyDialogue.LoseDialogue;
-            GameStateBehaviour.Instance.ChangeZilyDialogue(4);
+            GameStateBehaviour.Instance.ChangeZilyDialogue(3);
             toInteract = GameStateBehaviour.Instance.zilyInteraction.GetComponent<DialogueInteractionBehaviour>();
             DialogueBox.Instance.setOriginalText();
         }

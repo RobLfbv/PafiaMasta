@@ -25,7 +25,6 @@ public enum Character
     Ra_Vito,
     Zily,
     Maili_Mailo,
-
 }
 
 public enum ActionChoice
@@ -40,24 +39,14 @@ public enum ActionChoice
     DialogueYetteRaVito,
     CheckYetteDialogueInfoZily,
     CheckYetteDialogueInfoRaVito,
-    CheckYetteDialogueInfoFarfolle
-
+    CheckYetteDialogueInfoFarfolle,
+    FinishGameRaVito,
+    FinishGameYette
 }
 
 public enum AlibiUnlock
 {
-    YetteAlibi1,
-    YetteAlibi2,
-    YetteAlibi3,
-    YetteAlibi4,
-    YetteAlibi5,
-    FarfolleAlibi1,
-    FarfolleAlibi2,
-    FarfolleAlibi3,
-    GhettiAlibi1,
-    GhettiAlibi2,
-    ZilyAlibi1, 
-    Ra_VitoAlibi1
+    YetteAlibi1, YetteAlibi2, YetteAlibi3, YetteAlibi4, YetteAlibi5, FarfolleAlibi1, FarfolleAlibi2, FarfolleAlibi3, GhettiAlibi1, GhettiAlibi2, ZilyAlibi1, Ra_VitoAlibi1
 }
 
 [System.Serializable]

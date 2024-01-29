@@ -26,6 +26,8 @@ public class GunBehaviour : MonoBehaviour
     private Sprite playerKetchup;
     [SerializeField]
     private Sprite raVitoKetchup;
+    [SerializeField]
+    private bool noShoot = false;
 
     private void Start()
     {
@@ -40,8 +42,12 @@ public class GunBehaviour : MonoBehaviour
         gun.transform.DORotate(new Vector3(0, 0, 360f), 1f, RotateMode.WorldAxisAdd).OnComplete(() =>
         {
             gun.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            player.GetComponent<CharacterBehaviour>().canShoot = true;
-            key.SetActive(true);
+            if (!noShoot)
+            {
+                player.GetComponent<CharacterBehaviour>().canShoot = true;
+                key.SetActive(true);
+            }
+
         });
         if (numberOfShot != whichShot)
         {
@@ -60,9 +66,11 @@ public class GunBehaviour : MonoBehaviour
         }
         else
         {
-            player.GetComponent<CharacterBehaviour>().canShoot = false;
+            noShoot = true;
+            numberOfShot++;
             mainCamera.DOShakePosition(0.2f, 2, 50);
             transitionWhite.gameObject.SetActive(true);
+            player.GetComponent<CharacterBehaviour>().canShoot = false;
             transitionWhite.DOFade(1, 0.1f).OnComplete(() =>
             {
                 if (playerTurn)

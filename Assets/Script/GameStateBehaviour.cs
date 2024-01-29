@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using DG;
 using DG.Tweening;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 
 public class GameStateBehaviour : MonoBehaviour
@@ -240,12 +241,21 @@ public class GameStateBehaviour : MonoBehaviour
             ChangeRavitoDialogue(5);
         }
     }
+    public void EndingRaVito()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void EndingYette()
+    {
+        SceneManager.LoadScene(3);
+    }
 
     public void DialogueYetteOmbre()
     {
         PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);
         PlayerPrefs.SetInt("YetteInfoDialogueDoneOmbre", 1);
-        PlayerPrefs.SetInt("FarfolleUnlock3",1);
+        PlayerPrefs.SetInt("FarfolleUnlock3", 1);
         if (PlayerPrefs.GetInt("YetteInfoDialogueDone") == 2)
         {
             ChangeYeetDialogue(0);
@@ -255,7 +265,7 @@ public class GameStateBehaviour : MonoBehaviour
     {
         PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);
         PlayerPrefs.SetInt("YetteInfoDialogueDoneRaVito", 1);
-        PlayerPrefs.SetInt("FarfolleUnlock2",1);
+        PlayerPrefs.SetInt("FarfolleUnlock2", 1);
         if (PlayerPrefs.GetInt("YetteInfoDialogueDone") == 2)
         {
             ChangeYeetDialogue(0);

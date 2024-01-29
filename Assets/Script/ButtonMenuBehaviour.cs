@@ -49,7 +49,7 @@ public class ButtonMenuBehaviour : MonoBehaviour
         mainMenu.SetActive(true);
         buttons[2].Select();
     }
-    public void ResetCredits()
+    public void RetourReset()
     {
         resetMenu.SetActive(false);
         mainMenu.SetActive(true);
@@ -72,6 +72,11 @@ public class ButtonMenuBehaviour : MonoBehaviour
         resetMenu.SetActive(true);
         mainMenu.SetActive(false);
         backButtonReset.Select();
+    }
+    public void DoReset()
+    {
+        PlayerPrefs.DeleteAll();
+        RetourReset();
     }
 
 

@@ -17,25 +17,25 @@ public class ActivateAlibi : MonoBehaviour
     [SerializeField]
     private GameObject alibi5;
 
-    private void Awake()
+    private void OnEnable()
     {
         if (PlayerPrefs.GetInt(character.ToString() + "Alibi1") == 1)
         {
             alibi1.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt(character.ToString() + "Alibi2") == 1)
+        if (PlayerPrefs.GetInt(character.ToString() + "Alibi2") == 1)
         {
             alibi2.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt(character.ToString() + "Alibi3") == 1)
+        if (PlayerPrefs.GetInt(character.ToString() + "Alibi3") == 1)
         {
             alibi3.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt(character.ToString() + "Alibi4") == 1)
+        if (PlayerPrefs.GetInt(character.ToString() + "Alibi4") == 1)
         {
             alibi4.SetActive(true);
         }
-        else if (PlayerPrefs.GetInt(character.ToString() + "Alibi5") == 1)
+        if (PlayerPrefs.GetInt(character.ToString() + "Alibi5") == 1)
         {
             alibi5.SetActive(true);
         }

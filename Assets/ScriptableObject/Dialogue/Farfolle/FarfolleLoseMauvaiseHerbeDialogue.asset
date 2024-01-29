@@ -36,7 +36,7 @@ MonoBehaviour:
       method: 0
     idGoto: 3
     isChoiceDialogue: 1
-  - idDialogue: 2
+  - idDialogue: 3
     charTalking: 3
     text: "Tr\xE8s bien, je vous attends !"
     emotion: 0
@@ -52,3 +52,6 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 3
+  dialogueAction: 0
+  unlockDialogue: []
+  unlockCarnets: []
