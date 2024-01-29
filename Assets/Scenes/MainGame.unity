@@ -2083,6 +2083,7 @@ AudioSource:
     m_PostInfinity: 2
     m_RotationOrder: 4
 --- !u!1 &182289758
+--- !u!1 &189503193
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5253,6 +5254,8 @@ CanvasRenderer:
   m_CullTransparentMesh: 1
 --- !u!82 &387002292
 AudioSource:
+--- !u!1 &387553672
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
