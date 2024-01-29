@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +8,12 @@ public class ButtonDialogueAction : MonoBehaviour, ISelectHandler
 {
     public int goToID;
 
+    private AudioSource source;
+
+    public void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
     public void ButtonAction()
     {
         DialogueBox.Instance.GoToNextDialogue(goToID);
@@ -15,6 +22,6 @@ public class ButtonDialogueAction : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        print("ah");
+        source.Play();
     }
 }

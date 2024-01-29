@@ -152,12 +152,14 @@ public class CharacterBehaviour : MonoBehaviour
         if (!GameStateBehaviour.Instance.isPaused)
         {
             GameStateBehaviour.Instance.PauseGame();
+
             source.clip = sfx[1];
             source.Play();
         }
         else
         {
             GameStateBehaviour.Instance.UnpauseGame();
+
             source.clip = sfx[2];
             source.Play();
         }
