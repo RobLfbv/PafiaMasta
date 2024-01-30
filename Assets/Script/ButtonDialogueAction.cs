@@ -22,6 +22,7 @@ public class ButtonDialogueAction : MonoBehaviour, ISelectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        source.Play();
+        if (source != null)
+            source.Play();
     }
 }
