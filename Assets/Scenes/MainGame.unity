@@ -7510,7 +7510,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9a44c9ee0b1024e4689b3bb34efa119e, type: 3}
   - {fileID: 8300000, guid: 58549328be0ef6e4ca2e842e4ab6154a, type: 3}
   - {fileID: 8300000, guid: 9af540156562db84f80d47271d5976e4, type: 3}
-  - {fileID: 8300000, guid: ec2c289afc9003e43944d3f256014d7a, type: 3}
+  - {fileID: 8300000, guid: 8e6405b9464d81a4a93198e59d84e80f, type: 3}
   cam: {fileID: 519420034}
   player: {fileID: 809435068479488916}
   transition: {fileID: 248608758}
@@ -18416,7 +18416,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 9.85
+  m_fontSize: 9.2
   m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -23377,7 +23377,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.95
+  m_fontSize: 6.35
   m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 1
