@@ -104,7 +104,7 @@ public class GameStateBehaviour : MonoBehaviour
             PlayerPrefs.SetInt("Farfolle", 1);
             PlayerPrefs.SetInt("Ghetti", 1);
             PlayerPrefs.SetInt("Ra_Vito", 0);
-            PlayerPrefs.SetInt("Maili_Mailo", 3);
+            PlayerPrefs.SetInt("Maili_Mailo", 1);
             ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = introDialogue;
             DialogueBox.Instance.setOriginalText();
