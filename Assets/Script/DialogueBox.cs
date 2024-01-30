@@ -67,6 +67,7 @@ public class DialogueBox : MonoBehaviour
         {
             interAnimator.enabled = false;
             talker2.sprite = GameStateBehaviour.Instance.player.toInteract.spriteNeutral;
+            print(talker2.sprite);
             //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
         }
 
@@ -332,18 +333,10 @@ public class DialogueBox : MonoBehaviour
             }*/
             interAnimator.SetTrigger(currentDialogue.talker2.ToString() + "IsTalking");
             interAnimator.enabled = true;
-            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
-            {
-                //talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
-            }
-            else
-            {
-                //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
-                talker2.rectTransform.anchorMin = Vector2.zero;
-                talker2.rectTransform.anchorMax = Vector2.one;
-                talker2.rectTransform.offsetMin = new Vector2(0, 0);
-                talker2.rectTransform.offsetMin = new Vector2(0, 0);
-            }
+            talker2.rectTransform.anchorMin = Vector2.zero;
+            talker2.rectTransform.anchorMax = Vector2.one;
+            talker2.rectTransform.offsetMin = new Vector2(0, 0);
+            talker2.rectTransform.offsetMin = new Vector2(0, 0);
         }
     }
     private void ChangeName()
@@ -465,5 +458,6 @@ public class DialogueBox : MonoBehaviour
             talker2.sprite = toInteract.spriteNeutral;
             talker2.color = absentColor;
         }
+        print(talker2.sprite);
     }
 }
