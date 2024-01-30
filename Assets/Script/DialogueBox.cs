@@ -341,36 +341,46 @@ public class DialogueBox : MonoBehaviour
             interAnimator.SetTrigger(currentDialogue.talker2.ToString() + "IsTalking");
             interAnimator.enabled = true;
 
-            if (currentDialogue.talker2.ToString() == "Maili_Mailo")
+
+            //sons
+            if (source != null)
             {
-                source.clip = voices[0];
-                source.Play();
+                if (currentDialogue.talker2.ToString() == "Maili_Mailo")
+                {
+                    source.clip = voices[0];
+                    source.Play();
+                }
+                else if (currentDialogue.talker2.ToString() == "Yette")
+                {
+                    source.clip = voices[1];
+                    source.Play();
+                }
+                else if (currentDialogue.talker2.ToString() == "Ghetti")
+                {
+                    source.clip = voices[2];
+                    source.Play();
+                }
+                else if (currentDialogue.talker2.ToString() == "Farfolle")
+                {
+                    source.clip = voices[3];
+                    source.Play();
+                }
+                else if (currentDialogue.talker2.ToString() == "Zily")
+                {
+                    source.clip = voices[4];
+                    source.Play();
+                }
+                else if (currentDialogue.talker2.ToString() == "Ra_Vito")
+                {
+                    if (UnityEngine.Random.Range(1, 11) == 10)
+                    {
+                        source.clip = voices[6];
+                    }
+                    else source.clip = voices[5];
+                    source.Play();
+                }
             }
-            else if (currentDialogue.talker2.ToString() == "Yette")
-            {
-                source.clip = voices[1];
-                source.Play();
-            }
-            else if (currentDialogue.talker2.ToString() == "Ghetti")
-            {
-                source.clip = voices[2];
-                source.Play();
-            }
-            else if (currentDialogue.talker2.ToString() == "Farfolle")
-            {
-                source.clip = voices[3];
-                source.Play();
-            }
-            else if (currentDialogue.talker2.ToString() == "Zily")
-            {
-                source.clip = voices[4];
-                source.Play();
-            }
-            else if (currentDialogue.talker2.ToString() == "Ra_Vito")
-            {
-                source.clip = voices[5];
-                source.Play();
-            }
+            
 
 
             if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
@@ -472,7 +482,10 @@ public class DialogueBox : MonoBehaviour
     }
     public void Talker2Sprite()
     {
-        source.Stop();
+        if(source != null)
+        {
+            source.Stop();
+        }
 
         DialogueInteractionBehaviour toInteract = GameStateBehaviour.Instance.player.toInteract;
         if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
