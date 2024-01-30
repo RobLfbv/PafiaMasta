@@ -8,12 +8,15 @@ using System;
 using System.Reflection;
 public class DialogueBox : MonoBehaviour
 {
+    [SerializeField]
+    public AudioClip[] voices;
+    private AudioSource source;
+
     //*****
     // Singleton pattern
     //*****
     private static DialogueBox _instance;
     public static DialogueBox Instance { get { return _instance; } }
-
 
     private void Awake()
     {
@@ -57,6 +60,11 @@ public class DialogueBox : MonoBehaviour
 
     private List<Action> actions = new List<Action>();
 
+
+    public void Start()
+    {
+        source = GetComponent<AudioSource>();
+    }
     public void setOriginalText()
     {
         desactivateButtons();
@@ -67,7 +75,6 @@ public class DialogueBox : MonoBehaviour
         {
             interAnimator.enabled = false;
             talker2.sprite = GameStateBehaviour.Instance.player.toInteract.spriteNeutral;
-            print(talker2.sprite);
             //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
         }
 
@@ -333,10 +340,51 @@ public class DialogueBox : MonoBehaviour
             }*/
             interAnimator.SetTrigger(currentDialogue.talker2.ToString() + "IsTalking");
             interAnimator.enabled = true;
-            talker2.rectTransform.anchorMin = Vector2.zero;
-            talker2.rectTransform.anchorMax = Vector2.one;
-            talker2.rectTransform.offsetMin = new Vector2(0, 0);
-            talker2.rectTransform.offsetMin = new Vector2(0, 0);
+
+            if (currentDialogue.talker2.ToString() == "Maili_Mailo")
+            {
+                source.clip = voices[0];
+                source.Play();
+            }
+            else if (currentDialogue.talker2.ToString() == "Yette")
+            {
+                source.clip = voices[1];
+                source.Play();
+            }
+            else if (currentDialogue.talker2.ToString() == "Ghetti")
+            {
+                source.clip = voices[2];
+                source.Play();
+            }
+            else if (currentDialogue.talker2.ToString() == "Farfolle")
+            {
+                source.clip = voices[3];
+                source.Play();
+            }
+            else if (currentDialogue.talker2.ToString() == "Zily")
+            {
+                source.clip = voices[4];
+                source.Play();
+            }
+            else if (currentDialogue.talker2.ToString() == "Ra_Vito")
+            {
+                source.clip = voices[5];
+                source.Play();
+            }
+
+
+            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+            {
+                //talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
+            }
+            else
+            {
+                //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
+                talker2.rectTransform.anchorMin = Vector2.zero;
+                talker2.rectTransform.anchorMax = Vector2.one;
+                talker2.rectTransform.offsetMin = new Vector2(0, 0);
+                talker2.rectTransform.offsetMin = new Vector2(0, 0);
+            }
         }
     }
     private void ChangeName()
@@ -424,6 +472,8 @@ public class DialogueBox : MonoBehaviour
     }
     public void Talker2Sprite()
     {
+        source.Stop();
+
         DialogueInteractionBehaviour toInteract = GameStateBehaviour.Instance.player.toInteract;
         if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
         {
@@ -458,6 +508,5 @@ public class DialogueBox : MonoBehaviour
             talker2.sprite = toInteract.spriteNeutral;
             talker2.color = absentColor;
         }
-        print(talker2.sprite);
     }
 }
