@@ -27,6 +27,10 @@ public class GunBehaviour : MonoBehaviour
     [SerializeField]
     private Sprite raVitoKetchup;
     [SerializeField]
+    private SpriteRenderer[] playerShadow;
+    [SerializeField]
+    private SpriteRenderer[] raVitoShadow;
+    [SerializeField]
     private bool noShoot = false;
 
     [SerializeField]
@@ -110,12 +114,19 @@ public class GunBehaviour : MonoBehaviour
                         {
                             DialogueBox.Instance.currentDialogue = dialogueInteractionBehaviour.LoseDialogue;
                             GameStateBehaviour.Instance.playerSprite.sprite = playerKetchup;
-
+                            for (int i = 0; i < playerShadow.Length; i++)
+                            {
+                                playerShadow[i].sprite = playerKetchup;
+                            }
                         }
                         else
                         {
                             DialogueBox.Instance.currentDialogue = dialogueInteractionBehaviour.WinDialogue;
                             GameStateBehaviour.Instance.raVitoSprite.sprite = raVitoKetchup;
+                            for (int i = 0; i < raVitoShadow.Length; i++)
+                            {
+                                raVitoShadow[i].sprite = raVitoKetchup;
+                            }
                         }
                         GameStateBehaviour.Instance.player.toInteract = GameStateBehaviour.Instance.raVitoInteraction.GetComponent<DialogueInteractionBehaviour>();
                         GameStateBehaviour.Instance.ChangeRavitoDialogue(4);
