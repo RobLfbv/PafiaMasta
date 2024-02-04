@@ -44,7 +44,7 @@ MonoBehaviour:
     idGoto: 5
     isChoiceDialogue: 0
   - idDialogue: 5
-    charTalking: 0
+    charTalking: 5
     text: "T\u2019insistes en plus ? Tu me cherches des noises, c\u2019est \xE7a
       ? Allez, joue avec moi \xE0 la roulette rousse. "
     emotion: 1
@@ -55,3 +55,4 @@ MonoBehaviour:
   talker2: 5
   dialogueAction: 3
   unlockDialogue: []
+  unlockCarnets: []

@@ -25,6 +25,34 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    attribute: m_Sprite
+    path: GameObject
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    attribute: m_Sprite
+    path: GameObject (1)
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    attribute: m_Sprite
+    path: GameObject (2)
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    attribute: m_Sprite
+    path: GameObject (3)
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -39,7 +67,39 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1482111001
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2766423756
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2412320015
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2530354254
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    - {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    - {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
+    - {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
     - {fileID: 21300000, guid: 24e0cf9d947051c44af8bcc8f0f47819, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2

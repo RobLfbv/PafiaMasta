@@ -29,6 +29,50 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    attribute: m_Sprite
+    path: GameObject
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    attribute: m_Sprite
+    path: GameObject (1)
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    attribute: m_Sprite
+    path: GameObject (2)
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - time: 0.06666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - time: 0.11666667
+      value: {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    attribute: m_Sprite
+    path: GameObject (3)
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -43,7 +87,47 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1482111001
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2766423756
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2412320015
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2530354254
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
+    - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
     - {fileID: 21300000, guid: 01056400cacf5e94f800fba3a279b843, type: 3}
     - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
     - {fileID: 21300000, guid: c644f9d278fb41a4c84edc4e9a49700b, type: 3}
