@@ -50,6 +50,7 @@ public class GameStateBehaviour : MonoBehaviour
     public SmoothFollow smoothCamera;
     public GameState currentState;
     public DialogueScriptableObject introDialogue;
+    public GameObject mailiMailoInteraction;
     [Header("Dialogue Variables")]
     public GameObject dialogueScreen;
     [Header("Pause Variables")]
@@ -114,7 +115,7 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToDialogue()
     {
-        if(cam.clip != musics[0])
+        if (cam.clip != musics[0])
         {
             cam.clip = musics[0];
             cam.Play();
@@ -128,6 +129,7 @@ public class GameStateBehaviour : MonoBehaviour
         raVitoInteraction.SetActive(true);
         zilyInteraction.SetActive(true);
         raVitoGun.SetActive(false);
+        mailiMailoInteraction.SetActive(true);
         yette.GetComponent<YetteRunning>().enabled = false;
         searchMiniGameScreen.SetActive(false);
     }
@@ -151,6 +153,7 @@ public class GameStateBehaviour : MonoBehaviour
         ghettiInteraction.SetActive(true);
         raVitoInteraction.SetActive(true);
         farfolleInteraction.SetActive(true);
+        mailiMailoInteraction.SetActive(true);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = false;
     }
@@ -170,7 +173,7 @@ public class GameStateBehaviour : MonoBehaviour
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
-
+        mailiMailoInteraction.SetActive(false);
     }
 
     public void ChangeToSearchMiniGame()
@@ -182,6 +185,7 @@ public class GameStateBehaviour : MonoBehaviour
         ghettiInteraction.SetActive(false);
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
+        mailiMailoInteraction.SetActive(false);
         for (int i = 0; i < searchObjectInteractions.Length; i++)
             searchObjectInteractions[i].enabled = true;
         dialogueScreen.SetActive(false);

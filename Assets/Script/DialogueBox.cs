@@ -318,7 +318,6 @@ public class DialogueBox : MonoBehaviour
             interBg.SetActive(false);
             textName.gameObject.SetActive(false);
             Talker1Sprite();
-
         }
         else
         {
@@ -380,29 +379,16 @@ public class DialogueBox : MonoBehaviour
                     source.Play();
                 }
             }
-            
-
-
-            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ghetti && currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
-            {
-                //talker2.rectTransform.sizeDelta = new Vector2(621, 1300);
-            }
-            else
-            {
-                //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
-                talker2.rectTransform.anchorMin = Vector2.zero;
-                talker2.rectTransform.anchorMax = Vector2.one;
-                talker2.rectTransform.offsetMin = new Vector2(0, 0);
-                talker2.rectTransform.offsetMin = new Vector2(0, 0);
-            }
+            talker2.rectTransform.anchorMin = Vector2.zero;
+            talker2.rectTransform.anchorMax = Vector2.one;
+            talker2.rectTransform.offsetMin = new Vector2(0, 0);
+            talker2.rectTransform.offsetMin = new Vector2(0, 0);
         }
     }
     private void ChangeName()
     {
         textName.text = currentDialogue.dialogueList[idTextList].charTalking.ToString().Replace("_", " ");
     }
-
-
 
     public void AddActionRun()
     {
@@ -420,7 +406,6 @@ public class DialogueBox : MonoBehaviour
     {
         actions.Add(GameStateBehaviour.Instance.ChangeToFactoryMiniGame);
     }
-
     public void AddActionWinRiddle()
     {
         actions.Add(GameStateBehaviour.Instance.WinRiddleGame);
@@ -482,7 +467,7 @@ public class DialogueBox : MonoBehaviour
     }
     public void Talker2Sprite()
     {
-        if(source != null)
+        if (source != null)
         {
             source.Stop();
         }

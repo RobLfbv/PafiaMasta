@@ -267,6 +267,17 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4905a76f-d584-4ccc-ba99-acf0cfa8997b"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""eb040ade-809d-430e-8f22-b4d4b866f4d2"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",

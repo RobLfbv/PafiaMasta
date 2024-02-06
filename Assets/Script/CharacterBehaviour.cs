@@ -291,7 +291,21 @@ public class CharacterBehaviour : MonoBehaviour
             {
                 if (EventSystem.current.currentSelectedGameObject == null)
                 {
-                    DialogueBox.Instance.buttons[0].Select();
+                    if (DialogueBox.Instance.currentDialogue.name.Equals("AccusationWithInfoYette") || DialogueBox.Instance.currentDialogue.name.Equals("AccusationWithoutInfo"))
+                    {
+                        DialogueBox.Instance.buttonsFinal[0].Select();
+                    }
+                    else
+                    {
+                        if (DialogueBox.Instance.buttons[0].gameObject.activeSelf)
+                        {
+                            DialogueBox.Instance.buttons[0].Select();
+                        }
+                        else
+                        {
+                            DialogueBox.Instance.buttons[1].Select();
+                        }
+                    }
                 }
             }
         }
