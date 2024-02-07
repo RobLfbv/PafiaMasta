@@ -270,6 +270,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             animator.SetTrigger("PlayerWalking");
         }
+        
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)

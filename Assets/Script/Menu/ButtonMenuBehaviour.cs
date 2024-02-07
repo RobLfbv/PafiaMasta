@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,8 +24,39 @@ public class ButtonMenuBehaviour : MonoBehaviour
     private Button backButtonReset;
     [SerializeField]
     private Button backButtonOption;
+    [SerializeField]
+    private Button resetButtonOption;
+    [SerializeField]
+    private InputSystemUIInputModule uiInput;
 
-    void Start()
+    private void FixedUpdate()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            Vector2 vec = uiInput.move.ToInputAction().ReadValue<Vector2>();
+            if (vec != Vector2.zero)
+            {
+                if (optionMenu.activeSelf)
+                {
+                    backButtonOption.Select();
+                }
+                else if (mainMenu.activeSelf)
+                {
+                    buttons[0].Select();
+                }
+                else if (creditsMenu.activeSelf)
+                {
+                    backButtonCredits.Select();
+                }
+                else if (resetMenu.activeSelf)
+                {
+                    backButtonReset.Select();
+                }
+            }
+        }
+    }
+
+    private void Start()
     {
         buttons[0].Select();
     }
@@ -52,8 +85,8 @@ public class ButtonMenuBehaviour : MonoBehaviour
     public void RetourReset()
     {
         resetMenu.SetActive(false);
-        mainMenu.SetActive(true);
-        buttons[3].Select();
+        optionMenu.SetActive(true);
+        resetButtonOption.Select();
     }
     public void Credits()
     {
@@ -70,7 +103,7 @@ public class ButtonMenuBehaviour : MonoBehaviour
     public void Reset()
     {
         resetMenu.SetActive(true);
-        mainMenu.SetActive(false);
+        optionMenu.SetActive(false);
         backButtonReset.Select();
     }
     public void DoReset()
