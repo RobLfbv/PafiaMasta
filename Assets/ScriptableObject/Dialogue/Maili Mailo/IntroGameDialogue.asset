@@ -119,7 +119,7 @@ MonoBehaviour:
   - idDialogue: 14
     charTalking: 7
     text: "Allez les interroger et je vous conseille de commencer par Yette, il se
-      trouve \xE0 l\u2019Est. Je compte sur vous !"
+      trouve \xE0 l\u2019Ouest. Je compte sur vous !"
     emotion: 0
     choices: []
     idGoto: 15
@@ -163,3 +163,6 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 7
+  dialogueAction: 0
+  unlockDialogue: []
+  unlockCarnets: []

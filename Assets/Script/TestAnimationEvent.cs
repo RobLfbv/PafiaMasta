@@ -10,5 +10,6 @@ public class TestAnimationEvent : MonoBehaviour
     {
         GetComponent<Animator>().enabled = false;
         DialogueBox.Instance.Talker2Sprite();
+        print("gfdgfdgfdgfdgfd");
     }
 }
