@@ -179,6 +179,9 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToSearchMiniGame()
     {
+        cam.clip = musics[4];
+        cam.Play();
+
         currentState = GameState.SearchMiniGame;
         searchMiniGameScreen.SetActive(true);
         yetteInteraction.SetActive(false);
