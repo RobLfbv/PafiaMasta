@@ -82,7 +82,7 @@ public class CharacterBehaviour : MonoBehaviour
     public Sprite spriteAshamedKetchuped;
     [SerializeField]
     public Sprite spriteAbsentKetchuped;
-    
+
 
     [SerializeField]
     public Animator animator;
@@ -268,6 +268,19 @@ public class CharacterBehaviour : MonoBehaviour
                     textSearch.text = takenObject.transform.parent.name;
                     GameStateBehaviour.Instance.farfolleInteraction.SetActive(true);
                     searchImage.sprite = takenObject.transform.parent.GetComponent<SpriteRenderer>().sprite;
+                    takenObject.shadow.enabled = false;
+                    /*switch (takenObject.type)
+                    {
+                        case ObjectType.Yette:
+                            takenObject.shadow.enabled = false;
+                            break;
+                        case ObjectType.Herbe:
+                            break;
+                        case ObjectType.Moulin:
+                            break;
+                        case ObjectType.Papate:
+                            break;
+                    }*/
                     searchImage.color = colorNotTransparent;
                 }
             }
@@ -288,7 +301,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             animator.SetTrigger("PlayerWalking");
         }
-        
+
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
