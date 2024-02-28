@@ -301,8 +301,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06997502, y: -0.2186718}
-  m_Size: {x: 2.745736, y: 6.133404}
+  m_Offset: {x: -0.02222538, y: -2.6132388}
+  m_Size: {x: 1.9712353, y: 1.9712377}
   m_Direction: 0
 --- !u!82 &5486890141795049551
 AudioSource:
