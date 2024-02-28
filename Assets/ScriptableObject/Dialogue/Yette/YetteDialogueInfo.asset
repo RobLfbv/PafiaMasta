@@ -15,50 +15,103 @@ MonoBehaviour:
   dialogueList:
   - idDialogue: 1
     charTalking: 0
-    text: "Re-bonjour mon p\u2019tit, tu es s\xFBr que tu m\u2019as tout dit \xE0
-      propos d\u2019hier ?"
+    text: "Re-bonjour mon p\u2019tit, dis-moi, Mme Farfolle m\u2019a dit que tu avais
+      parl\xE9 avec M. Ra Vito un peu avant 21h, tu peux m\u2019en dire plus ? "
     emotion: 4
     choices: []
     idGoto: 2
     isChoiceDialogue: 0
   - idDialogue: 2
     charTalking: 2
-    text: "Madame la D\xE9tective ! Z\u2019est vraiment pas rigolo zette histoire,
-      z\u2019ai pu envie d\u2019en parler."
-    emotion: 1
+    text: "Ah, re-bonzour Mme la D\xE9tective, oui M. Gra Nito, il m\u2019a propoz\xE9
+      des bonbons."
+    emotion: 3
     choices: []
     idGoto: 3
     isChoiceDialogue: 0
   - idDialogue: 3
     charTalking: 2
-    text: "Regardez plut\xF4t mes nouvelles bazkets que ma maman m\u2019a offertes
-      ! "
+    text: "Mais ze suis un bon gar\xE7on moi, et z\u2019\xE9coute touzours ma maman,
+      du coup z\u2019ai refuz\xE9 ! "
     emotion: 3
     choices: []
     idGoto: 4
     isChoiceDialogue: 0
   - idDialogue: 4
+    charTalking: 0
+    text: "Hmm, dis moi, M. Ghetti m\u2019a dit qu\u2019il avait aper\xE7u une petite
+      silhouette vers l\u2019usine vers 4h du matin\u2026 tu sais quelque chose ? "
+    emotion: 4
+    choices: []
+    idGoto: 5
+    isChoiceDialogue: 0
+  - idDialogue: 5
+    charTalking: 2
+    text: "Ah bah oui c\u2019\xE9tait moi Mme La Detective, z\u2019avais TROP envie
+      de faire pipi"
+    emotion: 3
+    choices: []
+    idGoto: 6
+    isChoiceDialogue: 0
+  - idDialogue: 6
+    charTalking: 2
+    text: "Du coup, bah\u2026. Bah\u2026 z\u2019ai fait pipi dans les buissons."
+    emotion: 6
+    choices: []
+    idGoto: 7
+    isChoiceDialogue: 0
+  - idDialogue: 7
+    charTalking: 0
+    text: "D\u2019accord, merci mon p\u2019tit."
+    emotion: 0
+    choices: []
+    idGoto: 8
+    isChoiceDialogue: 0
+  - idDialogue: 8
+    charTalking: 0
+    text: "Tu es s\xFBr que tu m\u2019as tout dit \xE0 propos d\u2019hier ?"
+    emotion: 4
+    choices: []
+    idGoto: 9
+    isChoiceDialogue: 0
+  - idDialogue: 9
+    charTalking: 2
+    text: "Madame la D\xE9tective ! Z\u2019est vraiment pas rigolo zette histoire,
+      z\u2019ai pu envie d\u2019en parler."
+    emotion: 1
+    choices: []
+    idGoto: 10
+    isChoiceDialogue: 0
+  - idDialogue: 10
+    charTalking: 2
+    text: "Regardez plut\xF4t mes nouvelles bazkets que ma maman m\u2019a offertes
+      ! "
+    emotion: 3
+    choices: []
+    idGoto: 11
+    isChoiceDialogue: 0
+  - idDialogue: 11
     charTalking: 2
     text: "Euh\u2026 Oh tiens, zouez \xE0 la course avec moi, zi vous me battez,
       ze vous direz TOUT, \u1D8Ea vous dit ?"
     emotion: 3
     choices:
     - textChoice: Oui
-      idNext: 5
+      idNext: 12
       method: 1
     - textChoice: Non
-      idNext: 6
+      idNext: 13
       method: 0
     idGoto: 0
     isChoiceDialogue: 1
-  - idDialogue: 5
+  - idDialogue: 12
     charTalking: 2
     text: "Z\u2019est parti"
     emotion: 3
     choices: []
     idGoto: -1
     isChoiceDialogue: 0
-  - idDialogue: 6
+  - idDialogue: 13
     charTalking: 2
     text: "Rooh vous z'\xEAtes pas dr\xF4le du tout, du tout !"
     emotion: 2
@@ -69,3 +122,4 @@ MonoBehaviour:
   talker2: 2
   dialogueAction: 0
   unlockDialogue: []
+  unlockCarnets: []
