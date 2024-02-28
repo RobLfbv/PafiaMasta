@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8899177718100650865}
   - component: {fileID: 472148678397284147}
   - component: {fileID: 5415530398832558146}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,8 @@ GameObject:
   - component: {fileID: 809435068018174105}
   - component: {fileID: 1388417230984525047}
   - component: {fileID: 5486890141795049551}
-  m_Layer: 0
+  - component: {fileID: 4600882408898443302}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -398,6 +399,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4600882408898443302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809435068018174099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 582d1b7054d3d3f4bb4800f30aa1b305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3859290025967938594
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5206719453099408733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Emplacement
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -440,7 +453,7 @@ GameObject:
   - component: {fileID: 7540618418417478267}
   - component: {fileID: 2514930357542603849}
   - component: {fileID: 2382376593158523339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +559,7 @@ GameObject:
   - component: {fileID: 4262810056460156808}
   - component: {fileID: 6905434999864074550}
   - component: {fileID: 3907168551275474926}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +669,7 @@ GameObject:
   - component: {fileID: 4700919676625166267}
   - component: {fileID: 1283386241358703037}
   - component: {fileID: 610089706321060137}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +775,7 @@ GameObject:
   - component: {fileID: 3961385146815551142}
   - component: {fileID: 5094067273371709948}
   - component: {fileID: 7536526154890998537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
