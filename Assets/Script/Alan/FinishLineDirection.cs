@@ -11,13 +11,28 @@ public class FinishLineDirection : MonoBehaviour
     public float speed;
     public GameObject finishLine;
 
+    private float zpos;
+    private float xrota;
+    private float yrota;
+
+    void Start()
+    {
+        zpos = transform.localPosition.z;
+
+        xrota = transform.localRotation.x;
+        yrota = transform.localRotation.y;
+    }
     void Update()
     {
+        Debug.Log(transform.localPosition + " - " + transform.localRotation);
         //follow FinishLine
         Vector2 newPos = finishLine.transform.position - transform.position;
         transform.Translate(newPos * Time.deltaTime * speed);
 
-        //limit
+        //rotate
+        transform.LookAt(finishLine.transform.position);
+
+        //limit pos XY
         //gauche
         if(transform.localPosition.x > limX)
         {
@@ -38,5 +53,18 @@ public class FinishLineDirection : MonoBehaviour
         {
             transform.localPosition = new Vector2(transform.localPosition.x, -limY);
         }
+
+        //limit Z
+        if (transform.localPosition.z != zpos)
+        {
+            transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, zpos);
+        }
+
+        //limit rotation
+        if (transform.localRotation.x != xrota || transform.localRotation.y != yrota)
+        {
+            transform.localRotation = new Quaternion(xrota, yrota, transform.localRotation.z, transform.localRotation.w);
+        }
+
     }
 }
