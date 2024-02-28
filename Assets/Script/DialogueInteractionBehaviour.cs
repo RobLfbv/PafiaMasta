@@ -38,6 +38,23 @@ public class DialogueInteractionBehaviour : MonoBehaviour
     [SerializeField]
     public Sprite spriteAbsent;
 
+    [SerializeField]
+    public Sprite spriteNeutralKetchuped;
+    [SerializeField]
+    public Sprite spriteAngryKetchuped;
+    [SerializeField]
+    public Sprite spriteSadKetchuped;
+    [SerializeField]
+    public Sprite spriteHappyKetchuped;
+    [SerializeField]
+    public Sprite spriteQuestionedKetchuped;
+    [SerializeField]
+    public Sprite spriteShockedKetchuped;
+    [SerializeField]
+    public Sprite spriteAshamedKetchuped;
+    [SerializeField]
+    public Sprite spriteAbsentKetchuped;
+
     public Vector2 dimensionImage;
     public Vector2 sizeNotTalking;
     public Vector2 sizeTalking;

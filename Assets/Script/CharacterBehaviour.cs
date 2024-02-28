@@ -66,6 +66,23 @@ public class CharacterBehaviour : MonoBehaviour
     public Sprite spriteAshamed;
     [SerializeField]
     public Sprite spriteAbsent;
+    [SerializeField]
+    public Sprite spriteNeutralKetchuped;
+    [SerializeField]
+    public Sprite spriteAngryKetchuped;
+    [SerializeField]
+    public Sprite spriteSadKetchuped;
+    [SerializeField]
+    public Sprite spriteHappyKetchuped;
+    [SerializeField]
+    public Sprite spriteQuestionedKetchuped;
+    [SerializeField]
+    public Sprite spriteShockedKetchuped;
+    [SerializeField]
+    public Sprite spriteAshamedKetchuped;
+    [SerializeField]
+    public Sprite spriteAbsentKetchuped;
+    
 
     [SerializeField]
     public Animator animator;
@@ -169,6 +186,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
+        print(obj.control.device);
         if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame && !GameStateBehaviour.Instance.isPaused)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)

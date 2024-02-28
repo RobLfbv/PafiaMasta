@@ -337,7 +337,14 @@ public class DialogueBox : MonoBehaviour
                 interAnimator.SetTrigger("MailiMailoIsTalking");
                 interAnimator.enabled = true;
             }*/
-            interAnimator.SetTrigger(currentDialogue.talker2.ToString() + "IsTalking");
+            if (currentDialogue.dialogueList[idTextList].charTalking == Character.Ra_Vito && PlayerPrefs.GetInt("RaVitoKetchup") == 1)
+            {
+                interAnimator.SetTrigger("Ra_Vito_KetchupedIsTalking");
+            }
+            else
+            {
+                interAnimator.SetTrigger(currentDialogue.talker2.ToString() + "IsTalking");
+            }
             interAnimator.enabled = true;
 
 
@@ -430,40 +437,79 @@ public class DialogueBox : MonoBehaviour
     public void Talker1Sprite()
     {
         CharacterBehaviour toInteract = GameStateBehaviour.Instance.player;
+        if (PlayerPrefs.GetInt("PlayerKetchup") == 1)
+        {
+            if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+            {
+                talker1.sprite = toInteract.spriteNeutralKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+            {
+                talker1.sprite = toInteract.spriteQuestionedKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
+            {
+                talker1.sprite = toInteract.spriteAshamedKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
+            {
+                talker1.sprite = toInteract.spriteShockedKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
+            {
+                talker1.sprite = toInteract.spriteSadKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
+            {
+                talker1.sprite = toInteract.spriteHappyKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+            {
+                talker1.sprite = toInteract.spriteAngryKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
+            {
+                talker1.sprite = toInteract.spriteNeutralKetchuped;
+                talker1.color = absentColor;
+            }
+        }
+        else
+        {
+            if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+            {
+                talker1.sprite = toInteract.spriteNeutral;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+            {
+                talker1.sprite = toInteract.spriteQuestioned;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
+            {
+                talker1.sprite = toInteract.spriteAshamed;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
+            {
+                talker1.sprite = toInteract.spriteShocked;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
+            {
+                talker1.sprite = toInteract.spriteSad;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
+            {
+                talker1.sprite = toInteract.spriteHappy;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+            {
+                talker1.sprite = toInteract.spriteAngry;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
+            {
+                talker1.sprite = toInteract.spriteNeutral;
+                talker1.color = absentColor;
+            }
+        }
 
-        if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
-        {
-            talker1.sprite = toInteract.spriteNeutral;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
-        {
-            talker1.sprite = toInteract.spriteQuestioned;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
-        {
-            talker1.sprite = toInteract.spriteAshamed;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
-        {
-            talker1.sprite = toInteract.spriteShocked;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
-        {
-            talker1.sprite = toInteract.spriteSad;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
-        {
-            talker1.sprite = toInteract.spriteHappy;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
-        {
-            talker1.sprite = toInteract.spriteAngry;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
-        {
-            talker1.sprite = toInteract.spriteNeutral;
-            talker1.color = absentColor;
-        }
     }
     public void Talker2Sprite()
     {
@@ -471,40 +517,84 @@ public class DialogueBox : MonoBehaviour
         {
             source.Stop();
         }
-
         DialogueInteractionBehaviour toInteract = GameStateBehaviour.Instance.player.toInteract;
-        if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+        if (PlayerPrefs.GetInt("RaVitoKetchup") == 1 && toInteract.transform.parent.name.Equals("Ra_Vito"))
         {
-            talker2.sprite = toInteract.spriteNeutral;
+            print("here");
+            print(currentDialogue.dialogueList[idTextList].emotion);
+            if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+            {
+                talker2.sprite = toInteract.spriteNeutralKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+            {
+                talker2.sprite = toInteract.spriteQuestionedKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
+            {
+                talker2.sprite = toInteract.spriteAshamedKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
+            {
+                talker2.sprite = toInteract.spriteShockedKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
+            {
+                talker2.sprite = toInteract.spriteSadKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
+            {
+                talker2.sprite = toInteract.spriteHappyKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+            {
+                talker2.sprite = toInteract.spriteAngryKetchuped;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
+            {
+                talker2.sprite = toInteract.spriteNeutralKetchuped;
+                talker2.color = absentColor;
+            }
+            print(talker2.sprite);
+
         }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+        else
         {
-            talker2.sprite = toInteract.spriteQuestioned;
+            if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
+            {
+                talker2.sprite = toInteract.spriteNeutral;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Questioned)
+            {
+                talker2.sprite = toInteract.spriteQuestioned;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
+            {
+                talker2.sprite = toInteract.spriteAshamed;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
+            {
+                talker2.sprite = toInteract.spriteShocked;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
+            {
+                talker2.sprite = toInteract.spriteSad;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
+            {
+                talker2.sprite = toInteract.spriteHappy;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
+            {
+                talker2.sprite = toInteract.spriteAngry;
+            }
+            else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
+            {
+                talker2.sprite = toInteract.spriteNeutral;
+                talker2.color = absentColor;
+            }
         }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Ashamed)
-        {
-            talker2.sprite = toInteract.spriteAshamed;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Shocked)
-        {
-            talker2.sprite = toInteract.spriteShocked;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Sad)
-        {
-            talker2.sprite = toInteract.spriteSad;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Happy)
-        {
-            talker2.sprite = toInteract.spriteHappy;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Angry)
-        {
-            talker2.sprite = toInteract.spriteAngry;
-        }
-        else if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Absent)
-        {
-            talker2.sprite = toInteract.spriteNeutral;
-            talker2.color = absentColor;
-        }
+        print(talker2.sprite);
+
     }
 }

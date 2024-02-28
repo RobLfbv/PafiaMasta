@@ -240,7 +240,18 @@ public class GameStateBehaviour : MonoBehaviour
         player.ChangeObjective();
     }
 
+    public void ButtonPauseGame()
+    {
+        if (Time.timeScale != 0)
+        {
+            PauseGame();
+        }
+        else
+        {
+            UnpauseGame();
+        }
 
+    }
     public void PauseGame()
     {
         isPaused = true;
