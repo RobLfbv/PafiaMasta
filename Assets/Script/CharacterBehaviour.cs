@@ -204,14 +204,14 @@ public class CharacterBehaviour : MonoBehaviour
                 GameStateBehaviour.Instance.ChangeToDialogue();
                 if (takenObject != null)
                 {
-                    if (takenObject.type.Equals("Papate"))
+                    if (takenObject.type == ObjectType.Papate)
                     {
                         DialogueBox.Instance.currentDialogue = toInteract.WinDialogue;
                         textSearch.text = "";
                         GameStateBehaviour.Instance.ChangeFarfolleDialogue(4);
                         takenObject = null;
-                        searchImage.sprite = null;
-                        searchImage.color = colorTransparent;
+                        //searchImage.sprite = null;
+                        //searchImage.color = colorTransparent;
                     }
                     else
                     {
@@ -220,8 +220,8 @@ public class CharacterBehaviour : MonoBehaviour
                         takenObject.keyInteraction.SetActive(false);
                         textSearch.text = "";
                         takenObject = null;
-                        searchImage.sprite = null;
-                        searchImage.color = colorTransparent;
+                        //searchImage.sprite = null;
+                        //searchImage.color = colorTransparent;
                     }
                 }
                 else
@@ -267,8 +267,22 @@ public class CharacterBehaviour : MonoBehaviour
                     takenObject.transform.parent.gameObject.SetActive(false);
                     textSearch.text = takenObject.transform.parent.name;
                     GameStateBehaviour.Instance.farfolleInteraction.SetActive(true);
-                    searchImage.sprite = takenObject.transform.parent.GetComponent<SpriteRenderer>().sprite;
-                    searchImage.color = colorNotTransparent;
+                    //searchImage.sprite = takenObject.transform.parent.GetComponent<SpriteRenderer>().sprite;
+                    takenObject.shadow.gameObject.SetActive(false);
+                    takenObject.found.gameObject.SetActive(true);
+                    /*switch (takenObject.type)
+                    {
+                        case ObjectType.Yette:
+                            takenObject.shadow.enabled = false;
+                            break;
+                        case ObjectType.Herbe:
+                            break;
+                        case ObjectType.Moulin:
+                            break;
+                        case ObjectType.Papate:
+                            break;
+                    }*/
+                    //searchImage.color = colorNotTransparent;
                 }
             }
         }

@@ -56,7 +56,7 @@ MonoBehaviour:
     idGoto: 6
     isChoiceDialogue: 0
   - idDialogue: 6
-    charTalking: 3
+    charTalking: 0
     text: "En effet, c\u2019est \xE9trange... Vous rappelez-vous de l'heure \xE0
       laquelle vous \xEAtes sortie de chez vous ? "
     emotion: 4

@@ -1,13 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
+public enum ObjectType
+{
+    Yette,
+    Papate,
+    Moulin,
+    Herbe
+}
 public class SearchObjectInteraction : MonoBehaviour
 {
     [SerializeField]
     public GameObject keyInteraction;
-    public String type;
+    public ObjectType type;
+    public Image shadow;
+    public Image found;
     public DialogueScriptableObject dialogueInteraction;
     private void OnTriggerEnter2D(Collider2D other)
     {
