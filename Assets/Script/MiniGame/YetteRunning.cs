@@ -26,14 +26,17 @@ public class YetteRunning : MonoBehaviour
     public bool playerWin;
     public DialogueInteractionBehaviour dialogueInteractionBehaviour;
 
-    [SerializeField]
     private Animator anim;
     private string clipname;
+
+    public GameObject finishLineDirection;
 
     void OnEnable()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("running", true);
+
+        finishLineDirection.SetActive(true);
         
         currentIdx = 0;
         vectorDir = pos[currentIdx].position - transform.position;
@@ -91,5 +94,10 @@ public class YetteRunning : MonoBehaviour
                 });
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        finishLineDirection.SetActive(false);
     }
 }

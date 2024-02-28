@@ -18084,7 +18084,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -2000783396090728661, guid: 9c989e286d446784c862b2f978aebfa4, type: 3}
       propertyPath: speed
-      value: 0.1
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -2000783396090728661, guid: 9c989e286d446784c862b2f978aebfa4, type: 3}
       propertyPath: player
@@ -18142,6 +18142,10 @@ PrefabInstance:
       propertyPath: pos.Array.data[7]
       value: 
       objectReference: {fileID: 1682003946}
+    - target: {fileID: -2000783396090728661, guid: 9c989e286d446784c862b2f978aebfa4, type: 3}
+      propertyPath: finishLineDirection
+      value: 
+      objectReference: {fileID: 894567107}
     - target: {fileID: -2000783396090728661, guid: 9c989e286d446784c862b2f978aebfa4, type: 3}
       propertyPath: dialogueInteractionBehaviour
       value: 
@@ -27956,6 +27960,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &894567107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2504542722878468520, guid: 04e1f7df2b1866245aa731b34cc2e82b, type: 3}
+  m_PrefabInstance: {fileID: 809435068479488912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &894627170
 GameObject:
   m_ObjectHideFlags: 0
@@ -119409,6 +119418,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8319554921742371406, guid: 04e1f7df2b1866245aa731b34cc2e82b, type: 3}
+      propertyPath: limX
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319554921742371406, guid: 04e1f7df2b1866245aa731b34cc2e82b, type: 3}
+      propertyPath: limY
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319554921742371406, guid: 04e1f7df2b1866245aa731b34cc2e82b, type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8319554921742371406, guid: 04e1f7df2b1866245aa731b34cc2e82b, type: 3}
+      propertyPath: finishLine
+      value: 
+      objectReference: {fileID: 1721513035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04e1f7df2b1866245aa731b34cc2e82b, type: 3}
 --- !u!4 &809435068479488913 stripped

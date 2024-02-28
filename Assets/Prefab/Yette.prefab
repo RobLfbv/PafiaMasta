@@ -715,11 +715,11 @@ MonoBehaviour:
   ogPosYette: {fileID: 0}
   resetPosPlayer: {fileID: 0}
   player: {fileID: 0}
-  speed: 0
+  speed: 0.12
   transition: {fileID: 0}
   playerWin: 0
   dialogueInteractionBehaviour: {fileID: 0}
-  anim: {fileID: 0}
+  finishLineDirection: {fileID: 0}
 --- !u!4 &4294320688433475439 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4721993863203186143, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
