@@ -292,6 +292,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             GameStateBehaviour.Instance.ChangeController(moveAction.activeControl.device);
         }
+
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
@@ -302,10 +303,6 @@ public class CharacterBehaviour : MonoBehaviour
                 velocity.y = speed * moveDir.y;
                 rb.velocity = velocity;
             }
-        }
-        else if (GameStateBehaviour.Instance.isPaused)
-        {
-            Vector2 moveDir = moveAction.ReadValue<Vector2>();
         }
         else if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
         {

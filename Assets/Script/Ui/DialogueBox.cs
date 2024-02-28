@@ -51,6 +51,7 @@ public class DialogueBox : MonoBehaviour
     public GameObject playerBg;
     public GameObject interBg;
     public Animator interAnimator;
+    public GameObject movementUI;
 
     private Color32 whiteColor = new Color32(255, 255, 255, 255);
     private Color32 greyColor = new Color32(155, 155, 155, 255);
@@ -64,7 +65,24 @@ public class DialogueBox : MonoBehaviour
     public void Start()
     {
         source = GetComponent<AudioSource>();
+        if (PlayerPrefs.GetInt("Maili_Mailo") != 0)
+        {
+            GameStateBehaviour.Instance.ChangeToMainGame();
+        }
     }
+
+    private void OnEnable()
+    {
+        movementUI.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        movementUI.SetActive(true);
+    }
+
+
+
     public void setOriginalText()
     {
         desactivateButtons();

@@ -164,5 +164,7 @@ MonoBehaviour:
   talker1: 0
   talker2: 7
   dialogueAction: 0
-  unlockDialogue: []
+  unlockDialogue:
+  - characterToUnlock: 7
+    dialogueIdUnlock: 1
   unlockCarnets: []

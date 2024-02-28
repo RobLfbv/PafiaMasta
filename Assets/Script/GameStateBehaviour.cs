@@ -93,6 +93,9 @@ public class GameStateBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject[] UIGamepad;
 
+    [Header("UIGMouse")]
+    [SerializeField]
+    private GameObject[] UIMouse;
 
     /*
     0 = LaunchGameDialogue
@@ -106,17 +109,15 @@ public class GameStateBehaviour : MonoBehaviour
     {
         ChangeToMainGame();
         UnpauseGame();
-        PlayerPrefs.DeleteAll();
-
         if (PlayerPrefs.GetInt("AlreadyLaunched") == 0)
         {
             PlayerPrefs.SetInt("AlreadyLaunched", 1);
             PlayerPrefs.SetInt("Yette", 1);
-            PlayerPrefs.SetInt("Zily", 1);  
+            PlayerPrefs.SetInt("Zily", 1);
             PlayerPrefs.SetInt("Farfolle", 1);
             PlayerPrefs.SetInt("Ghetti", 1);
             PlayerPrefs.SetInt("Ra_Vito", 0);
-            PlayerPrefs.SetInt("Maili_Mailo", 1);
+            PlayerPrefs.SetInt("Maili_Mailo", 0);
             PlayerPrefs.SetInt("Lasagne", 5);
             ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = introDialogue;
@@ -412,7 +413,7 @@ public class GameStateBehaviour : MonoBehaviour
             foreach (GameObject gb in UIKeyboard)
                 gb.SetActive(false);
         }
-        else if (currentController.name.Contains("Keyboard"))
+        else if (currentController.name.Contains("Keyboard") || currentController.name.Contains("Mouse"))
         {
             foreach (GameObject gb in UIGamepad)
                 gb.SetActive(false);
