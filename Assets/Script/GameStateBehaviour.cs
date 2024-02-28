@@ -7,6 +7,7 @@ using DG;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 
 public class GameStateBehaviour : MonoBehaviour
@@ -82,6 +83,16 @@ public class GameStateBehaviour : MonoBehaviour
 
     [Header("Riddle Mini Game Variables")]
     public GameObject ghettiInteraction;
+    public InputDevice currentController;
+
+    [Header("UIKeyboard")]
+    [SerializeField]
+    private GameObject[] UIKeyboard;
+
+    [Header("UIGamepad")]
+    [SerializeField]
+    private GameObject[] UIGamepad;
+
 
     /*
     0 = LaunchGameDialogue
@@ -101,11 +112,12 @@ public class GameStateBehaviour : MonoBehaviour
         {
             PlayerPrefs.SetInt("AlreadyLaunched", 1);
             PlayerPrefs.SetInt("Yette", 1);
-            PlayerPrefs.SetInt("Zily", 1);
+            PlayerPrefs.SetInt("Zily", 1);  
             PlayerPrefs.SetInt("Farfolle", 1);
             PlayerPrefs.SetInt("Ghetti", 1);
             PlayerPrefs.SetInt("Ra_Vito", 0);
             PlayerPrefs.SetInt("Maili_Mailo", 1);
+            PlayerPrefs.SetInt("Lasagne", 5);
             ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = introDialogue;
             DialogueBox.Instance.setOriginalText();
@@ -178,6 +190,9 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToSearchMiniGame()
     {
+        cam.clip = musics[4];
+        cam.Play();
+
         currentState = GameState.SearchMiniGame;
         searchMiniGameScreen.SetActive(true);
         yetteInteraction.SetActive(false);
@@ -384,6 +399,27 @@ public class GameStateBehaviour : MonoBehaviour
     public void ChangeCharDialogue(Character charToChange, int idxDialogue)
     {
         PlayerPrefs.SetInt(charToChange.ToString(), idxDialogue);
+    }
+
+    public void ChangeController(InputDevice newController)
+    {
+        currentController = newController;
+        if (currentController.name.Contains("Controller"))
+        {
+            foreach (GameObject gb in UIGamepad)
+                gb.SetActive(true);
+
+            foreach (GameObject gb in UIKeyboard)
+                gb.SetActive(false);
+        }
+        else if (currentController.name.Contains("Keyboard"))
+        {
+            foreach (GameObject gb in UIGamepad)
+                gb.SetActive(false);
+
+            foreach (GameObject gb in UIKeyboard)
+                gb.SetActive(true);
+        }
     }
 
 }

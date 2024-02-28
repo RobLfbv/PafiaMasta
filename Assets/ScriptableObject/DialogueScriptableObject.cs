@@ -25,6 +25,7 @@ public enum Character
     Ra_Vito,
     Zily,
     Maili_Mailo,
+    Lasagne,
 }
 
 public enum ActionChoice

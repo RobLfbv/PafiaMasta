@@ -186,7 +186,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     private void Interaction(InputAction.CallbackContext obj)
     {
-        print(obj.control.device);
+        GameStateBehaviour.Instance.ChangeController(obj.control.device);
         if (canInteract && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame && !GameStateBehaviour.Instance.isPaused)
         {
             if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.Dialogue)
@@ -301,7 +301,10 @@ public class CharacterBehaviour : MonoBehaviour
         {
             animator.SetTrigger("PlayerWalking");
         }
-
+        if (moveAction.ReadValue<Vector2>() != Vector2.zero)
+        {
+            GameStateBehaviour.Instance.ChangeController(moveAction.activeControl.device);
+        }
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
             if (!GameStateBehaviour.Instance.isPaused)
