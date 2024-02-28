@@ -17,6 +17,7 @@ public class SearchObjectInteraction : MonoBehaviour
     public GameObject keyInteraction;
     public ObjectType type;
     public Image shadow;
+    public Image found;
     public DialogueScriptableObject dialogueInteraction;
     private void OnTriggerEnter2D(Collider2D other)
     {
