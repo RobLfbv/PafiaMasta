@@ -46,7 +46,8 @@ MonoBehaviour:
   - idDialogue: 5
     charTalking: 5
     text: "T\u2019insistes en plus ? Tu me cherches des noises, c\u2019est \xE7a
-      ? Allez, joue avec moi \xE0 la roulette rousse. "
+      ? Tu vas voir comment on s'occupe des mals garnis comme toi. J'te d\xE9fi \xE0
+      la roulette rousse. "
     emotion: 1
     choices: []
     idGoto: -1
