@@ -11768,6 +11768,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58549328be0ef6e4ca2e842e4ab6154a, type: 3}
   - {fileID: 8300000, guid: 9af540156562db84f80d47271d5976e4, type: 3}
   - {fileID: 8300000, guid: 8e6405b9464d81a4a93198e59d84e80f, type: 3}
+  - {fileID: 8300000, guid: c1c40c2e493b56548917d10684eed22d, type: 3}
   cam: {fileID: 519420034}
   player: {fileID: 809435068479488916}
   transition: {fileID: 248608758}
