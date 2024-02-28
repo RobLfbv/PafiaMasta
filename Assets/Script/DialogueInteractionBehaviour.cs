@@ -59,6 +59,12 @@ public class DialogueInteractionBehaviour : MonoBehaviour
     public Vector2 sizeNotTalking;
     public Vector2 sizeTalking;
 
+    [Header("InputController")]
+    [SerializeField]
+    private GameObject inputGamepad;
+    [SerializeField]
+    private GameObject inputKeyboard;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.RunMiniGame)
@@ -76,6 +82,20 @@ public class DialogueInteractionBehaviour : MonoBehaviour
             col.GetComponent<CharacterBehaviour>().toInteract = null;
             keyInteraction.SetActive(false);
 
+        }
+    }
+
+    private void ChangeUIController()
+    {
+        if (GameStateBehaviour.Instance.currentController.name.Contains("Controller"))
+        {
+            inputGamepad.SetActive(true);
+            inputKeyboard.SetActive(false);
+        }
+        else if (GameStateBehaviour.Instance.currentController.name.Contains("Keyboard"))
+        {
+            inputGamepad.SetActive(false);
+            inputKeyboard.SetActive(true);
         }
     }
 }

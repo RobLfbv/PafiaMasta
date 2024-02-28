@@ -7,6 +7,7 @@ using DG;
 using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 
 public class GameStateBehaviour : MonoBehaviour
@@ -82,6 +83,16 @@ public class GameStateBehaviour : MonoBehaviour
 
     [Header("Riddle Mini Game Variables")]
     public GameObject ghettiInteraction;
+    public InputDevice currentController;
+
+    [Header("UIKeyboard")]
+    [SerializeField]
+    private GameObject[] UIKeyboard;
+
+    [Header("UIGamepad")]
+    [SerializeField]
+    private GameObject[] UIGamepad;
+
 
     /*
     0 = LaunchGameDialogue
@@ -388,6 +399,27 @@ public class GameStateBehaviour : MonoBehaviour
     public void ChangeCharDialogue(Character charToChange, int idxDialogue)
     {
         PlayerPrefs.SetInt(charToChange.ToString(), idxDialogue);
+    }
+
+    public void ChangeController(InputDevice newController)
+    {
+        currentController = newController;
+        if (currentController.name.Contains("Controller"))
+        {
+            foreach (GameObject gb in UIGamepad)
+                gb.SetActive(true);
+
+            foreach (GameObject gb in UIKeyboard)
+                gb.SetActive(false);
+        }
+        else if (currentController.name.Contains("Keyboard"))
+        {
+            foreach (GameObject gb in UIGamepad)
+                gb.SetActive(false);
+
+            foreach (GameObject gb in UIKeyboard)
+                gb.SetActive(true);
+        }
     }
 
 }

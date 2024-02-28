@@ -520,8 +520,6 @@ public class DialogueBox : MonoBehaviour
         DialogueInteractionBehaviour toInteract = GameStateBehaviour.Instance.player.toInteract;
         if (PlayerPrefs.GetInt("RaVitoKetchup") == 1 && toInteract.transform.parent.name.Equals("Ra_Vito"))
         {
-            print("here");
-            print(currentDialogue.dialogueList[idTextList].emotion);
             if (currentDialogue.dialogueList[idTextList].emotion == Emotions.Neutral)
             {
                 talker2.sprite = toInteract.spriteNeutralKetchuped;
@@ -555,8 +553,6 @@ public class DialogueBox : MonoBehaviour
                 talker2.sprite = toInteract.spriteNeutralKetchuped;
                 talker2.color = absentColor;
             }
-            print(talker2.sprite);
-
         }
         else
         {
@@ -594,7 +590,5 @@ public class DialogueBox : MonoBehaviour
                 talker2.color = absentColor;
             }
         }
-        print(talker2.sprite);
-
     }
 }
