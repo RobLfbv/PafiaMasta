@@ -112,11 +112,12 @@ public class GameStateBehaviour : MonoBehaviour
         {
             PlayerPrefs.SetInt("AlreadyLaunched", 1);
             PlayerPrefs.SetInt("Yette", 1);
-            PlayerPrefs.SetInt("Zily", 1);
+            PlayerPrefs.SetInt("Zily", 1);  
             PlayerPrefs.SetInt("Farfolle", 1);
             PlayerPrefs.SetInt("Ghetti", 1);
             PlayerPrefs.SetInt("Ra_Vito", 0);
             PlayerPrefs.SetInt("Maili_Mailo", 1);
+            PlayerPrefs.SetInt("Lasagne", 5);
             ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = introDialogue;
             DialogueBox.Instance.setOriginalText();
@@ -189,6 +190,9 @@ public class GameStateBehaviour : MonoBehaviour
 
     public void ChangeToSearchMiniGame()
     {
+        cam.clip = musics[4];
+        cam.Play();
+
         currentState = GameState.SearchMiniGame;
         searchMiniGameScreen.SetActive(true);
         yetteInteraction.SetActive(false);
