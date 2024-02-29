@@ -184,6 +184,7 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
+    Vector2 oldPos;
 
 
     private void Interaction(InputAction.CallbackContext obj)
@@ -206,10 +207,11 @@ public class CharacterBehaviour : MonoBehaviour
                 GameStateBehaviour.Instance.ChangeToDialogue();
                 if (takenObject != null)
                 {
+
                     if (takenObject.type == ObjectType.Papate)
                     {
                         DialogueBox.Instance.currentDialogue = toInteract.WinDialogue;
-                        textSearch.text = "";
+                        textSearch.text = "Objets possibles";
                         GameStateBehaviour.Instance.ChangeFarfolleDialogue(4);
                         takenObject = null;
                         //searchImage.sprite = null;
@@ -217,10 +219,17 @@ public class CharacterBehaviour : MonoBehaviour
                     }
                     else
                     {
+                        if (takenObject.type != ObjectType.Yette)
+                        {
+                            takenObject.found.gameObject.transform.parent.transform.position = oldPos;
+                            takenObject.found.gameObject.transform.parent.transform.localScale /= 2;
+                        }
+                        else takenObject.found.gameObject.transform.parent.transform.localScale /= 3;
+
                         DialogueBox.Instance.currentDialogue = takenObject.dialogueInteraction;
                         takenObject.transform.parent.gameObject.SetActive(true);
                         takenObject.keyInteraction.SetActive(false);
-                        textSearch.text = "";
+                        textSearch.text = "Objets possibles";
                         takenObject = null;
                         //searchImage.sprite = null;
                         //searchImage.color = colorTransparent;
@@ -265,13 +274,24 @@ public class CharacterBehaviour : MonoBehaviour
             {
                 if (takenObject == null)
                 {
+
                     takenObject = searchObject;
                     takenObject.transform.parent.gameObject.SetActive(false);
-                    textSearch.text = takenObject.transform.parent.name;
+                    textSearch.text = "En main : " + takenObject.transform.parent.name;
                     GameStateBehaviour.Instance.farfolleInteraction.SetActive(true);
                     //searchImage.sprite = takenObject.transform.parent.GetComponent<SpriteRenderer>().sprite;
                     takenObject.shadow.gameObject.SetActive(false);
+
                     takenObject.found.gameObject.SetActive(true);
+                    if (takenObject.type != ObjectType.Yette)
+                    {
+                        oldPos = takenObject.found.gameObject.transform.parent.transform.position;
+
+                        takenObject.found.gameObject.transform.parent.transform.position = new Vector2(67,107);
+                        takenObject.found.gameObject.transform.parent.transform.localScale *= 2;
+                    }
+                    else takenObject.found.gameObject.transform.parent.transform.localScale *= 3;
+
                     /*switch (takenObject.type)
                     {
                         case ObjectType.Yette:
@@ -286,6 +306,7 @@ public class CharacterBehaviour : MonoBehaviour
                     }*/
                     //searchImage.color = colorNotTransparent;
                 }
+
             }
         }
         else if (canShoot && GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.GunMiniGame)
