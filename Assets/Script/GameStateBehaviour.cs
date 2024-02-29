@@ -82,7 +82,7 @@ public class GameStateBehaviour : MonoBehaviour
     public SpriteRenderer raVitoSprite;
     public Sprite playerKetchup;
     public Sprite raVitoKetchup;
-    
+
     [SerializeField]
     private SpriteRenderer[] playerShadow;
     [SerializeField]
@@ -91,6 +91,8 @@ public class GameStateBehaviour : MonoBehaviour
     [Header("Factory Mini Game Variables")]
     public GameObject factoryMiniGameScreen;
     public GameObject zilyInteraction;
+    public SpriteRenderer usine;
+    public Sprite usineFire;
 
     [Header("Riddle Mini Game Variables")]
     public GameObject ghettiInteraction;
@@ -130,10 +132,21 @@ public class GameStateBehaviour : MonoBehaviour
             PlayerPrefs.SetInt("Ra_Vito", 0);
             PlayerPrefs.SetInt("Maili_Mailo", 0);
             PlayerPrefs.SetInt("Lasagne", 5);
+
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacterYette", -1);
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacterZily", -1);
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacterFarfolle", -1);
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacterGhetti", -1);
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacterRa_Vito", -1);
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacterMaili_Mailo", -1);
+
             ChangeToDialogue();
             DialogueBox.Instance.currentDialogue = introDialogue;
             DialogueBox.Instance.setOriginalText();
+
         }
+
+        VerifExclamation();
         canMove = true;
         if (PlayerPrefs.GetInt("PlayerKetchup") == 1)
         {
@@ -150,6 +163,11 @@ public class GameStateBehaviour : MonoBehaviour
             {
                 raVitoShadow[i].sprite = raVitoKetchup;
             }
+        }
+
+        if (PlayerPrefs.GetInt("UsineFire") == 1)
+        {
+            ChangementUsine();
         }
     }
 
@@ -264,7 +282,7 @@ public class GameStateBehaviour : MonoBehaviour
             smoothCamera.follow = raVitoGun;
             transition.DOFade(0, 1).OnComplete(() =>
             {
-                countdownMiniGame.GetComponent<CountdownBehavior>().miniGameToLaunch = MiniGameToLaunch.FactoryMiniGame;
+                countdownMiniGame.GetComponent<CountdownBehavior>().miniGameToLaunch = MiniGameToLaunch.GunMiniGame;
                 countdownMiniGame.SetActive(true);
             });
         });
@@ -288,6 +306,7 @@ public class GameStateBehaviour : MonoBehaviour
         transition.gameObject.SetActive(true);
         transition.DOFade(1, 1).OnComplete(() =>
         {
+            factoryMiniGameScreen.SetActive(true);
             transition.DOFade(0, 1).OnComplete(() =>
             {
                 countdownMiniGame.GetComponent<CountdownBehavior>().miniGameToLaunch = MiniGameToLaunch.FactoryMiniGame;
@@ -461,6 +480,68 @@ public class GameStateBehaviour : MonoBehaviour
 
             foreach (GameObject gb in UIKeyboard)
                 gb.SetActive(true);
+        }
+    }
+
+    public void ChangementUsine()
+    {
+        usine.sprite = usineFire;
+    }
+
+    public void VerifExclamation()
+    {
+        if (PlayerPrefs.GetInt("CurrentDialogueOnCharacterYette") != PlayerPrefs.GetInt("Yette"))
+        {
+            yetteInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(true);
+        }
+        else
+        {
+            yetteInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("CurrentDialogueOnCharacterZily") != PlayerPrefs.GetInt("Zily"))
+        {
+            zilyInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(true);
+        }
+        else
+        {
+            zilyInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("CurrentDialogueOnCharacterFarfolle") != PlayerPrefs.GetInt("Farfolle"))
+        {
+            farfolleInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(true);
+        }
+        else
+        {
+            farfolleInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("CurrentDialogueOnCharacterGhetti") != PlayerPrefs.GetInt("Ghetti"))
+        {
+            ghettiInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(true);
+        }
+        else
+        {
+            ghettiInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("CurrentDialogueOnCharacterRa_Vito") != PlayerPrefs.GetInt("Ra_Vito"))
+        {
+            raVitoInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(true);
+        }
+        else
+        {
+            raVitoInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("CurrentDialogueOnCharacterMaili_Mailo") != PlayerPrefs.GetInt("Maili_Mailo"))
+        {
+            mailiMailoInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(true);
+        }
+        else
+        {
+            mailiMailoInteraction.GetComponent<DialogueInteractionBehaviour>().exclamation.SetActive(false);
         }
     }
 

@@ -128,6 +128,8 @@ public class CharacterBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject sauce;
     [SerializeField]
+    public FactoryBehaviour factoryBehaviour;
+    [SerializeField]
     private ChronoBehaviour1 chrono;
     private Color color1 = new Color(0.8f, 0.8f, 0.8f);
     private Color color2 = new Color(0.5f, 0.5f, 0.5f);
@@ -344,42 +346,21 @@ public class CharacterBehaviour : MonoBehaviour
         }
         else if (GameStateBehaviour.Instance.currentState == GameStateBehaviour.GameState.FactoryMiniGame)
         {
-            if (moveAction.ReadValue<Vector2>() == nextInput)
+            if (factoryBehaviour.moveRightCauldron && moveAction.ReadValue<Vector2>() == Vector2.right)
             {
-                if (nextInput == Vector2.right)
-                {
-                    nextInput = Vector2.down;
-                    nbTourPerSec += 0.25f;
-                    SpoonAnchor.transform.DORotate(rotationSpoonBas, 0.02f);
-                    keyToMove.sprite = keyToMoveDown;
-                    //SpoonAnchor.transform.DOLocalMove(positionSpoonBas, 0.01f);
-                }
-                else if (nextInput == Vector2.down)
-                {
-                    nextInput = Vector2.left;
-                    nbTourPerSec += 0.25f;
-                    SpoonAnchor.transform.DORotate(rotationSpoonGauche, 0.02f);
-                    keyToMove.sprite = keyToMoveLeft;
-                    //SpoonAnchor.transform.DOLocalMove(positionSpoonGauche, 0.01f);
-                }
-                else if (nextInput == Vector2.left)
-                {
-                    nextInput = Vector2.up;
-                    nbTourPerSec += 0.25f;
-                    SpoonAnchor.transform.DORotate(rotationSpoonHaut, 0.02f);
-                    keyToMove.sprite = keyToMoveUp;
-                    //SpoonAnchor.transform.DOLocalMove(positionSpoonHaut, 0.01f);
-                }
-                else if (nextInput == Vector2.up)
-                {
-                    nextInput = Vector2.right;
-                    nbTourPerSec += 0.25f;
-                    SpoonAnchor.transform.DORotate(rotationSpoonDroite, 0.02f);
-                    keyToMove.sprite = keyToMoveRight;
-                    //SpoonAnchor.transform.DOLocalMove(positionSpoonDroite, 0.01f);
-
-                }
-                //SpoonAnchor.transform.DORotate(new Vector3(0, 0, -90f), 0.02f, RotateMode.WorldAxisAdd);
+                factoryBehaviour.MoveRightCauldrons();
+            }
+            if (factoryBehaviour.moveDownCauldron && moveAction.ReadValue<Vector2>() == Vector2.down)
+            {
+                factoryBehaviour.MoveDownCauldrons();
+            }
+            if (factoryBehaviour.moveLeftCauldron && moveAction.ReadValue<Vector2>() == Vector2.left)
+            {
+                factoryBehaviour.MoveLeftCauldrons();
+            }
+            if (factoryBehaviour.moveUpCauldron && moveAction.ReadValue<Vector2>() == Vector2.up)
+            {
+                factoryBehaviour.MoveUpCauldrons();
             }
         }
     }
@@ -393,15 +374,9 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
 
-    public void CalculateRPM()
-    {
-        tourParMinute = nbTourPerSec * 60;
-        nbTourPerSec = 0;
-        textRPM.SetText("Tours par minute : " + tourParMinute);
-        StartCoroutine(DoAfterDelay(1f, CalculateRPM));
-    }
 
-    public void ChangeObjective()
+
+    /*public void ChangeObjective()
     {
         chrono.timeTotal = 6.5f;
         actualObjectiveRPM++;
@@ -466,6 +441,6 @@ public class CharacterBehaviour : MonoBehaviour
         }
 
         StartCoroutine(DoAfterDelay(6.5f, ChangeObjective));
-    }
+    }*/
 
 }

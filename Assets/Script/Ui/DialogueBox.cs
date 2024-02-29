@@ -178,6 +178,8 @@ public class DialogueBox : MonoBehaviour
                     }
                 }
             }
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacter"+ currentDialogue.talker2.ToString(), PlayerPrefs.GetInt(currentDialogue.talker2.ToString()));
+            GameStateBehaviour.Instance.VerifExclamation();
             actions = new List<Action>();
         }
     }

@@ -87,11 +87,8 @@ public class CountdownBehavior : MonoBehaviour
             
             case MiniGameToLaunch.FactoryMiniGame:
                 GameStateBehaviour.Instance.currentState = GameStateBehaviour.GameState.FactoryMiniGame;
-                GameStateBehaviour.Instance.factoryMiniGameScreen.SetActive(true);
                 GameStateBehaviour.Instance.transition.gameObject.SetActive(false);
-                GameStateBehaviour.Instance.player.nextInput = Vector2.right;
-                StartCoroutine(GameStateBehaviour.Instance.player.DoAfterDelay(1f, GameStateBehaviour.Instance.player.CalculateRPM));
-                GameStateBehaviour.Instance.player.ChangeObjective();
+                GameStateBehaviour.Instance.factoryMiniGameScreen.SetActive(true);
                 break;
         }
             gameObject.SetActive(false);

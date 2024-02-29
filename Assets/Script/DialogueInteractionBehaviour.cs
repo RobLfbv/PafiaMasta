@@ -58,6 +58,7 @@ public class DialogueInteractionBehaviour : MonoBehaviour
     public Vector2 dimensionImage;
     public Vector2 sizeNotTalking;
     public Vector2 sizeTalking;
+    public GameObject exclamation;
 
     [Header("InputController")]
     [SerializeField]
