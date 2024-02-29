@@ -29,19 +29,19 @@ MonoBehaviour:
       idNext: 3
       method: 0
     - textChoice: Farfolle
-      idNext: 5
+      idNext: 6
       method: 0
     - textChoice: Ghetti
-      idNext: 5
+      idNext: 6
       method: 0
     - textChoice: Ra Vito
       idNext: 6
       method: 11
     - textChoice: Yette
-      idNext: 7
+      idNext: 6
       method: 0
     - textChoice: Zily
-      idNext: 5
+      idNext: 6
       method: 0
     idGoto: 0
     isChoiceDialogue: 1

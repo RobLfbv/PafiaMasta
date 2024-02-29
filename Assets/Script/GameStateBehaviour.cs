@@ -100,15 +100,17 @@ public class GameStateBehaviour : MonoBehaviour
 
     [Header("UIKeyboard")]
     [SerializeField]
-    private GameObject[] UIKeyboard;
+    public List<GameObject> UIKeyboard;
 
     [Header("UIGamepad")]
     [SerializeField]
-    private GameObject[] UIGamepad;
+    public List<GameObject> UIGamepad;
 
     [Header("UIGMouse")]
     [SerializeField]
     private GameObject[] UIMouse;
+    [HideInInspector]
+    public string charSelected;
 
     /*
     0 = LaunchGameDialogue
@@ -303,6 +305,7 @@ public class GameStateBehaviour : MonoBehaviour
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
+        canMove = false;
         transition.gameObject.SetActive(true);
         transition.DOFade(1, 1).OnComplete(() =>
         {
@@ -364,14 +367,33 @@ public class GameStateBehaviour : MonoBehaviour
     }
     public void EndingRaVito()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("RaVitoEnding");
     }
 
     public void EndingYette()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("YetteEnding");
     }
 
+    public void EndingYetteWithoutInfo()
+    {
+        SceneManager.LoadScene("YetteEndingNoInfo");
+    }
+
+    public void EndingFarfolle()
+    {
+        SceneManager.LoadScene("FarfolleEnding");
+    }
+
+    public void EndingGhetti()
+    {
+        SceneManager.LoadScene("GhettiEnding");
+    }
+
+    public void EndingZily()
+    {
+        SceneManager.LoadScene("ZilyEnding");
+    }
     public void DialogueYetteOmbre()
     {
         PlayerPrefs.SetInt("YetteInfoDialogueDone", PlayerPrefs.GetInt("YetteInfoDialogueDone") + 1);

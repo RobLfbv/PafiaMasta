@@ -29,19 +29,19 @@ MonoBehaviour:
       idNext: 3
       method: 0
     - textChoice: Farfolle
-      idNext: 5
+      idNext: 6
       method: 0
     - textChoice: Ghetti
-      idNext: 5
+      idNext: 6
       method: 0
     - textChoice: Ra Vito
-      idNext: 5
+      idNext: 6
       method: 0
     - textChoice: Yette
       idNext: 7
       method: 12
     - textChoice: Zily
-      idNext: 5
+      idNext: 6
       method: 0
     idGoto: 0
     isChoiceDialogue: 1
@@ -70,11 +70,10 @@ MonoBehaviour:
     isChoiceDialogue: 0
   - idDialogue: 6
     charTalking: 7
-    text: "La r\xE9ponse se trouve juste devant vos yeux, R\xE9fl\xE9chissez \xE0
-      nouveau ! "
+    text: "Tr\xE8s bien, si c\u2019est ce que vous pensez, je transmet \xE0 vos sup\xE9rieurs\u2026 "
     emotion: 0
     choices: []
-    idGoto: 2
+    idGoto: -1
     isChoiceDialogue: 0
   - idDialogue: 7
     charTalking: 7

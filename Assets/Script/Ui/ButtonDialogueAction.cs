@@ -25,4 +25,9 @@ public class ButtonDialogueAction : MonoBehaviour, ISelectHandler
         if (source != null)
             source.Play();
     }
+
+    public void ChangeSelectedChar()
+    {
+        GameStateBehaviour.Instance.charSelected = name;
+    }
 }

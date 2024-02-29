@@ -45,6 +45,9 @@ public class DialogueBox : MonoBehaviour
     public Button[] buttonsFinal;
     public Button buttonsFinalYette;
     public Button buttonsFinalRaVito;
+    public Button buttonsFinalZily;
+    public Button buttonsFinalGhetti;
+    public Button buttonsFinalFarfolle;
     private int idTextList;
     public Image talker1;
     public Image talker2;
@@ -178,7 +181,7 @@ public class DialogueBox : MonoBehaviour
                     }
                 }
             }
-            PlayerPrefs.SetInt("CurrentDialogueOnCharacter"+ currentDialogue.talker2.ToString(), PlayerPrefs.GetInt(currentDialogue.talker2.ToString()));
+            PlayerPrefs.SetInt("CurrentDialogueOnCharacter" + currentDialogue.talker2.ToString(), PlayerPrefs.GetInt(currentDialogue.talker2.ToString()));
             GameStateBehaviour.Instance.VerifExclamation();
             actions = new List<Action>();
         }
@@ -205,17 +208,50 @@ public class DialogueBox : MonoBehaviour
                 buttonsFinal[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
                 buttonsFinal[i].gameObject.SetActive(true);
             }
-
+            print(GameStateBehaviour.Instance.charSelected);
             if (currentDialogue.name.Equals("AccusationWithInfoYette"))
             {
                 buttonsFinalYette.onClick.AddListener(AddActionEndingYette);
                 buttonsFinalYette.onClick.AddListener(desactivateButtons);
             }
-            else if (currentDialogue.name.Equals("AccusationWithoutInfo"))
+            else
+            {
+                buttonsFinalYette.onClick.AddListener(AddActionEndingYetteWithoutInfo);
+                buttonsFinalYette.onClick.AddListener(desactivateButtons);
+                buttonsFinalFarfolle.onClick.AddListener(AddActionEndingFarfolle);
+                buttonsFinalFarfolle.onClick.AddListener(desactivateButtons);
+                buttonsFinalZily.onClick.AddListener(AddActionEndingZily);
+                buttonsFinalZily.onClick.AddListener(desactivateButtons);
+                buttonsFinalRaVito.onClick.AddListener(AddActionEndingRaVito);
+                buttonsFinalRaVito.onClick.AddListener(desactivateButtons);
+                buttonsFinalGhetti.onClick.AddListener(AddActionEndingGhetti);
+                buttonsFinalGhetti.onClick.AddListener(desactivateButtons);
+            }
+            /*else if (GameStateBehaviour.Instance.charSelected == "Yette")
+            {
+                buttonsFinalYette.onClick.AddListener(AddActionEndingYetteWithoutInfo);
+                buttonsFinalYette.onClick.AddListener(desactivateButtons);
+            }
+            else if (GameStateBehaviour.Instance.charSelected == "Farfolle")
+            {
+                buttonsFinalFarfolle.onClick.AddListener(AddActionEndingFarfolle);
+                buttonsFinalFarfolle.onClick.AddListener(desactivateButtons);
+            }
+            else if (GameStateBehaviour.Instance.charSelected == "Zily")
+            {
+                buttonsFinalZily.onClick.AddListener(AddActionEndingZily);
+                buttonsFinalZily.onClick.AddListener(desactivateButtons);
+            }
+            else if (GameStateBehaviour.Instance.charSelected == "Ra_Vito")
             {
                 buttonsFinalRaVito.onClick.AddListener(AddActionEndingRaVito);
                 buttonsFinalRaVito.onClick.AddListener(desactivateButtons);
             }
+            else if (GameStateBehaviour.Instance.charSelected == "Ghetti")
+            {
+                buttonsFinalGhetti.onClick.AddListener(AddActionEndingGhetti);
+                buttonsFinalGhetti.onClick.AddListener(desactivateButtons);
+            }*/
         }
         else
         {
@@ -450,6 +486,22 @@ public class DialogueBox : MonoBehaviour
     public void AddActionEndingYette()
     {
         actions.Add(GameStateBehaviour.Instance.EndingYette);
+    }
+    public void AddActionEndingYetteWithoutInfo()
+    {
+        actions.Add(GameStateBehaviour.Instance.EndingYetteWithoutInfo);
+    }
+    public void AddActionEndingFarfolle()
+    {
+        actions.Add(GameStateBehaviour.Instance.EndingFarfolle);
+    }
+    public void AddActionEndingGhetti()
+    {
+        actions.Add(GameStateBehaviour.Instance.EndingGhetti);
+    }
+    public void AddActionEndingZily()
+    {
+        actions.Add(GameStateBehaviour.Instance.EndingZily);
     }
     public void AddActionEndingRaVito()
     {
