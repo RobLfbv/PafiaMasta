@@ -15,14 +15,15 @@ MonoBehaviour:
   dialogueList:
   - idDialogue: 0
     charTalking: 8
-    text: ...
+    text: GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO GO
+      GO GO GO GO
     emotion: 0
     choices: []
     idGoto: 1
     isChoiceDialogue: 0
   - idDialogue: 1
     charTalking: 0
-    text: "\u30B4 ? "
+    text: 'GO ? '
     emotion: 0
     choices: []
     idGoto: -1
