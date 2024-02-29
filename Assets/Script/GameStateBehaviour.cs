@@ -240,6 +240,7 @@ public class GameStateBehaviour : MonoBehaviour
             yette.transform.position = positionYetteRun.position;
             transition.DOFade(0, 1).OnComplete(() =>
             {
+                countdownMiniGame.GetComponent<CountdownBehavior>().miniGameToLaunch = MiniGameToLaunch.RunMiniGame;
                 countdownMiniGame.SetActive(true);
             });
         });

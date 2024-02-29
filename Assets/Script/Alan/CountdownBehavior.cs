@@ -74,6 +74,7 @@ public class CountdownBehavior : MonoBehaviour
         if (seconds < 0)
         {   switch(miniGameToLaunch){
             case MiniGameToLaunch.RunMiniGame:
+                print("je suis là");
                 GameStateBehaviour.Instance.runMiniGameScreen.SetActive(true);
                 GameStateBehaviour.Instance.yette.GetComponent<YetteRunning>().enabled = true;
                 GameStateBehaviour.Instance.canMove = true;
