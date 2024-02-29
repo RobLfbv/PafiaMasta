@@ -120,6 +120,6 @@ MonoBehaviour:
     isChoiceDialogue: 0
   talker1: 0
   talker2: 2
-  dialogueAction: 0
+  dialogueAction: 1
   unlockDialogue: []
   unlockCarnets: []

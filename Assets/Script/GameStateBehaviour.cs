@@ -58,11 +58,15 @@ public class GameStateBehaviour : MonoBehaviour
     public GameObject pauseScreen;
     public bool isPaused = false;
 
+    public GameObject countdownMiniGame;
     [Header("Run Mini Game Variables")]
     public GameObject runMiniGameScreen;
     public GameObject yette;
     public GameObject yetteInteraction;
     public GameObject yetteUIInteraction;
+    public Transform positionPlayerRun;
+    public Transform positionYetteRun;
+    public bool canMove = true;
 
     [Header("Search Mini Game Variables")]
     public GameObject searchMiniGameScreen;
@@ -76,6 +80,13 @@ public class GameStateBehaviour : MonoBehaviour
     public GunBehaviour gunBehaviour;
     public SpriteRenderer playerSprite;
     public SpriteRenderer raVitoSprite;
+    public Sprite playerKetchup;
+    public Sprite raVitoKetchup;
+    
+    [SerializeField]
+    private SpriteRenderer[] playerShadow;
+    [SerializeField]
+    private SpriteRenderer[] raVitoShadow;
 
     [Header("Factory Mini Game Variables")]
     public GameObject factoryMiniGameScreen;
@@ -123,7 +134,23 @@ public class GameStateBehaviour : MonoBehaviour
             DialogueBox.Instance.currentDialogue = introDialogue;
             DialogueBox.Instance.setOriginalText();
         }
-
+        canMove = true;
+        if (PlayerPrefs.GetInt("PlayerKetchup") == 1)
+        {
+            playerSprite.sprite = playerKetchup;
+            for (int i = 0; i < playerShadow.Length; i++)
+            {
+                playerShadow[i].sprite = playerKetchup;
+            }
+        }
+        else if (PlayerPrefs.GetInt("RaVitoKetchup") == 1)
+        {
+            raVitoSprite.sprite = raVitoKetchup;
+            for (int i = 0; i < raVitoShadow.Length; i++)
+            {
+                raVitoShadow[i].sprite = raVitoKetchup;
+            }
+        }
     }
 
     public void ChangeToDialogue()
@@ -175,10 +202,6 @@ public class GameStateBehaviour : MonoBehaviour
     {
         cam.clip = musics[3];
         cam.Play();
-
-        currentState = GameState.RunMiniGame;
-        runMiniGameScreen.SetActive(true);
-        yette.GetComponent<YetteRunning>().enabled = true;
         yetteInteraction.SetActive(false);
         yetteUIInteraction.SetActive(false);
         zilyInteraction.SetActive(false);
@@ -187,6 +210,19 @@ public class GameStateBehaviour : MonoBehaviour
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
         mailiMailoInteraction.SetActive(false);
+        canMove = false;
+        //transition.enabled = true;
+        transition.gameObject.SetActive(true);
+        transition.DOFade(1, 1).OnComplete(() =>
+        {
+            currentState = GameState.RunMiniGame;
+            player.transform.position = positionPlayerRun.position;
+            yette.transform.position = positionYetteRun.position;
+            transition.DOFade(0, 1).OnComplete(() =>
+            {
+                countdownMiniGame.SetActive(true);
+            });
+        });
     }
 
     public void ChangeToSearchMiniGame()
@@ -228,9 +264,8 @@ public class GameStateBehaviour : MonoBehaviour
             smoothCamera.follow = raVitoGun;
             transition.DOFade(0, 1).OnComplete(() =>
             {
-                transition.gameObject.SetActive(true);
-                gunBehaviour.key.SetActive(true);
-                player.canShoot = true;
+                countdownMiniGame.GetComponent<CountdownBehavior>().miniGameToLaunch = MiniGameToLaunch.FactoryMiniGame;
+                countdownMiniGame.SetActive(true);
             });
         });
         for (int i = 0; i < searchObjectInteractions.Length; i++)
@@ -243,17 +278,23 @@ public class GameStateBehaviour : MonoBehaviour
         cam.clip = musics[2];
         cam.Play();
 
-        currentState = GameState.FactoryMiniGame;
-        factoryMiniGameScreen.SetActive(true);
+
         yetteInteraction.SetActive(false);
         zilyInteraction.SetActive(false);
         ghettiInteraction.SetActive(false);
         raVitoInteraction.SetActive(false);
         farfolleInteraction.SetActive(false);
         dialogueScreen.SetActive(false);
-        player.nextInput = Vector2.right;
-        StartCoroutine(player.DoAfterDelay(1f, player.CalculateRPM));
-        player.ChangeObjective();
+        transition.gameObject.SetActive(true);
+        transition.DOFade(1, 1).OnComplete(() =>
+        {
+            transition.DOFade(0, 1).OnComplete(() =>
+            {
+                countdownMiniGame.GetComponent<CountdownBehavior>().miniGameToLaunch = MiniGameToLaunch.FactoryMiniGame;
+                countdownMiniGame.SetActive(true);
+            });
+        });
+
     }
 
     public void ButtonPauseGame()

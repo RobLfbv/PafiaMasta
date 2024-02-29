@@ -230,7 +230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keyInteraction: {fileID: 5450042069806550837}
-  type: Yette
+  type: 0
+  shadow: {fileID: 0}
+  found: {fileID: 0}
   dialogueInteraction: {fileID: 11400000, guid: 3ec7a48d72492b749a20ae8d096738a5, type: 2}
 --- !u!1 &4338189954182881507
 GameObject:
@@ -445,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1846470114099757119, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1846470114099757119, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -578,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: InfoDialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 58554f2f669115d4997d2bcf86f907c1, type: 2}
+      objectReference: {fileID: 11400000, guid: b94f783b281ac344a9b5349be33d97fe, type: 2}
     - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: LoseDialogue
       value: 
@@ -631,10 +633,6 @@ PrefabInstance:
       propertyPath: FinishGameDialogue
       value: 
       objectReference: {fileID: 11400000, guid: 8b7195fb55a7fa949863ab079ee1119c, type: 2}
-    - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
-      propertyPath: LaunchGameDialogue
-      value: 
-      objectReference: {fileID: 11400000, guid: ecc40abb626b8de4d8e41b03ff1b5339, type: 2}
     - target: {fileID: 8189581176701225223, guid: a5221f81767cab04d9c44ae71d49b0d1, type: 3}
       propertyPath: NotUnlockGameDialogue
       value: 
@@ -719,7 +717,7 @@ MonoBehaviour:
   transition: {fileID: 0}
   playerWin: 0
   dialogueInteractionBehaviour: {fileID: 0}
-  anim: {fileID: 0}
+  finishLineDirection: {fileID: 0}
 --- !u!114 &378894193898758205
 MonoBehaviour:
   m_ObjectHideFlags: 0

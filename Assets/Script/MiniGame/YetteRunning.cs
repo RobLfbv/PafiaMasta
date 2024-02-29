@@ -74,6 +74,8 @@ public class YetteRunning : MonoBehaviour
                     transform.position = ogPosYette.position;
                     player.position = resetPosPlayer.position;
                     GameStateBehaviour.Instance.ChangeToDialogue();
+                    player.GetComponent<CharacterBehaviour>().toInteract = GetComponentInChildren<DialogueInteractionBehaviour>();
+                    player.GetComponent<CharacterBehaviour>().canInteract = true;
                     if (playerWin)
                     {
                         DialogueBox.Instance.currentDialogue = dialogueInteractionBehaviour.WinDialogue;

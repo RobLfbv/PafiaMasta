@@ -12822,6 +12822,7 @@ MonoBehaviour:
   ghettiInteraction: {fileID: 1186346420}
   UIKeyboard: []
   UIGamepad: []
+  UIMouse: []
 --- !u!4 &504070435
 Transform:
   m_ObjectHideFlags: 0
@@ -24751,6 +24752,7 @@ MonoBehaviour:
   playerBg: {fileID: 1718606927}
   interBg: {fileID: 1378692252}
   interAnimator: {fileID: 1874990866}
+  movementUI: {fileID: 0}
 --- !u!82 &911133395
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35380,7 +35382,11 @@ MonoBehaviour:
   backButton: {fileID: 343824395}
   resumeButton: {fileID: 2025781259}
   quitButton: {fileID: 1984852155}
+  alibiButtons: []
+  mobileButtons: []
   currentMenuSelection: 0
+  alibiMenu: []
+  mobileMenu: []
 --- !u!82 &1363140936
 AudioSource:
   m_ObjectHideFlags: 0

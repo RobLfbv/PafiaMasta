@@ -309,7 +309,7 @@ public class CharacterBehaviour : MonoBehaviour
 
         if (GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.Dialogue && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.GunMiniGame && GameStateBehaviour.Instance.currentState != GameStateBehaviour.GameState.FactoryMiniGame)
         {
-            if (!GameStateBehaviour.Instance.isPaused)
+            if (!GameStateBehaviour.Instance.isPaused && GameStateBehaviour.Instance.canMove)
             {
                 Vector2 moveDir = moveAction.ReadValue<Vector2>();
                 Vector2 velocity = rb.velocity;

@@ -24,7 +24,7 @@ public class FinishLineDirection : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(transform.localPosition + " - " + transform.localRotation);
+        //Debug.Log(transform.localPosition + " - " + transform.localRotation);
         //follow FinishLine
         Vector2 newPos = finishLine.transform.position - transform.position;
         transform.Translate(newPos * Time.deltaTime * speed);
