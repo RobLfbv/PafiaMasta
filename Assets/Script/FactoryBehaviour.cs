@@ -45,6 +45,11 @@ public class FactoryBehaviour : MonoBehaviour
     public Vector3 initPos = new Vector3(0, 0, 90f);
     public Vector3 goToPos = new Vector3(0, 0, 115f);
 
+    [Header("Fire")]
+    [SerializeField]
+    private GameObject[] fires;
+    private int indexFire = 0;
+
     private void OnEnable()
     {
         RightCauldrons = new List<GameObject>();
@@ -174,6 +179,31 @@ public class FactoryBehaviour : MonoBehaviour
             moveLeftCauldron = true;
         }));
 
+        StartCoroutine(DoAfterDelay(8f, () =>
+        {
+            ActivateNextFire();
+        }));
+
+        StartCoroutine(DoAfterDelay(15f, () =>
+        {
+            ActivateNextFire();
+            ActivateNextFire();
+        }));
+
+        StartCoroutine(DoAfterDelay(20f, () =>
+        {
+            ActivateNextFire();
+            ActivateNextFire();
+            ActivateNextFire();
+        }));
+        
+        StartCoroutine(DoAfterDelay(25f, () =>
+        {
+            ActivateNextFire();
+            ActivateNextFire();
+            ActivateNextFire();
+        }));
+
         StartCoroutine(DoAfterDelay(30f, EndMiniGame));
     }
 
@@ -276,6 +306,13 @@ public class FactoryBehaviour : MonoBehaviour
         if (indexRight < RightCauldrons.Count)
         {
             RightCauldrons[indexRight].SetActive(true);
+            /*forwardChaudron.transform.DOShakePosition(6f, 1, 10);
+            forwardChaudron.transform.DOShakeRotation(6f, 1, 10);
+            backChaudron.transform.DOShakePosition(6f, 1, 10);
+            backChaudron.transform.DOShakeRotation(6f, 1, 10);
+            sauce.transform.DOShakePosition(6f, 1, 10);
+            sauce.transform.DOShakeRotation(6f, 1, 10);
+            sauce.GetComponent<Image>().DOColor(color1, 6);*/
         }
     }
     public void ActivateUp()
@@ -292,6 +329,15 @@ public class FactoryBehaviour : MonoBehaviour
         if (indexDown < DownCauldrons.Count)
         {
             DownCauldrons[indexDown].SetActive(true);
+        }
+    }
+
+    public void ActivateNextFire()
+    {
+        if (indexFire < fires.Length)
+        {
+            fires[indexFire].SetActive(true);
+            indexFire++;
         }
     }
 
@@ -315,4 +361,5 @@ public class FactoryBehaviour : MonoBehaviour
         GameStateBehaviour.Instance.canMove = true;
         DialogueBox.Instance.setOriginalText();
     }
+
 }
