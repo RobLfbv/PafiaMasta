@@ -131,11 +131,7 @@ public class CharacterBehaviour : MonoBehaviour
     public FactoryBehaviour factoryBehaviour;
     [SerializeField]
     private ChronoBehaviour1 chrono;
-    private Color color1 = new Color(0.8f, 0.8f, 0.8f);
-    private Color color2 = new Color(0.5f, 0.5f, 0.5f);
-    private Color color3 = new Color(0.34f, 0.34f, 0.34f);
-    private Color color4 = new Color(0.12f, 0.12f, 0.12f);
-    private Color color5 = new Color(0, 0, 0);
+
     void Awake()
     {
         source = GetComponent<AudioSource>();

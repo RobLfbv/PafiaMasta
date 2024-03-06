@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Unity.VisualScripting;
 using UnityEngine;
+using Unity.UI;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class FactoryBehaviour : MonoBehaviour
 {
@@ -49,6 +51,12 @@ public class FactoryBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject[] fires;
     private int indexFire = 0;
+    [Header("Color")]
+    private Color color1 = new Color(0.8f, 0.8f, 0.8f);
+    private Color color2 = new Color(0.5f, 0.5f, 0.5f);
+    private Color color3 = new Color(0.34f, 0.34f, 0.34f);
+    private Color color4 = new Color(0.12f, 0.12f, 0.12f);
+    private Color color5 = new Color(0, 0, 0);
 
     private void OnEnable()
     {
@@ -196,7 +204,7 @@ public class FactoryBehaviour : MonoBehaviour
             ActivateNextFire();
             ActivateNextFire();
         }));
-        
+
         StartCoroutine(DoAfterDelay(25f, () =>
         {
             ActivateNextFire();
@@ -213,7 +221,7 @@ public class FactoryBehaviour : MonoBehaviour
         foreach (GameObject gb in KeyLeftCauldrons)
             gb.SetActive(false);
         ActivateLeft();
-        StartCoroutine(DoAfterDelay(0.5f, () =>
+        StartCoroutine(DoAfterDelay(1.5f, () =>
         {
             moveLeftCauldron = true;
             foreach (GameObject gb in KeyLeftCauldrons)
@@ -234,7 +242,7 @@ public class FactoryBehaviour : MonoBehaviour
         foreach (GameObject gb in KeyRightCauldrons)
             gb.SetActive(false);
         ActivateRight();
-        StartCoroutine(DoAfterDelay(0.5f, () =>
+        StartCoroutine(DoAfterDelay(1.5f, () =>
         {
             moveRightCauldron = true;
             foreach (GameObject gb in KeyRightCauldrons)
@@ -255,7 +263,7 @@ public class FactoryBehaviour : MonoBehaviour
         foreach (GameObject gb in KeyUpCauldrons)
             gb.SetActive(false);
         ActivateUp();
-        StartCoroutine(DoAfterDelay(0.5f, () =>
+        StartCoroutine(DoAfterDelay(1.5f, () =>
         {
             moveUpCauldron = true;
             foreach (GameObject gb in KeyUpCauldrons)
@@ -276,7 +284,7 @@ public class FactoryBehaviour : MonoBehaviour
         foreach (GameObject gb in KeyDownCauldrons)
             gb.SetActive(false);
         ActivateDown();
-        StartCoroutine(DoAfterDelay(0.5f, () =>
+        StartCoroutine(DoAfterDelay(1.5f, () =>
         {
             moveDownCauldron = true;
             foreach (GameObject gb in KeyDownCauldrons)
@@ -298,6 +306,56 @@ public class FactoryBehaviour : MonoBehaviour
         if (indexLeft < LeftCauldrons.Count)
         {
             LeftCauldrons[indexLeft].SetActive(true);
+            Transform forwardChaudron = LeftCauldrons[indexLeft].transform.Find("Cauldron").Find("Front");
+            Transform sauce = LeftCauldrons[indexLeft].transform.Find("Cauldron").Find("Sauce");
+            Transform backChaudron = LeftCauldrons[indexLeft].transform.Find("Cauldron").Find("Back");
+
+
+            DG.Tweening.Sequence mySequence1 = DOTween.Sequence();
+            mySequence1.Append(forwardChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.GetComponent<Image>().DOColor(color1, 6));
+
+            DG.Tweening.Sequence mySequence2 = DOTween.Sequence();
+            mySequence2.Append(forwardChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.GetComponent<Image>().DOColor(color3, 6));
+            mySequence2.PrependInterval(4f);
+
+            DG.Tweening.Sequence mySequence3 = DOTween.Sequence();
+            mySequence3.Append(forwardChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.GetComponent<Image>().DOColor(color4, 6));
+            mySequence3.PrependInterval(8f);
+
+            DG.Tweening.Sequence mySequence4 = DOTween.Sequence();
+            mySequence4.Append(forwardChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.GetComponent<Image>().DOColor(color5, 6));
+            mySequence4.PrependInterval(12f);
+
+            mySequence1.OnComplete(() => mySequence2.Play());
+            mySequence2.OnComplete(() => mySequence3.Play());
+            mySequence3.OnComplete(() => mySequence4.Play());
+            mySequence4.OnComplete(() => mySequence4.Play());
+
+            mySequence1.Play();
         }
     }
     public void ActivateRight()
@@ -306,13 +364,57 @@ public class FactoryBehaviour : MonoBehaviour
         if (indexRight < RightCauldrons.Count)
         {
             RightCauldrons[indexRight].SetActive(true);
-            /*forwardChaudron.transform.DOShakePosition(6f, 1, 10);
-            forwardChaudron.transform.DOShakeRotation(6f, 1, 10);
-            backChaudron.transform.DOShakePosition(6f, 1, 10);
-            backChaudron.transform.DOShakeRotation(6f, 1, 10);
-            sauce.transform.DOShakePosition(6f, 1, 10);
-            sauce.transform.DOShakeRotation(6f, 1, 10);
-            sauce.GetComponent<Image>().DOColor(color1, 6);*/
+
+            Transform forwardChaudron = RightCauldrons[indexRight].transform.Find("Cauldron").Find("Front");
+            Transform sauce = RightCauldrons[indexRight].transform.Find("Cauldron").Find("Sauce");
+            Transform backChaudron = RightCauldrons[indexRight].transform.Find("Cauldron").Find("Back");
+
+
+            DG.Tweening.Sequence mySequence1 = DOTween.Sequence();
+            mySequence1.Append(forwardChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.GetComponent<Image>().DOColor(color1, 6));
+
+            DG.Tweening.Sequence mySequence2 = DOTween.Sequence();
+            mySequence2.Append(forwardChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.GetComponent<Image>().DOColor(color3, 6));
+            mySequence2.PrependInterval(4f);
+
+            DG.Tweening.Sequence mySequence3 = DOTween.Sequence();
+            mySequence3.Append(forwardChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.GetComponent<Image>().DOColor(color4, 6));
+            mySequence3.PrependInterval(8f);
+
+            DG.Tweening.Sequence mySequence4 = DOTween.Sequence();
+            mySequence4.Append(forwardChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.GetComponent<Image>().DOColor(color5, 6));
+            mySequence4.PrependInterval(12f);
+
+            mySequence1.OnComplete(() => mySequence2.Play());
+            mySequence2.OnComplete(() => mySequence3.Play());
+            mySequence3.OnComplete(() => mySequence4.Play());
+            mySequence4.OnComplete(() => mySequence4.Play());
+
+            mySequence1.Play();
         }
     }
     public void ActivateUp()
@@ -321,6 +423,57 @@ public class FactoryBehaviour : MonoBehaviour
         if (indexUp < UpCauldrons.Count)
         {
             UpCauldrons[indexUp].SetActive(true);
+            Transform forwardChaudron = UpCauldrons[indexUp].transform.Find("Cauldron").Find("Front");
+            Transform sauce = UpCauldrons[indexUp].transform.Find("Cauldron").Find("Sauce");
+            Transform backChaudron = UpCauldrons[indexUp].transform.Find("Cauldron").Find("Back");
+
+
+            DG.Tweening.Sequence mySequence1 = DOTween.Sequence();
+            mySequence1.Append(forwardChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.GetComponent<Image>().DOColor(color1, 6));
+
+            DG.Tweening.Sequence mySequence2 = DOTween.Sequence();
+            mySequence2.Append(forwardChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.GetComponent<Image>().DOColor(color3, 6));
+            mySequence2.PrependInterval(4f);
+
+            DG.Tweening.Sequence mySequence3 = DOTween.Sequence();
+            mySequence3.Append(forwardChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.GetComponent<Image>().DOColor(color4, 6));
+            mySequence3.PrependInterval(8f);
+
+
+            DG.Tweening.Sequence mySequence4 = DOTween.Sequence();
+            mySequence4.Append(forwardChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.GetComponent<Image>().DOColor(color5, 6));
+            mySequence4.PrependInterval(12f);
+
+            mySequence1.OnComplete(() => mySequence2.Play());
+            mySequence2.OnComplete(() => mySequence3.Play());
+            mySequence3.OnComplete(() => mySequence4.Play());
+            mySequence4.OnComplete(() => mySequence4.Play());
+
+            mySequence1.Play();
         }
     }
     public void ActivateDown()
@@ -329,6 +482,56 @@ public class FactoryBehaviour : MonoBehaviour
         if (indexDown < DownCauldrons.Count)
         {
             DownCauldrons[indexDown].SetActive(true);
+            Transform forwardChaudron = DownCauldrons[indexDown].transform.Find("Cauldron").Find("Front");
+            Transform sauce = DownCauldrons[indexDown].transform.Find("Cauldron").Find("Sauce");
+            Transform backChaudron = DownCauldrons[indexDown].transform.Find("Cauldron").Find("Back");
+
+
+            DG.Tweening.Sequence mySequence1 = DOTween.Sequence();
+            mySequence1.Append(forwardChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, backChaudron.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakePosition(6f, 1, 10));
+            mySequence1.Insert(0, sauce.transform.DOShakeRotation(6f, 1, 10));
+            mySequence1.Insert(0, sauce.GetComponent<Image>().DOColor(color1, 6));
+
+            DG.Tweening.Sequence mySequence2 = DOTween.Sequence();
+            mySequence2.Append(forwardChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, backChaudron.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakePosition(6f, 15, 10));
+            mySequence2.Insert(0, sauce.transform.DOShakeRotation(6f, 15, 10));
+            mySequence2.Insert(0, sauce.GetComponent<Image>().DOColor(color3, 6));
+            mySequence2.PrependInterval(6f);
+
+            DG.Tweening.Sequence mySequence3 = DOTween.Sequence();
+            mySequence3.Append(forwardChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, backChaudron.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakePosition(6f, 30, 10));
+            mySequence3.Insert(0, sauce.transform.DOShakeRotation(6f, 30, 10));
+            mySequence3.Insert(0, sauce.GetComponent<Image>().DOColor(color4, 6));
+            mySequence3.PrependInterval(12f);
+
+            DG.Tweening.Sequence mySequence4 = DOTween.Sequence();
+            mySequence4.Append(forwardChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, forwardChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, backChaudron.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakePosition(6f, 60, 10));
+            mySequence4.Insert(0, sauce.transform.DOShakeRotation(6f, 60, 10));
+            mySequence4.Insert(0, sauce.GetComponent<Image>().DOColor(color5, 6));
+            mySequence4.PrependInterval(18f);
+
+            mySequence1.OnComplete(() => mySequence2.Play());
+            mySequence2.OnComplete(() => mySequence3.Play());
+            mySequence3.OnComplete(() => mySequence4.Play());
+            mySequence4.OnComplete(() => mySequence4.Play());
+
+            mySequence1.Play();
         }
     }
 
