@@ -63,7 +63,9 @@ public class DialogueBox : MonoBehaviour
     private Vector2 sizeNotTalking = new Vector2(0.9f, 0.9f);
 
     private List<Action> actions = new List<Action>();
-    [SerializeField] private GameObject gogo;
+    [SerializeField] private GameObject go1;
+    [SerializeField] private GameObject go2;
+
 
 
     public void Start()
@@ -365,7 +367,8 @@ public class DialogueBox : MonoBehaviour
 
     private void ChangeColor()
     {
-        gogo.SetActive(false);
+        go1.SetActive(false);
+        go2.SetActive(false);
         if (currentDialogue.talker1 == currentDialogue.dialogueList[idTextList].charTalking)
         {
             talker1.rectTransform.localScale = new Vector2(1f, 1f);
@@ -635,7 +638,10 @@ public class DialogueBox : MonoBehaviour
             }
             else if (toInteract.transform.parent.name.Equals("Lasagne"))
             {
-                gogo.SetActive(true);
+                go1.SetActive(true);
+                go2.SetActive(true);
+                go1.GetComponent<Animator>().SetTrigger("LasagneIsTalking");
+                go2.GetComponent<Animator>().SetTrigger("LasagneIsTalking");
             }
             else
             {
