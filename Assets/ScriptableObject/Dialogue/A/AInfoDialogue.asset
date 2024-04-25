@@ -18,10 +18,17 @@ MonoBehaviour:
     text: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     emotion: 0
     choices: []
+    idGoto: 1
+    isChoiceDialogue: 0
+  - idDialogue: 1
+    charTalking: 0
+    text: '?'
+    emotion: 4
+    choices: []
     idGoto: -1
     isChoiceDialogue: 0
-  talker1: 9
-  talker2: 0
+  talker1: 0
+  talker2: 9
   dialogueAction: 0
   unlockDialogue: []
   unlockCarnets: []

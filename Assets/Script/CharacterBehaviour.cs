@@ -265,6 +265,7 @@ public class CharacterBehaviour : MonoBehaviour
                 }
                 DialogueBox.Instance.setOriginalText();
                 rb.velocity = Vector2.zero;
+                print(GameStateBehaviour.Instance.currentState);
             }
             else if (searchObject != null)
             {
@@ -283,7 +284,7 @@ public class CharacterBehaviour : MonoBehaviour
                     {
                         oldPos = takenObject.found.gameObject.transform.parent.transform.position;
 
-                        takenObject.found.gameObject.transform.parent.transform.position = new Vector2(67,107);
+                        takenObject.found.gameObject.transform.parent.transform.position = new Vector2(67, 107);
                         takenObject.found.gameObject.transform.parent.transform.localScale *= 2;
                     }
                     else takenObject.found.gameObject.transform.parent.transform.localScale *= 3;

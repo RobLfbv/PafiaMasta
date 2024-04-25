@@ -134,6 +134,7 @@ public class GameStateBehaviour : MonoBehaviour
             PlayerPrefs.SetInt("Ra_Vito", 0);
             PlayerPrefs.SetInt("Maili_Mailo", 0);
             PlayerPrefs.SetInt("Lasagne", 5);
+            PlayerPrefs.SetInt("A", 5);
 
             PlayerPrefs.SetInt("CurrentDialogueOnCharacterYette", -1);
             PlayerPrefs.SetInt("CurrentDialogueOnCharacterZily", -1);
@@ -146,6 +147,10 @@ public class GameStateBehaviour : MonoBehaviour
             DialogueBox.Instance.currentDialogue = introDialogue;
             DialogueBox.Instance.setOriginalText();
 
+        }
+        else
+        {
+            ChangeToMainGame();
         }
 
         VerifExclamation();
@@ -182,6 +187,7 @@ public class GameStateBehaviour : MonoBehaviour
         }
 
         currentState = GameState.Dialogue;
+        print(currentState);
         dialogueScreen.SetActive(true);
         runMiniGameScreen.SetActive(false);
         pistolMiniGameScreen.SetActive(false);
@@ -192,6 +198,7 @@ public class GameStateBehaviour : MonoBehaviour
         mailiMailoInteraction.SetActive(true);
         yette.GetComponent<YetteRunning>().enabled = false;
         searchMiniGameScreen.SetActive(false);
+
     }
 
     public void ChangeToMainGame()
@@ -201,7 +208,7 @@ public class GameStateBehaviour : MonoBehaviour
             cam.clip = musics[0];
             cam.Play();
         }
-
+        print("main");
         currentState = GameState.MainGame;
         runMiniGameScreen.SetActive(false);
         factoryMiniGameScreen.SetActive(false);

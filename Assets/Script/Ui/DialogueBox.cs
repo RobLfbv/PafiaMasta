@@ -62,7 +62,7 @@ public class DialogueBox : MonoBehaviour
     private Vector2 sizeTalking = new Vector2(1f, 1f);
     private Vector2 sizeNotTalking = new Vector2(0.9f, 0.9f);
 
-    private List<Action> actions = new List<Action>();
+    [SerializeField] private List<Action> actions = new List<Action>();
     [SerializeField] private GameObject go1;
     [SerializeField] private GameObject go2;
 
@@ -71,10 +71,6 @@ public class DialogueBox : MonoBehaviour
     public void Start()
     {
         source = GetComponent<AudioSource>();
-        if (PlayerPrefs.GetInt("Maili_Mailo") != 0)
-        {
-            GameStateBehaviour.Instance.ChangeToMainGame();
-        }
     }
 
     private void OnEnable()
@@ -104,7 +100,6 @@ public class DialogueBox : MonoBehaviour
 
         ChangeColor();
         ChangeName();
-
         if (currentDialogue.dialogueList[0].isChoiceDialogue)
         {
             activeButtons();
