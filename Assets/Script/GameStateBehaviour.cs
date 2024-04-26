@@ -187,7 +187,6 @@ public class GameStateBehaviour : MonoBehaviour
         }
 
         currentState = GameState.Dialogue;
-        print(currentState);
         dialogueScreen.SetActive(true);
         runMiniGameScreen.SetActive(false);
         pistolMiniGameScreen.SetActive(false);

@@ -94,7 +94,9 @@ public class DialogueBox : MonoBehaviour
         if (GameStateBehaviour.Instance.player.toInteract != null)
         {
             interAnimator.enabled = false;
+            print(GameStateBehaviour.Instance.player.toInteract.spriteNeutral);
             talker2.sprite = GameStateBehaviour.Instance.player.toInteract.spriteNeutral;
+            print(talker2.sprite);
             //talker2.rectTransform.sizeDelta = GameStateBehaviour.Instance.player.toInteract.dimensionImage;
         }
 
