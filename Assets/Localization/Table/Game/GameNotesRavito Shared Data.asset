@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: GameNotesRavito Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: GameNotesRavito
+  m_TableCollectionNameGuidString: e6aedf73b5b88d549b95e93c00ace55d
+  m_Entries:
+  - m_Id: 696507686912
+    m_Key: MOBILE-RAVITO-TITLE_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 777432588288
+    m_Key: MOBILE-RAVITO_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5651292160
+    m_Key: DESC-RAVITO_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 458359300096
+    m_Key: ALIBI-RAVITO-TITLE_TEXT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1114222616576
+    m_Key: ALIBI-RAVITO-1_TEXT
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8681525267621740579
+  references:
+    version: 2
+    RefIds:
+    - rid: 8681525267621740579
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1726056674447

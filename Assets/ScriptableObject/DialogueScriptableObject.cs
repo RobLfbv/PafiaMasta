@@ -57,6 +57,7 @@ public class DialogueLine
     public int idDialogue;
     public Character charTalking;
     public string text;
+    public string textEn;
     public Emotions emotion;
     public List<Choice> choices;
     public int idGoto;
@@ -67,6 +68,7 @@ public class DialogueLine
 public class Choice
 {
     public String textChoice;
+    public String textChoiceEn;
     public int idNext;
     public ActionChoice method;
 }

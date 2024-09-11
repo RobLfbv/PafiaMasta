@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GameNotesRavito_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: e6aedf73b5b88d549b95e93c00ace55d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5651292160
+    m_Localized: "<u><b>Occupation : </u></b>\nMafieux\n\n<b><u>Description : </u></b>\nIl
+      est au plus bas rang de son gang en raison de ce qu\u2019il a dans le ventre
+      (une farce de l\xE9gumes)\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 458359300096
+    m_Localized: Alibi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 696507686912
+    m_Localized: Mobile du crime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 777432588288
+    m_Localized: "La mafia est souvent dans des activit\xE9s suspectes et le crime
+      aurait permis \xE0 Ra Vito de grimper dans les \xE9chelons de son gang\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1114222616576
+    m_Localized: '- 20h30 recrutement devant le labo
+
+      - 21h et 21h30 transactions
+      devant la Bnac.
+
+      - Sieste.
+
+      - 4h30 papotage sur la place avec Zily
+      et Ghetti'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

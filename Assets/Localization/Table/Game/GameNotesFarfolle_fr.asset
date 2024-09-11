@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: GameNotesFarfolle_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 1c71724541236424aaaae78d1d9d7cca, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 13805019136
+    m_Localized: Mobile du crime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 189693157376
+    m_Localized: Alibi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131706904576
+    m_Localized: "<u><b>Occupation : </u></b>\nUne chercheuse en m\xE9decine\r\n\n<b><u>Description
+      : </u></b>\n\xC9trange, vielle folle, controvers\xE9e\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 73187975168
+    m_Localized: "Elle a d\xE9j\xE0 \xE9t\xE9 accus\xE9e de faire des exp\xE9riences
+      sur des p\xE2tes, mais \xE7a n'a pas \xE9t\xE9 prouv\xE9.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 232068210688
+    m_Localized: "- Elle pr\xE9parait la cr\xE8me solaire de Yette. Elle a vu Yette
+      parl\xE9 avec Ra Vito.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303056805888
+    m_Localized: "- Elle a dit que Yette conna\xEEt toutes les recettes, m\xEAme
+      la recette de la sauce carbonara.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 317418102784
+    m_Localized: "- Professeure de Yette\r"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

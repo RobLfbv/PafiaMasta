@@ -29,4 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ZilyEnding.unity
     guid: 9c12efdd1eebd294d983c4f590d41c7a
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 2ad09681fc2a77d4fb3f9a70fd6021ee, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: bf5a117875699654a82a37c419b261c5, type: 2}

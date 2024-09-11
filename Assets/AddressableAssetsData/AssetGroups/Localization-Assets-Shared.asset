@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 00115c2c6038fc7448e1e86663514b9a
+  m_SerializeEntries:
+  - m_GUID: 09fbb82fa6baf7643b124aab44fe05dc
+    m_Address: Assets/Localization/Table/MenuTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: c433f92b76b403240a0fd548b0be75fa
+    m_Address: Assets/Localization/Table/MenuOptionTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 1e894f12cbfd857428f30648ee754e16
+    m_Address: Assets/Localization/Table/MenuResetTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: f9e8df3c1d20ddc4ebe766b295164d4f
+    m_Address: Assets/Localization/Table/Game/GameUISprite Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: b2a42b5a492fb1c40a274617ef87151f
+    m_Address: Assets/Localization/Table/Game/GameUITable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: e6aedf73b5b88d549b95e93c00ace55d
+    m_Address: Assets/Localization/Table/Game/GameNotesRavito Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 398788e8439913a45b731556042e6d7e
+    m_Address: Assets/Localization/Table/Game/GameNotesGhetti Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: d852a46fa27e36c49a72b6be7f02add2
+    m_Address: Assets/Localization/Table/Game/GameNotesYette Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: 1c71724541236424aaaae78d1d9d7cca
+    m_Address: Assets/Localization/Table/Game/GameNotesFarfolle Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  - m_GUID: d5e33ff067f0e284a97f47f6f0c5f646
+    m_Address: Assets/Localization/Table/Game/GameNotesZily Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: a4aa7d6eb6a29484380df50059771396, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: b773b29ea60951540930f41ffdde68b7, type: 2}
+    - {fileID: 11400000, guid: e1c59b391f1b5104cace886ba4345c34, type: 2}

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 using System.Reflection;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
 public class DialogueBox : MonoBehaviour
 {
     [SerializeField]
@@ -89,7 +91,17 @@ public class DialogueBox : MonoBehaviour
     {
         desactivateButtons();
         idTextList = 0;
-        textBox.text = currentDialogue.dialogueList[0].text;
+        Locale currentSelectedLocale = LocalizationSettings.SelectedLocale;
+        ILocalesProvider availableLocales = LocalizationSettings.AvailableLocales;
+        if (currentSelectedLocale == availableLocales.GetLocale("fr"))
+        {
+            textBox.text = currentDialogue.dialogueList[0].text;
+        }
+        else
+        {
+            textBox.text = currentDialogue.dialogueList[0].textEn;
+        }
+
         talker1.sprite = GameStateBehaviour.Instance.player.spriteNeutral;
         if (GameStateBehaviour.Instance.player.toInteract != null)
         {
@@ -259,7 +271,17 @@ public class DialogueBox : MonoBehaviour
             for (int i = 0; i < currentDialogue.dialogueList[idTextList].choices.Count; i++)
             {
                 buttons[i].gameObject.SetActive(true);
-                buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
+                Locale currentSelectedLocale = LocalizationSettings.SelectedLocale;
+                ILocalesProvider availableLocales = LocalizationSettings.AvailableLocales;
+                if (currentSelectedLocale == availableLocales.GetLocale("fr"))
+                {
+                    buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
+                }
+                else
+                {
+                    buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoiceEn;
+                }
+                //buttons[i].GetComponentInChildren<TMP_Text>().text = currentDialogue.dialogueList[idTextList].choices[i].textChoice;
                 buttons[i].GetComponentInChildren<ButtonDialogueAction>().goToID = currentDialogue.dialogueList[idTextList].choices[i].idNext;
 
 
@@ -353,7 +375,17 @@ public class DialogueBox : MonoBehaviour
     {
         desactivateButtons();
         ChangeName();
-        textBox.text = currentDialogue.dialogueList[idTextList].text;
+        Locale currentSelectedLocale = LocalizationSettings.SelectedLocale;
+        ILocalesProvider availableLocales = LocalizationSettings.AvailableLocales;
+        if (currentSelectedLocale == availableLocales.GetLocale("fr"))
+        {
+            textBox.text = currentDialogue.dialogueList[idTextList].text;
+        }
+        else
+        {
+            textBox.text = currentDialogue.dialogueList[idTextList].textEn;
+        }
+        //textBox.text = currentDialogue.dialogueList[idTextList].text;
         ChangeColor();
         if (currentDialogue.dialogueList[idTextList].isChoiceDialogue)
         {

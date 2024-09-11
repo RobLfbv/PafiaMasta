@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db626ad063b13545924a9839ac5fa83, type: 3}
+  m_Name: GameUISprite
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: f9e8df3c1d20ddc4ebe766b295164d4f, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: a4f0f7168f872cc4fbd1c2ef313d27d0, type: 2}
+  - {fileID: 11400000, guid: 1543598b32f2abe4a85e4a921e722c29, type: 2}
+  m_Extensions: []
+  m_Group: Asset Table
+  references:
+    version: 2
+    RefIds: []
